@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:11
+    volumes:
+      - local_data:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+  backend:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: always
+    volumes:
+      - .:/app:delegated
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  local_data:
