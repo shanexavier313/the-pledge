@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phonenumber_field',
     'apps.core',
-
 ]
 
 MIDDLEWARE = [
@@ -118,6 +118,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Phone number handling
+PHONENUMBER_DEFAULT_REGION = "US"
+
+
+# Auth and User Settings
+AUTH_USER_MODEL = "core.CustomUser"
 
 
 # Static files (CSS, JavaScript, Images)
