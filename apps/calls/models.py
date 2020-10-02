@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
+from datetime import datetime
 from localflavor.us.models import USStateField
 
 
@@ -11,14 +14,31 @@ class Call(TimeStampedModelMixin, models.Model):
     completed = models.BooleanField(default=False)
     completed_at = models.DateTimeField(null=True, editable=False)
     notes = models.TextField(blank=True, null=True)
+    week_of = models.DateField()
+
+    caller = models.ForeignKey(
+        'core.CustomUser',
+        on_delete=models.CASCADE,
+        related_name = "calls",
+    )
+
     recipient = models.ForeignKey(
         'calls.Recipient',
         on_delete=models.PROTECT,
         related_name = "calls"
     )
 
+    def __str__(self):
+        return f"{self.recipient} | Week of {self.week_of.strftime('%-m/%-d/%y')}"
+
+@receiver(post_save, sender=Call)
+def log_completed_at(sender, instance, **kwargs):
+    if instance.completed and instance.completed_at is None :
+        instance.completed_at = datetime.now()
+        instance.save()
+
 class Recipient(TimeStampedModelMixin, models.Model):
-    first_name = models.CharField(max_length=255, blank=True, null=True)
+    first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, blank=True, null=True)
 
     class VoterStatus(models.TextChoices):
@@ -26,7 +46,7 @@ class Recipient(TimeStampedModelMixin, models.Model):
         NOT_REGISTERED = 'nr'
         UNKNOWN = 'un'
 
-    state_residence = USStateField(null=True, blank=True)
+    state_residence = USStateField()
     state_registered = USStateField(null=True, blank=True)
     registered_to_vote = models.CharField(
         max_length=2,
@@ -52,6 +72,8 @@ class Recipient(TimeStampedModelMixin, models.Model):
         blank=True,
     )
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
     @property
     def requires_absentee_ballot(self):

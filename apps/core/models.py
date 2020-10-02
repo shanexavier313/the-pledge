@@ -1,8 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-from django.dispatch import receiver
 from django.db import models
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.crypto import get_random_string
 
 import string
@@ -15,8 +15,8 @@ from .mixins import TimeStampedModelMixin
 class CustomUser(TimeStampedModelMixin, AbstractUser):
     id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True, primary_key=True)
     username = None
-    first_name = models.CharField(max_length=255, blank=True, null=True)
-    last_name = models.CharField(max_length=255, blank=True, null=True)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     email = models.EmailField(blank=True, null=True, unique=True)
     mobile_phone = PhoneNumberField(blank=True, null=True, unique=True)
     signup_code = models.CharField(max_length=6, editable=False, unique=True, null=True)
@@ -29,6 +29,12 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
 
     objects = CustomUserManager()
 
+    def __str__(self):
+         return f"{self.first_name} {self.last_name}"
+
+    class Meta():
+        verbose_name = "user"
+
     @property
     def email_verified(self):
         return self.email_validated_at is not None
@@ -37,8 +43,6 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     def mobile_phone_verified(self):
         return self.mobile_phone_validated_at is not None
 
-    def __str__(self):
-        return self.first_name + ' ' + self.last_name
 
     def save(self, *args, **kwargs):
         if not any((self.email, self.mobile_phone)):
