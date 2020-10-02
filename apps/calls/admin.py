@@ -3,8 +3,10 @@ from django.contrib.admin import ModelAdmin
 
 from .models import Call, Recipient
 
+
 class CallAdmin(ModelAdmin):
     model = Call
+
 
 class RecipientAdmin(ModelAdmin):
     model = Recipient

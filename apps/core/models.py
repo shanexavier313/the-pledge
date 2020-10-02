@@ -1,3 +1,6 @@
+import string
+import uuid
+
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -5,15 +8,16 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.crypto import get_random_string
 
-import string
-import uuid
 from phonenumber_field.modelfields import PhoneNumberField
 
 from .managers import CustomUserManager
 from .mixins import TimeStampedModelMixin
 
+
 class CustomUser(TimeStampedModelMixin, AbstractUser):
-    id = models.UUIDField(default=uuid.uuid4, editable=False, db_index=True, primary_key=True)
+    id = models.UUIDField(
+        default=uuid.uuid4, editable=False, db_index=True, primary_key=True
+    )
     username = None
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -30,9 +34,9 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
-         return f"{self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name}"
 
-    class Meta():
+    class Meta:
         verbose_name = "user"
 
     @property
@@ -43,7 +47,6 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     def mobile_phone_verified(self):
         return self.mobile_phone_validated_at is not None
 
-
     def save(self, *args, **kwargs):
         if not any((self.email, self.mobile_phone)):
             raise ValidationError("Either email or mobile phone must be set")
@@ -51,13 +54,14 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
         super().save(*args, **kwargs)
 
 
-
 @receiver(post_save, sender=CustomUser)
 def generate_signup_code(sender, instance, created, **kwargs):
     if created and instance.signup_code is None:
         while True:
             try:
-                instance.signup_code = get_random_string(6, allowed_chars=string.ascii_uppercase + string.digits)
+                instance.signup_code = get_random_string(
+                    6, allowed_chars=string.ascii_uppercase + string.digits
+                )
                 instance.save()
                 break
             except ValidationError:

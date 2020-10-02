@@ -10,24 +10,29 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('calls', '0001_initial'),
+        ("calls", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='call',
-            name='caller',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, related_name='calls', to='core.customuser'),
+            model_name="call",
+            name="caller",
+            field=models.ForeignKey(
+                default=None,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="calls",
+                to="core.customuser",
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='recipient',
-            name='first_name',
+            model_name="recipient",
+            name="first_name",
             field=models.CharField(max_length=255),
         ),
         migrations.AlterField(
-            model_name='recipient',
-            name='state_residence',
+            model_name="recipient",
+            name="state_residence",
             field=localflavor.us.models.USStateField(max_length=2),
         ),
     ]
