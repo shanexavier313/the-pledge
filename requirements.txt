@@ -9,11 +9,14 @@ asgiref==3.2.10           # via django
 attrs==20.2.0             # via pytest
 cfgv==3.2.0               # via pre-commit
 distlib==0.3.1            # via virtualenv
-django==3.1.1             # via -r requirements.in, django-localflavor, django-phonenumber-field
+django==3.1.1             # via -r requirements.in, django-localflavor, django-phonenumber-field, djangorestframework, djangorestframework-simplejwt
 django-extensions==3.0.9  # via -r requirements.in
 django-localflavor==3.0.1  # via -r requirements.in
 django-phonenumber-field==5.0.0  # via -r requirements.in
 django-phonenumbers==1.0.1  # via -r requirements.in
+django-rest-framework==0.1.0  # via -r requirements.in
+djangorestframework==3.12.1  # via django-rest-framework, djangorestframework-simplejwt
+djangorestframework-simplejwt==4.4.0  # via -r requirements.in
 filelock==3.0.12          # via virtualenv
 identify==1.5.5           # via pre-commit
 iniconfig==1.0.1          # via pytest
@@ -24,6 +27,7 @@ pluggy==0.13.1            # via pytest
 pre-commit==2.7.1         # via -r requirements.in
 psycopg2-binary==2.8.6    # via -r requirements.in
 py==1.9.0                 # via pytest
+pyjwt==1.7.1              # via djangorestframework-simplejwt
 pyparsing==2.4.7          # via packaging
 pytest==6.1.0             # via pytest-django
 pytest-django==3.10.0     # via -r requirements.in

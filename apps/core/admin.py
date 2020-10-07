@@ -18,8 +18,6 @@ class CustomUserAdmin(UserAdmin):
         "is_active",
     )
     list_filter = (
-        "email",
-        "mobile_phone",
         "is_staff",
         "is_active",
     )
