@@ -1,24 +1,19 @@
-from rest_framework import generics
+from rest_framework import permissions, viewsets
 
 from .models import Call, Recipient
 from .serializers import CallSerializer, RecipientSerializer
 
 
-class ListCall(generics.ListCreateAPIView):
+class CallViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Call.objects.all()
     serializer_class = CallSerializer
 
-
-class DetailCall(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Call.objects.all()
-    serializer_class = CallSerializer
+    def perform_create(self, serializer):
+        serializer.save(caller=self.request.user)
 
 
-class ListRecipient(generics.ListCreateAPIView):
-    queryset = Recipient.objects.all()
-    serializer_class = RecipientSerializer
-
-
-class DetailRecipient(generics.RetrieveUpdateDestroyAPIView):
+class RecipientViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Recipient.objects.all()
     serializer_class = RecipientSerializer

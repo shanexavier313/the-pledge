@@ -3,9 +3,9 @@ from django.core.exceptions import ValidationError
 import pytest
 
 
-def test_user(user):
+def test_user(create_user):
+    user = create_user()
     assert len(user.signup_code) == 6
-    assert str(user) == "Bruce Wayne"
 
 
 def test_clean(django_user_model):
