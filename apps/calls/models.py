@@ -75,6 +75,10 @@ class Recipient(TimeStampedModelMixin, models.Model):
         blank=True,
     )
 
+    user = models.ForeignKey(
+        "core.CustomUser", on_delete=models.CASCADE, related_name="recipients",
+    )
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
