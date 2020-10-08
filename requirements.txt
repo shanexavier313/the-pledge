@@ -9,7 +9,8 @@ asgiref==3.2.10           # via django
 attrs==20.2.0             # via pytest
 cfgv==3.2.0               # via pre-commit
 distlib==0.3.1            # via virtualenv
-django==3.1.1             # via -r requirements.in, django-localflavor, django-phonenumber-field, djangorestframework, djangorestframework-simplejwt
+django==3.1.1             # via -r requirements.in, django-cors-headers, django-localflavor, django-phonenumber-field, djangorestframework, djangorestframework-simplejwt
+django-cors-headers==3.5.0  # via -r requirements.in
 django-extensions==3.0.9  # via -r requirements.in
 django-localflavor==3.0.1  # via -r requirements.in
 django-phonenumber-field==5.0.0  # via -r requirements.in
