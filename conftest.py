@@ -47,9 +47,10 @@ def create_user(django_user_model, faker):
 
 
 @pytest.fixture
-def create_recipient(faker):
+def create_recipient(faker, create_user):
     def _create_recipient(**kwargs):
         return Recipient.objects.create(
+            user=kwargs.get("user", create_user()),
             first_name=kwargs.get("first_name", faker.first_name()),
             last_name=kwargs.get("last_name", faker.last_name()),
             state_residence=kwargs.get("state_residence", faker.state_abbr()),
@@ -61,9 +62,10 @@ def create_recipient(faker):
 @pytest.fixture
 def create_call(create_user, create_recipient):
     def _create_call(**kwargs):
+        caller = create_user()
         return Call.objects.create(
-            caller=kwargs.get("caller", create_user()),
-            recipient=kwargs.get("recipient", create_recipient()),
+            caller=kwargs.get("caller", caller),
+            recipient=kwargs.get("recipient", create_recipient(user=caller)),
             week_of=kwargs.get("week_of", start_of_week(datetime.now())),
         )
 

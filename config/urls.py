@@ -10,7 +10,7 @@ from apps.core import views as core_views
 
 router = DefaultRouter()
 router.register("calls", calls_views.CallViewSet, basename="call")
-router.register("recipient", calls_views.CallViewSet, basename="recipient")
+router.register("recipient", calls_views.RecipientViewSet, basename="recipient")
 
 
 core_patterns = [

@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -31,6 +32,10 @@ class Call(TimeStampedModelMixin, models.Model):
 
     def get_absolute_url(self):
         return reverse("call:call_detail", kwargs={"call_id": self.id})
+
+    def clean(self):
+        if self.caller != self.recipient.user:
+            raise ValidationError("Recipient must belong to the caller")
 
 
 @receiver(post_save, sender=Call)

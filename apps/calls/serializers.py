@@ -5,7 +5,7 @@ from .models import Call, Recipient
 
 class CallSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ("notes", "recipient", "week_of")
+        fields = ("caller", "notes", "recipient", "week_of")
         model = Call
         read_only_fields = ("id", "caller", "created", "updated")
 
@@ -19,7 +19,7 @@ class RecipientSerializer(serializers.ModelSerializer):
             "state_registered",
             "registered_to_vote",
             "political_leaning",
-            "calls",
+            "user",
         )
         model = Recipient
-        read_only_fields = ("id", "created", "updated")
+        read_only_fields = ("id", "user", "created", "updated")
