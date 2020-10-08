@@ -34,6 +34,7 @@ class Call(TimeStampedModelMixin, models.Model):
         return reverse("call:call_detail", kwargs={"call_id": self.id})
 
     def clean(self):
+        super().clean()
         if self.caller != self.recipient.user:
             raise ValidationError("Recipient must belong to the caller")
 
