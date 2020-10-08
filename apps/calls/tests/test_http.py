@@ -23,7 +23,7 @@ def test_user_can_view_recipients(create_recipient, create_call, client):
 
 def test_user_can_view_calls(create_user, create_recipient, create_call, client):
     user = create_user()
-    recipient = create_recipient()
+    recipient = create_recipient(user=user)
     call = create_call(caller=user, recipient=recipient)
 
     create_call()  #  extra call to test query
@@ -61,7 +61,7 @@ def test_user_can_create_a_recipient(create_user, client):
 
 def test_user_can_create_a_call(create_user, create_recipient, client):
     user = create_user()
-    recipient = create_recipient()
+    recipient = create_recipient(user=user)
 
     data = {
         "recipient": recipient.id,

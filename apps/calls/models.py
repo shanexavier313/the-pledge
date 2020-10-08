@@ -38,6 +38,10 @@ class Call(TimeStampedModelMixin, models.Model):
         if self.caller != self.recipient.user:
             raise ValidationError("Recipient must belong to the caller")
 
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+
 
 @receiver(post_save, sender=Call)
 def log_completed_at(sender, instance, **kwargs):

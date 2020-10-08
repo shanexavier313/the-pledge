@@ -17,4 +17,4 @@ def test_clean(create_user, create_recipient, create_call):
     )
 
     with pytest.raises(ValidationError) as _:
-        call.full_clean()
+        call.save()
