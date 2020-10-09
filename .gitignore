@@ -17,6 +17,9 @@ node_modules
 npm-debug.log
 webpack-stats*
 
+# Yarn files
+yarn-error.log
+
 # Static assests
 staticfiles
 static_cdn
