@@ -1,6 +1,12 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Link } from '@reach/router'
+import { Router } from './router'
+import { StylesWrapper } from './wrappers/styles'
 
-export const App = () => {
-  return <Route exact path="/" render={() => <h1>The Pledge</h1>} />
-}
+export const App = ({ children }) => (
+  <StylesWrapper>
+    <Link to="login">Log In</Link>
+    <Link to="signup">Sign Up</Link>
+    <Router></Router>
+  </StylesWrapper>
+)
