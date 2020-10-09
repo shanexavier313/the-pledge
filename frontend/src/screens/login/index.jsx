@@ -1,8 +1,4 @@
 import React from 'react'
-import { Button } from 'rebass'
+import { Text } from 'rebass'
 
-export const LogIn = () => (
-  <Button variant="primary" mr={2}>
-    Log In
-  </Button>
-)
+export const LogIn = () => <Text mr={2}>Log In</Text>
