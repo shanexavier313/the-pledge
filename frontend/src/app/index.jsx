@@ -1,11 +1,12 @@
 import React from 'react'
 import { Router } from './router'
-import { DesktopNav } from './wrappers/layout/desktop-nav'
+import { LayoutWrapper } from './wrappers/layout'
 import { StylesWrapper } from './wrappers/styles'
 
 export const App = ({ children }) => (
   <StylesWrapper>
-    <DesktopNav />
-    <Router></Router>
+    <LayoutWrapper>
+      <Router></Router>
+    </LayoutWrapper>
   </StylesWrapper>
 )
