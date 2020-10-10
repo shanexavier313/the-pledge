@@ -3,6 +3,6 @@ import { Box, Text } from 'rebass'
 
 export const Resources = () => (
   <Box>
-    <Text>Resources</Text>
+    <Text variant="text.heading">Resources</Text>
   </Box>
 )

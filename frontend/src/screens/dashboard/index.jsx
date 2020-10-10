@@ -3,6 +3,6 @@ import { Box, Text } from 'rebass'
 
 export const Dashboard = () => (
   <Box>
-    <Text>Call Dashboard</Text>
+    <Text variant="text.heading">Call Dashboard</Text>
   </Box>
 )
