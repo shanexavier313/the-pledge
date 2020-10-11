@@ -126,6 +126,17 @@ export const theme = {
         color: 'primary',
       },
     },
+    ctaLink: {
+      color: 'secondary',
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'link',
+      fontSize: 1,
+      textDecoration: 'none',
+      '&:hover': {
+        color: 'base600',
+      },
+    },
   },
   // Button variants
   buttons: {

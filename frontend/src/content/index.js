@@ -1,3 +1,26 @@
+import { theme } from '../styles/theme'
+
+export const homeTitleBanner = {
+  title: 'The Pledge',
+  description:
+    'The 2020 election is rapidly approaching and it’s time to motivate our extended networks to vote for Joe Biden. These conversations are often challenging - our step by step process helps you meet people where they are. Take the pledge and make a difference in this election.',
+  bg: theme.colors.white,
+}
+
+export const whoToCall = {
+  heading: 'Who To Call',
+  body:
+    'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal, Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal, Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
+  imageURL: 'nothing',
+}
+
+export const whyThisWorks = {
+  heading: 'Why This Works',
+  body:
+    'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal, Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal, Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
+  imageURL: 'nothing',
+}
+
 export const steps = [
   {
     stepID: 'Step 1',

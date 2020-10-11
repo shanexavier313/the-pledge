@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Flex, Heading, Text } from 'theme-ui'
 import { ButtonLink } from '../../components/button-link'
+import { steps } from '../../content'
 import { theme } from '../../styles/theme'
-import { steps } from '../../app/content'
 import { StepCard } from './step-card'
 
 export const StepsBanner = () => {
