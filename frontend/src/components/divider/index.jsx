@@ -1,16 +1,14 @@
 import React from 'react'
 import { Box } from 'rebass'
 
-export const Divider = props => (
+export const Divider = () => (
   <Box
-    as="vl"
-    mx={3}
+    mx={4}
     sx={{
-      bg: 'white',
+      bg: 'base800',
       width: 1,
       height: 100,
       borderRadius: 1 / 2,
     }}
-    {...props}
   />
 )

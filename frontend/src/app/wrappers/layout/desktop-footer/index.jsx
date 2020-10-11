@@ -1,20 +1,18 @@
+/** @jsx jsx */
+// eslint-disable-next-line
 import React from 'react'
 import { Box, Flex, Heading, Text } from 'rebass'
-import styled from 'styled-components'
+import { jsx } from 'theme-ui'
 import { Divider } from '../../../../components/divider'
 import { Link } from '../../../../components/link'
-
-const FooterLinkList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-`
 
 export const DesktopFooter = () => (
   <Flex color="white" justifyContent="space-around" alignItems="center" py={1}>
     <Box width={[1, 1, 1 / 2]}>
-      <Heading>The Pledge</Heading>
-      <Text>
+      <Heading variant="text.h5" sx={{ fontWeight: 600 }}>
+        The Pledge
+      </Heading>
+      <Text variant="text.body.small">
         We need to get as many American citizens registered and planning to vote
         for Biden as possible! Trump has verbally stated that he will contest
         this election, and that he does not intend to pass power peacefully.
@@ -23,42 +21,54 @@ export const DesktopFooter = () => (
     <Divider />
     <Flex width={[1, 1, 1 / 2]}>
       <Box width={[1, 1, 1 / 2]}>
-        <FooterLinkList color="white">
-          <li>
-            <Link variant="nav" to="/">
+        <ul
+          sx={{
+            listStyle: 'none',
+            m: 0,
+            p: 0,
+          }}
+        >
+          <li sx={{ my: 1 }}>
+            <Link variant="links.footer" to="/">
               Demographic Breakdown
             </Link>
           </li>
-          <li>
-            <Link variant="nav" to="/">
+          <li sx={{ my: 1 }}>
+            <Link variant="links.footer" to="/">
               Commonly Held Views
             </Link>
           </li>
-          <li>
-            <Link variant="nav" to="/">
+          <li sx={{ my: 1 }}>
+            <Link variant="links.footer" to="/">
               Key Issues
             </Link>
           </li>
-          <li>
-            <Link variant="nav" to="/">
+          <li sx={{ my: 1 }}>
+            <Link variant="links.footer" to="/">
               Swing State Information
             </Link>
           </li>
-        </FooterLinkList>
+        </ul>
       </Box>
       <Box width={[1, 1, 1 / 2]}>
-        <FooterLinkList>
-          <li>
-            <Link variant="nav" to="/">
+        <ul
+          sx={{
+            listStyle: 'none',
+            m: 0,
+            p: 0,
+          }}
+        >
+          <li sx={{ my: 1 }}>
+            <Link variant="links.footer" to="/">
               About the Pledge
             </Link>
           </li>
-          <li>
-            <Link variant="nav" to="/">
+          <li sx={{ my: 1 }}>
+            <Link variant="links.footer" to="/">
               Contact Us
             </Link>
           </li>
-        </FooterLinkList>
+        </ul>
       </Box>
     </Flex>
   </Flex>
