@@ -30,7 +30,7 @@ export const StepsBanner = () => {
           justifyContent: 'center',
         }}
       >
-        <Box mx="auto" px={7} sx={{ textAlign: 'center' }}>
+        <Box mx="auto" px={2} sx={{ textAlign: 'center' }}>
           <Heading variant="text.h4" mb={2}>
             {content.title}
           </Heading>
@@ -52,7 +52,12 @@ export const StepsBanner = () => {
             ></StepCard>
           ))}
         </Flex>
-        <ButtonLink to="steps" variant="buttons.primary">
+        <ButtonLink
+          to="steps"
+          variant="buttons.primary"
+          px={5}
+          sx={{ '&:hover': { boxShadow: 'small' } }}
+        >
           Learn More >
         </ButtonLink>
       </Flex>

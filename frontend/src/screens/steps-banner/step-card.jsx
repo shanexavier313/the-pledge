@@ -4,14 +4,22 @@ import { Card, Heading, Text } from 'theme-ui'
 export const StepCard = ({ stepID, primaryText }) => (
   <Card
     m={3}
-    py={4}
-    px={5}
+    px={2}
+    pt={4}
+    pb="auto"
     bg="white"
-    sx={{ boxShadow: 'small', textAlign: 'center' }}
+    sx={{
+      boxShadow: 'small',
+      textAlign: 'center',
+      width: '240px',
+      height: '144px',
+    }}
   >
-    <Heading variant="text.h4" sx={{ opacity: '20%' }}>
+    <Heading variant="text.h4" mb={2} sx={{ opacity: '20%' }}>
       {stepID}
     </Heading>
-    <Text variant="text.body.small">{primaryText}</Text>
+    <Text variant="text.body.small" sx={{ fontWeight: 'bold' }}>
+      {primaryText}
+    </Text>
   </Card>
 )

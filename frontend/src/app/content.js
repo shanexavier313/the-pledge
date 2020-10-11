@@ -7,37 +7,37 @@ export const steps = [
   },
   {
     stepID: 'Step 2',
-    primary: 'Take the Pledge',
+    primary: 'Think about your social network',
     description:
       'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
   },
   {
     stepID: 'Step 3',
-    primary: 'Take the Pledge',
+    primary: 'Choose your first 5 friends',
     description:
       'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
   },
   {
     stepID: 'Step 4',
-    primary: 'Take the Pledge',
+    primary: 'Prep for your calls',
     description:
       'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
   },
   {
     stepID: 'Step 5',
-    primary: 'Take the Pledge',
+    primary: 'Start making calls',
     description:
       'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
   },
   {
     stepID: 'Step 6',
-    primary: 'Take the Pledge',
+    primary: 'Follow up post call',
     description:
       'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
   },
   {
     stepID: 'Step 7',
-    primary: 'Take the Pledge',
+    primary: 'Keep in touch',
     description:
       'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
   },

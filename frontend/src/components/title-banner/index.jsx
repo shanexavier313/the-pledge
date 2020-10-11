@@ -12,7 +12,7 @@ export const TitleBanner = ({ title, description, bg }) => {
       }}
     >
       <Flex
-        px={7}
+        px={2}
         py={4}
         sx={{
           flexDirection: 'column',

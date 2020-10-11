@@ -103,6 +103,7 @@ export const theme = {
   // Link variants
   links: {
     nav: {
+      px: 2,
       color: 'base600',
       fontFamily: 'body',
       lineHeight: 'body',
@@ -123,7 +124,6 @@ export const theme = {
       textDecoration: 'none',
       '&:hover': {
         color: 'primary',
-        textDecoration: 'underline',
       },
     },
   },
