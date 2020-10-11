@@ -1,4 +1,12 @@
 import React from 'react'
-import { Text } from 'rebass'
+import { Flex } from 'theme-ui'
+import { LoginForm } from '../../components/forms/login'
 
-export const LogIn = () => <Text variant="text.heading">Log In</Text>
+export const Login = () => (
+  <Flex
+    variant="content.normal"
+    sx={{ alignItems: 'center', justifyContent: 'center', width: '100%' }}
+  >
+    <LoginForm />
+  </Flex>
+)

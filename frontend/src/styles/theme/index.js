@@ -154,6 +154,11 @@ export const theme = {
       borderStyle: 'solid',
       borderColor: 'primary',
       borderWidth: 'button',
+      '&:focus': {
+        outline: 'none',
+        bg: 'primary',
+        color: 'white',
+      },
     },
     tertiary: {
       color: 'primary',
