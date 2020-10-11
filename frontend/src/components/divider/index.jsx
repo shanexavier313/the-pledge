@@ -7,7 +7,7 @@ export const Divider = () => (
     sx={{
       bg: 'base800',
       width: 1,
-      height: 100,
+      height: 200,
       borderRadius: 1 / 2,
     }}
   />

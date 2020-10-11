@@ -7,9 +7,9 @@ import { Divider } from '../../../../components/divider'
 import { Link } from '../../../../components/link'
 
 export const DesktopFooter = () => (
-  <Flex color="white" justifyContent="space-around" alignItems="center" py={1}>
+  <Flex color="white" justifyContent="space-around" alignItems="center" py={3}>
     <Box width={[1, 1, 1 / 2]}>
-      <Heading variant="text.h5" sx={{ fontWeight: 600 }}>
+      <Heading variant="text.h5" sx={{ fontWeight: 600, my: 2 }}>
         The Pledge
       </Heading>
       <Text variant="text.body.small">
@@ -28,22 +28,22 @@ export const DesktopFooter = () => (
             p: 0,
           }}
         >
-          <li sx={{ my: 1 }}>
+          <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               Demographic Breakdown
             </Link>
           </li>
-          <li sx={{ my: 1 }}>
+          <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               Commonly Held Views
             </Link>
           </li>
-          <li sx={{ my: 1 }}>
+          <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               Key Issues
             </Link>
           </li>
-          <li sx={{ my: 1 }}>
+          <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               Swing State Information
             </Link>
@@ -58,12 +58,12 @@ export const DesktopFooter = () => (
             p: 0,
           }}
         >
-          <li sx={{ my: 1 }}>
+          <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               About the Pledge
             </Link>
           </li>
-          <li sx={{ my: 1 }}>
+          <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               Contact Us
             </Link>
