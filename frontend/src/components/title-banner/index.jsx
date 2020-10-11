@@ -5,20 +5,28 @@ export const TitleBanner = ({ title, description, bg }) => {
   return (
     <Flex
       mx="auto"
-      py={2}
-      px={2}
+      variant="content.normal"
       sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         width: '100%',
-        height: '30vh',
+        height: '40vh',
       }}
     >
-      <Heading variant="text.h2">{title}</Heading>
-      <Text variant="text.body.large" sx={{ textAlign: 'center' }}>
-        {description}
-      </Text>
+      <Flex
+        px={7}
+        py={4}
+        sx={{
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Heading variant="text.h2" mb={4}>
+          {title}
+        </Heading>
+        <Text variant="text.body.large" sx={{ textAlign: 'center' }}>
+          {description}
+        </Text>
+      </Flex>
     </Flex>
   )
 }

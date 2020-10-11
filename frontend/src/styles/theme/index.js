@@ -151,4 +151,9 @@ export const theme = {
       bg: 'white',
     },
   },
+  content: {
+    normal: {
+      px: '10vh',
+    },
+  },
 }

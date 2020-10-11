@@ -24,6 +24,4 @@ export const Content = styled.main.attrs(() => ({
   id: 'maincontent',
 }))`
   position: relative;
-  padding-right: 10vh;
-  padding-left: 10vh;
 `
