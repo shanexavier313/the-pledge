@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useCallback, useMemo, useState } from 'react'
 import { node } from 'prop-types'
 import { navigate } from '@reach/router'
+import { API_URL } from '../../../domains/constants'
 import {
   clearToken,
   getToken,
@@ -14,10 +15,11 @@ export const IdentityWrapper = ({ children }) => {
 
   const logIn = useCallback(async (email, password, redirectUri = 'home') => {
     try {
-      const response = await axios.post('localhost:8000/api/login', {
-        email,
-        password,
+      const response = await axios.post(API_URL + 'login/', {
+        email: email,
+        password: password,
       })
+      console.log(response.data)
       setToken(response.data)
       setIsLoggedIn(true)
       return { response, isError: false }

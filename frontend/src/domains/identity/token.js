@@ -1,4 +1,4 @@
-const TOKEN_NAME = 'authToken'
+const TOKEN_NAME = 'auth'
 
 export const clearToken = () => {
   window.localStorage.removeItem(TOKEN_NAME)

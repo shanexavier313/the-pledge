@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = ("http://localhost:3000",)
+CORS_ALLOWED_ORIGINS = ("http://127.0.0.1:3000",)
 
 ROOT_URLCONF = "config.urls"
 
@@ -106,6 +106,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ),
+    "DEFAULT_PARSER_CLASSES": ["rest_framework.parsers.JSONParser",],
 }
 
 
@@ -114,6 +115,7 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=1),
+    "USER_FIELD_CLAIM": "id",
     "USER_ID_CLAIM": "id",
 }
 

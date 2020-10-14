@@ -9,7 +9,7 @@ export const Login = () => {
 
   const onSubmit = async (data, e) => {
     try {
-      const { response, isError } = await logIn(data.username, data.password)
+      const { response, isError } = await logIn(data.email, data.password)
 
       if (isError) {
         const data = response.response.data
