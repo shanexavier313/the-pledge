@@ -24,16 +24,6 @@ def create_client_with_credentials(create_user, client, db):
 
 
 @pytest.fixture
-def user(create_user):
-    return create_user(
-        first_name="Bruce",
-        last_name="Wayne",
-        email="bruce@wayneindustries.com",
-        password="iambatman",
-    )
-
-
-@pytest.fixture
 def create_user(django_user_model, faker):
     def _create_user(**kwargs):
         return django_user_model.objects.create_user(
@@ -70,3 +60,26 @@ def create_call(create_user, create_recipient):
         )
 
     return _create_call
+
+
+@pytest.fixture
+def user(create_user):
+    return create_user(
+        first_name="Bruce",
+        last_name="Wayne",
+        email="bruce@wayneindustries.com",
+        password="password",
+    )
+
+
+@pytest.fixture
+def user_with_calls_and_recipients(create_user, create_call, create_recipient):
+    def _user_with_calls_and_recipients(**kwargs):
+        user = kwargs.get("user", create_user())
+        for _ in range(3):
+            recipient = create_recipient(user=user)
+            create_call(caller=user, recipient=recipient)
+
+        return user
+
+    return _user_with_calls_and_recipients

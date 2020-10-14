@@ -12,7 +12,7 @@ from rest_framework.reverse import reverse
         ("", "iambatman", 400),
         ("bruce@wayneindustries.com", "", 400),
         ("bruce@wayneindustries.com", "iamnotbatman", 401),
-        ("bruce@wayneindustries.com", "iambatman", 200),
+        ("bruce@wayneindustries.com", "password", 200),
     ],
 )
 def test_login_data_validation(email, password, status_code, client, user):

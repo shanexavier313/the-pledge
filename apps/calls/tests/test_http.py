@@ -1,8 +1,40 @@
 from datetime import datetime
 
+import pytest
 from rest_framework.reverse import reverse
 
 from ..date_helpers import start_of_week
+
+
+@pytest.fixture
+def get_token(create_user, client):
+    def _get_token(**kwargs):
+        user = kwargs.get("user", create_user())
+        response = client.post(
+            reverse("login"), data={"email": user.email, "password": "password",}
+        )
+        return response.data["access"]
+
+    return _get_token
+
+
+def test_user_can_view_resources_with_token(
+    get_token, user_with_calls_and_recipients, client,
+):
+    user = user_with_calls_and_recipients()
+    token = get_token(user=user)
+    url = reverse("recipient-list")
+    call_response = client.get(
+        reverse("call-list"), HTTP_AUTHORIZATION=f"Bearer {token}"
+    )
+    recipient_response = client.get(
+        reverse("recipient-list"), HTTP_AUTHORIZATION=f"Bearer {token}"
+    )
+
+    client.force_authenticate(user=None)
+
+    assert len(call_response.data) == 3
+    assert len(recipient_response.data) == 3
 
 
 def test_user_can_view_recipients(create_recipient, create_call, client):
