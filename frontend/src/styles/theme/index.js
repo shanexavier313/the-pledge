@@ -145,6 +145,10 @@ export const theme = {
       fontFamily: 'body',
       fontWeight: 'button',
       bg: 'primary',
+      '&:focus': {
+        bg: 'white',
+        color: 'primary',
+      },
     },
     secondary: {
       color: 'primary',
@@ -155,7 +159,6 @@ export const theme = {
       borderColor: 'primary',
       borderWidth: 'button',
       '&:focus': {
-        outline: 'none',
         bg: 'primary',
         color: 'white',
       },

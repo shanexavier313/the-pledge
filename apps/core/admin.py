@@ -42,7 +42,6 @@ class CustomUserAdmin(UserAdmin):
         (
             None,
             {
-                "classes": ("wide",),
                 "fields": (
                     "first_name",
                     "last_name",

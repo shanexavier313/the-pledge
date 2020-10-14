@@ -3,7 +3,6 @@ import { ContentBanner } from '../../components/content-banner'
 import { TitleBanner } from '../../components/title-banner'
 import { StepsBanner } from '../steps-banner'
 import { homeTitleBanner, whoToCall, whyThisWorks } from '../../content'
-import { theme } from '../../styles/theme'
 
 export const Home = () => (
   <>

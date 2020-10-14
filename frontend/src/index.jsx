@@ -1,14 +1,9 @@
+import axios from 'axios'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './app'
 
-// remove service worker registration if present. Delete in production
-try {
-  navigator.serviceWorker.getRegistrations().then(registrations => {
-    registrations.forEach(r => r.unregister())
-  })
-} catch (e) {
-  // do nothing
-}
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 ReactDOM.render(<App />, document.getElementById('root'))
