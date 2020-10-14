@@ -19,8 +19,9 @@ core_patterns = [
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
 
+api_urls = router.urls + core_patterns
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include(core_patterns)),
-    path("api/", include(router.urls)),
+    path("api/", include(api_urls)),
 ]
