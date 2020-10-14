@@ -47,6 +47,7 @@ export const StepsBanner = () => {
         >
           {steps.map(step => (
             <StepCard
+              key={step.stepID}
               stepID={step.stepID}
               primaryText={step.primary}
             ></StepCard>
