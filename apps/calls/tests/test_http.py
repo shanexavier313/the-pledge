@@ -3,8 +3,6 @@ from datetime import datetime
 import pytest
 from rest_framework.reverse import reverse
 
-from ..date_helpers import start_of_week
-
 
 @pytest.fixture
 def get_token(create_user, client):
@@ -25,10 +23,10 @@ def test_user_can_view_resources_with_token(
     token = get_token(user=user)
     url = reverse("recipient-list")
     call_response = client.get(
-        reverse("call-list"), HTTP_AUTHORIZATION=f"Bearer {token}"
+        reverse("call-list"), HTTP_AUTHORIZATION=f"Token {token}"
     )
     recipient_response = client.get(
-        reverse("recipient-list"), HTTP_AUTHORIZATION=f"Bearer {token}"
+        reverse("recipient-list"), HTTP_AUTHORIZATION=f"Token {token}"
     )
 
     client.force_authenticate(user=None)
@@ -98,7 +96,7 @@ def test_user_can_create_a_call(create_user, create_recipient, client):
     data = {
         "recipient": recipient.id,
         "notes": "",
-        "week_of": start_of_week(datetime.now()).strftime("%m-%d-%Y"),
+        "date": (datetime.now().date()).strftime("%m-%d-%Y"),
     }
 
     client.login(email=user.email, password="password")

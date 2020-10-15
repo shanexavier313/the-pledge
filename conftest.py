@@ -3,7 +3,6 @@ from datetime import datetime
 import pytest
 from rest_framework.test import APIClient
 
-from apps.calls.date_helpers import start_of_week
 from apps.calls.models import Call, Recipient
 
 
@@ -56,7 +55,7 @@ def create_call(create_user, create_recipient):
         return Call.objects.create(
             caller=kwargs.get("caller", caller),
             recipient=kwargs.get("recipient", create_recipient(user=caller)),
-            week_of=kwargs.get("week_of", start_of_week(datetime.now())),
+            date=kwargs.get("date", datetime.now().date()),
         )
 
     return _create_call
