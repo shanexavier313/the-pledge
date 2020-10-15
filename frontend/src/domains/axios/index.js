@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
     // Prevent infinite loops if keeps failing to authorize
     if (
       error.response.status === 401 &&
-      originalRequest.url === baseURL + 'token/refresh/'
+      originalRequest.url === API_URL + 'token/refresh/'
     ) {
       window.location.href = '/login/'
       return Promise.reject(error)
