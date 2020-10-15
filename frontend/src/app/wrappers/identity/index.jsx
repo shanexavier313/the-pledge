@@ -13,7 +13,7 @@ import axiosInstance from '../../../domains/axios'
 
 import { connect } from 'react-redux';
 import { authUser } from '../../../actions';
-
+import { store } from '../../../index';
 export const IdentityWrapper = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(getAccessToken() !== undefined)
   console.log('here', getAccessToken())
@@ -30,7 +30,11 @@ export const IdentityWrapper = ({ children }) => {
         setTokens(data)
         setIsLoggedIn(true)
         console.log('before redirect', getAccessToken())
-        this.props.authUser(getAccessToken());
+        store.dispatch(authUser({
+          type: 'LOGIN_SUCCESS',
+          payload: getAccessToken()
+        }));
+        // this.props.authUser(getAccessToken());
         // localStorage.setItem("user", getAccessToken());
         // console.log("locals",localStorage.getItem('user'))
         navigate(redirectUri)
