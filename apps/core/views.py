@@ -7,7 +7,7 @@ from .serializers import CustomUserSerializer, LogInSerializer
 
 
 class SignUpView(generics.CreateAPIView):
-    queryset = get_user_model().objects.all()
+	queryset = get_user_model().objects.all()
     serializer_class = CustomUserSerializer
 
 

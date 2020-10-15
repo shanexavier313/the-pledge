@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex } from 'rebass'
-import { SignUpForm } from '../../components/forms/sign-up'
+import { SignUpForm } from 'components/forms/sign-up'
 
 export const SignUp = () => (
   <Flex

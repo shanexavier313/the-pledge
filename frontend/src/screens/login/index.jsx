@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Box, Flex, Input, Label } from 'theme-ui'
 import { useDispatch } from 'react-redux';
-import { Alert } from '../../components/alert'
-import { FormFieldError } from '../../components/form-field-error'
-import { getAccessToken } from '../../domains/identity'
-import { loginAction } from '../../redux/actions/authActions'
+import { Alert } from 'components/alert'
+import { FormFieldError } from 'components/form-field-error'
+import { getAccessToken } from 'domains/identity'
+import { loginAction } from 'redux/actions/authActions'
 
 export const Login = () => {
   const [wereCredentialsDenied, setWereCredentialsDenied] = useState(false)
