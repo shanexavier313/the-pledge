@@ -1,6 +1,6 @@
 import React from 'react'
-import { ContentBanner } from '../../components/content-banner'
-import { TitleBanner } from '../../components/title-banner'
+import { ContentBanner } from 'components/content-banner'
+import { TitleBanner } from 'components/title-banner'
 import { StepsBanner } from '../steps-banner'
 import { homeTitleBanner, whoToCall, whyThisWorks } from '../../content'
 
