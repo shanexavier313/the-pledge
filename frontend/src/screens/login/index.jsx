@@ -1,19 +1,20 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Box, Flex, Input, Label } from 'theme-ui'
+import { useDispatch } from 'react-redux';
 import { Alert } from '../../components/alert'
 import { FormFieldError } from '../../components/form-field-error'
-import { IdentityContext, getAccessToken } from '../../domains/identity'
+import { getAccessToken } from '../../domains/identity'
+import { loginAction } from '../../redux/actions/authActions'
 
 export const Login = () => {
   const [wereCredentialsDenied, setWereCredentialsDenied] = useState(false)
-  const { logIn } = useContext(IdentityContext)
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm()
 
   const onSubmit = async (data, e) => {
     try {
-      const { response, isError } = await logIn(data.email, data.password)
-
+      const { response, isError } = await loginAction(dispatch, data.email, data.password);
       console.log('onSubmit', getAccessToken())
       if (isError) {
         const data = response.response

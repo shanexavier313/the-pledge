@@ -1,12 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Box, Flex, Text } from 'rebass'
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from '../../../../components/link'
 import { ButtonLink } from '../../../../components/button-link'
-import { IdentityContext } from '../../../../domains/identity'
+import { logoutAction } from '../../../../redux/actions/authActions'
 
 export const DesktopNav = () => {
-  const { isLoggedIn, logOut } = useContext(IdentityContext)
-
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const logOut = () => logoutAction(dispatch);
+  
   return (
     <Flex color="black" bg="white" alignItems="bottom">
       <Text variant="text.h4" my={2} mr={4}>
@@ -38,7 +41,7 @@ export const DesktopNav = () => {
       {isLoggedIn && (
         <ButtonLink
           to="home"
-          onClick={logOut()}
+          onClick={logOut}
           my={2}
           ml={2}
           variant="buttons.primary">

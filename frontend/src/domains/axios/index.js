@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { setTokens, getAccessToken } from '../identity/token'
+import { setTokens, getAccessToken, getRefreshToken } from '../identity/token'
 import { API_URL } from '../constants'
 
 const access_token = getAccessToken()
