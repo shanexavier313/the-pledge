@@ -106,17 +106,16 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ),
-    "DEFAULT_PARSER_CLASSES": ["rest_framework.parsers.JSONParser",],
 }
 
 
 # JWT authentication
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(hours=48),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=14),
     "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
+    "BLACKLIST_AFTER_ROTATION": False,
     "USER_FIELD_CLAIM": "id",
     "USER_ID_CLAIM": "id",
     "AUTH_HEADER_TYPES": ("Token",),
