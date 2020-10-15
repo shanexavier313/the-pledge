@@ -11,6 +11,9 @@ import {
 } from '../../../domains/identity'
 import axiosInstance from '../../../domains/axios'
 
+import { connect } from 'react-redux';
+import { authUser } from '../../../actions';
+
 export const IdentityWrapper = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(getAccessToken() !== undefined)
   console.log('here', getAccessToken())
@@ -27,6 +30,9 @@ export const IdentityWrapper = ({ children }) => {
         setTokens(data)
         setIsLoggedIn(true)
         console.log('before redirect', getAccessToken())
+        this.props.authUser(getAccessToken());
+        // localStorage.setItem("user", getAccessToken());
+        // console.log("locals",localStorage.getItem('user'))
         navigate(redirectUri)
         console.log('after redirect', getAccessToken())
         return { data, isError: false }
@@ -65,3 +71,11 @@ export const IdentityWrapper = ({ children }) => {
 IdentityWrapper.propTypes = {
   children: node.isRequired,
 }
+
+const mapStateToProps = (state) =>{ 
+  console.log(state);
+  return { token: state.token}; 
+}
+
+export default connect(mapStateToProps, { 
+  authUser: authUser})(IdentityWrapper); 
