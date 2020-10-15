@@ -3,8 +3,8 @@
 import React from 'react'
 import { Box, Flex, Heading, Text } from 'rebass'
 import { jsx } from 'theme-ui'
-import { Divider } from '../../../../components/divider'
-import { Link } from '../../../../components/link'
+import { Divider } from 'components/divider'
+import { Link } from 'components/link'
 
 export const DesktopFooter = () => (
   <Flex color="white" justifyContent="space-around" alignItems="center" py={3}>

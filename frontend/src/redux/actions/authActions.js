@@ -1,13 +1,13 @@
 import { navigate } from '@reach/router'
 import axios from 'axios'
-import axiosInstance from '../../domains/axios'
-import { API_URL } from '../../domains/constants'
-import * as actionTypes from '../constants';
+import axiosInstance from 'domains/axios'
+import { API_URL } from 'domains/constants'
 import {
   clearTokens,
   setTokens,
   getAccessToken,
-} from '../../domains/identity'
+} from 'domains/identity'
+import * as actionTypes from '../constants';
 
 export async function loginAction(dispatch, email, password, redirectUri = 'dashboard') {
 	try {
