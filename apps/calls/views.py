@@ -1,11 +1,12 @@
-from rest_framework import permissions, viewsets
+from rest_framework import viewsets
 
 from .models import Call, Recipient
+from .permissions import IsCallerOrReadOnly, IsUserOrReadOnly
 from .serializers import CallSerializer, RecipientSerializer
 
 
 class CallViewSet(viewsets.ModelViewSet):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsCallerOrReadOnly,)
     serializer_class = CallSerializer
 
     def perform_create(self, serializer):
@@ -17,7 +18,7 @@ class CallViewSet(viewsets.ModelViewSet):
 
 
 class RecipientViewSet(viewsets.ModelViewSet):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsUserOrReadOnly,)
     serializer_class = RecipientSerializer
 
     def perform_create(self, serializer):

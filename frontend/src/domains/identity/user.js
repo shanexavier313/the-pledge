@@ -1,9 +1,9 @@
-import { getToken } from './token'
+import { getAccessToken } from './token'
 
 export const getUser = () => {
-  const auth = JSON.parse(getToken())
-  if (auth) {
-    const [, payload] = auth.access.split('.')
+  const accessToken = JSON.parse(getAccessToken())
+  if (accessToken) {
+    const [, payload] = accessToken.split('.')
     const decoded = window.atob(payload)
     return JSON.parse(decoded)
   }

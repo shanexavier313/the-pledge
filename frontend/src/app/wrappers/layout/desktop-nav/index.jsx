@@ -1,31 +1,55 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box, Flex, Text } from 'rebass'
 import { Link } from '../../../../components/link'
 import { ButtonLink } from '../../../../components/button-link'
+import { IdentityContext } from '../../../../domains/identity'
 
-export const DesktopNav = () => (
-  <Flex color="black" bg="white" alignItems="bottom">
-    <Text variant="text.h4" my={2} mr={4}>
-      The Pledge
-    </Text>
-    <Link to="home" my={2} mx={1} variant="links.nav">
-      Home
-    </Link>
-    <Link to="resources" my={2} mx={1} variant="links.nav">
-      Resources
-    </Link>
-    <Link to="about" my={2} mx={1} variant="links.nav">
-      About
-    </Link>
-    <Box mx="auto" />
-    <ButtonLink to="login" my={2} ml={2} variant="buttons.primary">
-      Login
-    </ButtonLink>
-    <ButtonLink to="signup" my={2} ml={2} variant="buttons.secondary">
-      Sign Up
-    </ButtonLink>
-    <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.tertiary">
-      Dashboard
-    </ButtonLink>
-  </Flex>
-)
+export const DesktopNav = () => {
+  const { isLoggedIn, logOut } = useContext(IdentityContext)
+
+  return (
+    <Flex color="black" bg="white" alignItems="bottom">
+      <Text variant="text.h4" my={2} mr={4}>
+        The Pledge
+      </Text>
+      <Link to="home" my={2} mx={1} variant="links.nav">
+        Home
+      </Link>
+      <Link to="resources" my={2} mx={1} variant="links.nav">
+        Resources
+      </Link>
+      <Link to="about" my={2} mx={1} variant="links.nav">
+        About
+      </Link>
+      <Text variant="text.body.small" my={2} mr={4}>
+        {isLoggedIn ? 'Logged In' : 'Logged Out'}
+      </Text>
+      <Box mx="auto" />
+      {!isLoggedIn && (
+        <ButtonLink to="login" my={2} ml={2} variant="buttons.primary">
+          Login
+        </ButtonLink>
+      )}
+      {!isLoggedIn && (
+        <ButtonLink to="signup" my={2} ml={2} variant="buttons.secondary">
+          Sign Up
+        </ButtonLink>
+      )}
+      {isLoggedIn && (
+        <ButtonLink
+          to="home"
+          onClick={logOut()}
+          my={2}
+          ml={2}
+          variant="buttons.primary">
+          Logout
+        </ButtonLink>
+      )}
+      {isLoggedIn && (
+        <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.tertiary">
+          Dashboard
+        </ButtonLink>
+      )}
+    </Flex>
+  )
+}

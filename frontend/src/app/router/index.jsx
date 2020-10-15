@@ -16,9 +16,9 @@ export const Router = ({ children }) => {
       <About path="about" />
       <Home path="home" />
       <Resources path="resources" />
-      {isLoggedIn && <Login path="login" />}
-      {isLoggedIn && <SignUp path="/signup" />}
-      {!isLoggedIn && <Dashboard path="dashboard" />}
+      {!isLoggedIn && <Login path="login" />}
+      {!isLoggedIn && <SignUp path="/signup" />}
+      {isLoggedIn && <Dashboard path="dashboard" />}
     </ReachRouter>
   )
 }

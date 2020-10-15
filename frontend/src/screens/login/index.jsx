@@ -1,9 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Button, Box, Flex, Input, Label, Text } from 'theme-ui'
-import { IdentityContext } from '../../domains/identity'
+import { Button, Box, Flex, Input, Label } from 'theme-ui'
+import { Alert } from '../../components/alert'
+import { FormFieldError } from '../../components/form-field-error'
+import { IdentityContext, getAccessToken } from '../../domains/identity'
 
 export const Login = () => {
+  const [wereCredentialsDenied, setWereCredentialsDenied] = useState(false)
   const { logIn } = useContext(IdentityContext)
   const { register, handleSubmit, errors } = useForm()
 
@@ -11,21 +14,37 @@ export const Login = () => {
     try {
       const { response, isError } = await logIn(data.email, data.password)
 
+      console.log('onSubmit', getAccessToken())
       if (isError) {
-        const data = response.response.data
-        console.log(data)
+        const data = response.response
+        if (data.status === 401) {
+          setWereCredentialsDenied(true)
+          console.log('denied')
+        }
       }
-    } catch (e) {
-      console.error(e)
+      e.preventDefault()
+    } catch (error) {
+      console.error(error)
     }
   }
 
   return (
     <Flex
       variant="content.normal"
-      sx={{ alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+      sx={{
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+      }}>
+      {wereCredentialsDenied && (
+        <Alert isError={true}>
+          Your email or password were incorrect. Please try again.
+        </Alert>
+      )}
       <Box
-        my={5}
+        mt={4}
+        mb={6}
         py={6}
         px={6}
         as="form"
@@ -49,10 +68,11 @@ export const Login = () => {
             },
           })}
         />
-        {errors.email && (
-          <Text variant="text.body.small" color="secondary">
-            This field has errors
-          </Text>
+        {errors.email?.type === 'required' && (
+          <FormFieldError>Email is required</FormFieldError>
+        )}
+        {errors.email?.type === 'pattern' && (
+          <FormFieldError>Invalid email address</FormFieldError>
         )}
         <Label
           htmlFor="password"
@@ -67,10 +87,8 @@ export const Login = () => {
           id="password"
           ref={register({ required: true })}
         />
-        {errors.password && (
-          <Text mb={4} variant="text.body.small" color="secondary">
-            This field has errors
-          </Text>
+        {errors.password?.type === 'required' && (
+          <FormFieldError>Password is required</FormFieldError>
         )}
         <Button mt={4} type="submit" variant="buttons.secondary">
           Login

@@ -170,6 +170,17 @@ export const theme = {
       bg: 'white',
     },
   },
+  // Alert variants
+  alerts: {
+    status: {
+      color: 'white',
+      bg: 'primary',
+    },
+    error: {
+      color: 'white',
+      bg: 'secondary',
+    },
+  },
   content: {
     normal: {
       px: '10vh',
