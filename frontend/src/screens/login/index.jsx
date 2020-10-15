@@ -10,17 +10,11 @@ export const Login = () => {
 
   const onSubmit = async (data, e) => {
     try {
-      const { response, isError } = await loginAction(
-        dispatch,
-        data.email,
-        data.password,
-      )
-      console.log('onSubmit', getAccessToken())
+      const { response, isError } = await loginAction(dispatch, data)
       if (isError) {
         const data = response.response
         if (data.status === 401) {
           setWereCredentialsDenied(true)
-          console.log('denied')
         }
       }
       e.preventDefault()

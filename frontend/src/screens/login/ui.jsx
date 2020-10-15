@@ -18,7 +18,7 @@ export const Ui = ({ onSubmit, wereCredentialsDenied }) => {
       }}>
       {wereCredentialsDenied && (
         <Alert isError={true}>
-          Your email or password were incorrect. Please try again.
+          Your email or password was incorrect. Please try again.
         </Alert>
       )}
       <Box
