@@ -38,7 +38,7 @@ export const DesktopNav = () => {
       {isLoggedIn && (
         <ButtonLink
           to="home"
-          onClick={logOut()}
+          onClick={() => logOut()}
           my={2}
           ml={2}
           variant="buttons.primary">
