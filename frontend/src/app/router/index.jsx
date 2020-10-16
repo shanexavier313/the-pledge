@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Router as ReachRouter } from '@reach/router'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 import { About } from 'screens/about'
 import { Dashboard } from 'screens/dashboard'
 import { Home } from 'screens/home'
@@ -11,21 +11,23 @@ import { logoutAction } from 'redux/actions/authActions'
 import { getAccessToken } from 'domains/identity'
 
 export const Router = ({ children }) => {
-  const { isLoggedIn } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  // TODO:@peter this is redirecting to home from any page whenever you're not
+  // logged in
   useEffect(() => {
-    if(!getAccessToken()) {
-      logoutAction(dispatch);
+    if (!getAccessToken()) {
+      logoutAction(dispatch)
     }
   }, [])
-  
+
   return (
     <ReachRouter>
       <About path="about" />
       <Home path="home" />
       <Resources path="resources" />
       {!isLoggedIn && <Login path="login" />}
-      {!isLoggedIn && <SignUp path="/signup" />}
+      {!isLoggedIn && <SignUp path="signup" />}
       {isLoggedIn && <Dashboard path="dashboard" />}
     </ReachRouter>
   )
