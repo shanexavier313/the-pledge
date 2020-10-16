@@ -21,7 +21,9 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     username = None
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(
+        unique=True, error_messages={"unique": "Account with this email already exists"}
+    )
     mobile_phone = PhoneNumberField(blank=True, null=True, unique=True)
     signup_code = models.CharField(max_length=6, editable=False, unique=True, null=True)
 
