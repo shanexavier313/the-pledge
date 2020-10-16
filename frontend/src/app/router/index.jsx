@@ -26,7 +26,8 @@ export const Router = ({ children }) => {
       <Resources path="resources" />
       {!isLoggedIn && <Login path="login" />}
       {!isLoggedIn && <SignUp path="/signup" />}
-      {isLoggedIn && <Dashboard path="dashboard" />}
+      {/* {isLoggedIn && <Dashboard path="dashboard" />} */}
+      <Dashboard path="dashboard" />
     </ReachRouter>
   )
 }

@@ -3,7 +3,7 @@ const initialState = {
   isLoggedIn: false
 };
 
-const usersReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ACTION_LOGIN_SUCCESS:
       return {
@@ -20,4 +20,4 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export default usersReducer;
+export default authReducer;

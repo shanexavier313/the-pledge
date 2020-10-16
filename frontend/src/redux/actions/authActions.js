@@ -1,5 +1,4 @@
 import { navigate } from '@reach/router'
-import axios from 'axios'
 import axiosInstance from 'domains/axios'
 import { API_URL } from 'domains/constants'
 import {
@@ -11,7 +10,7 @@ import * as actionTypes from '../constants';
 
 export async function loginAction(dispatch, email, password, redirectUri = 'dashboard') {
 	try {
-    const response = await axios.post(API_URL + 'login/', {
+    const response = await axiosInstance.post('login/', {
       email: email,
       password: password,
     })

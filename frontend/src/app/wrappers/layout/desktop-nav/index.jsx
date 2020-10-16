@@ -24,9 +24,6 @@ export const DesktopNav = () => {
       <Link to="about" my={2} mx={1} variant="links.nav">
         About
       </Link>
-      <Text variant="text.body.small" my={2} mr={4}>
-        {isLoggedIn ? 'Logged In' : 'Logged Out'}
-      </Text>
       <Box mx="auto" />
       {!isLoggedIn && (
         <ButtonLink to="login" my={2} ml={2} variant="buttons.primary">

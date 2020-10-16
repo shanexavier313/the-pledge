@@ -13,6 +13,7 @@ class CallSerializer(serializers.ModelSerializer):
 class RecipientSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
+            "id", 
             "first_name",
             "last_name",
             "state_residence",

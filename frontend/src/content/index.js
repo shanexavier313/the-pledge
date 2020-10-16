@@ -1,5 +1,12 @@
 import { theme } from 'styles/theme'
 
+export const dashboardTitleBanner = {
+  title: 'Dashboard',
+  description:
+    'Explanation of what the dashboard is, how to use it, etc. At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.',
+  bg: theme.colors.white,
+}
+
 export const homeTitleBanner = {
   title: 'The Pledge',
   description:
