@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Box, Flex, Input, Label } from 'theme-ui'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -26,14 +26,14 @@ export const Ui = ({ onSubmit, errorState }) => {
     resolver: yupResolver(signUpSchema),
   })
 
-  console.log(errorState)
-
-  if (errorState) {
-    for (const name in errorState.errors) {
-      setError(name, { type: 'server', message: errorState.errors[name] })
+  useEffect(() => {
+    if (errorState) {
+      for (const name in errorState.errors) {
+        setError(name, { type: 'server', message: errorState.errors[name] })
+      }
     }
-  }
-
+  }, [errorState])
+  
   return (
     <Flex
       variant="content.normal"
@@ -52,7 +52,6 @@ export const Ui = ({ onSubmit, errorState }) => {
         py={5}
         px={6}
         as="form"
-        onSubmit={handleSubmit(onSubmit)}
         sx={{
           borderStyle: 'solid',
           borderWidth: '1px',
@@ -88,7 +87,7 @@ export const Ui = ({ onSubmit, errorState }) => {
           registerFn={register}
           error={errors.passwordCon}
         />
-        <Button mt={3} type="submit" variant="buttons.secondary">
+        <Button mt={3} type="submit" variant="buttons.secondary" onClick={handleSubmit(onSubmit)}>
           Sign Up
         </Button>
       </Box>

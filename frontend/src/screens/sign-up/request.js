@@ -11,7 +11,7 @@ export async function signUp(data, redirectUri = 'login') {
       password1: data.password,
       password2: data.passwordCon,
     })
-    navigate(redirectUri)
+    // navigate(redirectUri)
     return { response: response.data, isError: false }
   } catch (error) {
     return { response: error, isError: true }
