@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getAccessToken } from 'domains/identity'
 import { loginAction } from 'redux/actions/authActions'
 import { Ui } from './ui'
 
