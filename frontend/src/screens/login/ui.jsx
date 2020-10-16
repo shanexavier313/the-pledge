@@ -69,7 +69,7 @@ export const Ui = ({ onSubmit, wereCredentialsDenied }) => {
         {errors.password?.type === 'required' && (
           <FormFieldError>Password is required</FormFieldError>
         )}
-        <Button mt={4} type="submit" variant="buttons.secondary">
+        <Button mt={3} type="submit" variant="buttons.secondary">
           Login
         </Button>
       </Box>

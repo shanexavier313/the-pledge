@@ -14,7 +14,6 @@ export async function signUp(data, redirectUri = 'login') {
     navigate(redirectUri)
     return { response: response.data, isError: false }
   } catch (error) {
-    console.log(error)
     return { response: error, isError: true }
   }
 }

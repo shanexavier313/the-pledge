@@ -3,15 +3,18 @@ import { signUp } from './request'
 import { Ui } from './ui'
 
 export const SignUp = () => {
-  const [wasInvalidInput, setWasInvalidInput] = useState(false)
+  const [errorState, setErrorState] = useState({
+    invalidInput: false,
+    errors: {},
+  })
 
   const onSubmit = async (data, e) => {
     try {
       const { response, isError } = await signUp(data)
       if (isError) {
-        const data = response.response
-        if (data.status === 400) {
-          setWasInvalidInput(true)
+        const responseData = response.response
+        if (responseData.status === 400) {
+          setErrorState({ invalidInput: true, errors: responseData.data })
         }
       }
       e.preventDefault()
@@ -20,5 +23,5 @@ export const SignUp = () => {
     }
   }
 
-  return <Ui onSubmit={onSubmit} wasInvalidInput={wasInvalidInput} />
+  return <Ui onSubmit={onSubmit} errorState={errorState} />
 }

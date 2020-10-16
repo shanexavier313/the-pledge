@@ -12,7 +12,7 @@ export const FormField = ({
   // console.log(error)
   return (
     <>
-      <Label htmlFor={name} variant="text.body.small" color="primary">
+      <Label htmlFor={name} variant="text.body.small" color="base800">
         {label}
       </Label>
       <Input

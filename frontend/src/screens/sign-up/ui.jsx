@@ -21,11 +21,18 @@ const signUpSchema = yup.object().shape({
     .oneOf([yup.ref('password')], 'Passwords must match'),
 })
 
-export const Ui = ({ onSubmit, wasInvalidInput }) => {
-  const { register, handleSubmit, errors } = useForm({
+export const Ui = ({ onSubmit, errorState }) => {
+  const { register, handleSubmit, errors, setError } = useForm({
     resolver: yupResolver(signUpSchema),
   })
-  console.log(errors)
+
+  console.log(errorState)
+
+  if (errorState) {
+    for (const name in errorState.errors) {
+      setError(name, { type: 'server', message: errorState.errors[name] })
+    }
+  }
 
   return (
     <Flex
@@ -36,13 +43,13 @@ export const Ui = ({ onSubmit, wasInvalidInput }) => {
         justifyContent: 'center',
         width: '100%',
       }}>
-      {wasInvalidInput && (
-        <Alert isError={true}>Uh oh. Looks like there are some errors.</Alert>
+      {errorState.invalidInput && (
+        <Alert isError={true}>Whoops. Looks like there are some errors.</Alert>
       )}
       <Box
         mt={4}
         mb={6}
-        py={6}
+        py={5}
         px={6}
         as="form"
         onSubmit={handleSubmit(onSubmit)}
@@ -79,9 +86,9 @@ export const Ui = ({ onSubmit, wasInvalidInput }) => {
           name="passwordCon"
           label="Password Confirmation"
           registerFn={register}
-          error={errors.password}
+          error={errors.passwordCon}
         />
-        <Button type="submit" variant="buttons.secondary">
+        <Button mt={3} type="submit" variant="buttons.secondary">
           Sign Up
         </Button>
       </Box>
