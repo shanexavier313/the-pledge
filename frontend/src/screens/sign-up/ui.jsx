@@ -33,7 +33,7 @@ export const Ui = ({ onSubmit, errorState }) => {
       }
     }
   }, [errorState])
-  
+
   return (
     <Flex
       variant="content.normal"
@@ -87,7 +87,11 @@ export const Ui = ({ onSubmit, errorState }) => {
           registerFn={register}
           error={errors.passwordCon}
         />
+<<<<<<< HEAD
         <Button mt={3} type="submit" variant="buttons.secondary" onClick={handleSubmit(onSubmit)}>
+=======
+        <Button mt={3} type="submit" variant="buttons.secondary">
+>>>>>>> 7f6eed2... wip
           Sign Up
         </Button>
       </Box>
