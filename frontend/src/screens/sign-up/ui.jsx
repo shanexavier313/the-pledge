@@ -52,6 +52,7 @@ export const Ui = ({ onSubmit, errorState }) => {
         py={5}
         px={6}
         as="form"
+        onSubmit={handleSubmit(onSubmit)}
         sx={{
           borderStyle: 'solid',
           borderWidth: '1px',
@@ -87,11 +88,7 @@ export const Ui = ({ onSubmit, errorState }) => {
           registerFn={register}
           error={errors.passwordCon}
         />
-<<<<<<< HEAD
-        <Button mt={3} type="submit" variant="buttons.secondary" onClick={handleSubmit(onSubmit)}>
-=======
         <Button mt={3} type="submit" variant="buttons.secondary">
->>>>>>> 7f6eed2... wip
           Sign Up
         </Button>
       </Box>
