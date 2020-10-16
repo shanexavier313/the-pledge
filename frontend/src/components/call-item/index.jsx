@@ -13,7 +13,7 @@ const ItemWrapper = styled(Grid)`
 		}
 	}
 `
-const CallItem = ({ call = {}, recipient }) => {
+const CallItem = ({ call = {}, recipient = {} }) => {
 	const {
 		first_name,
 		last_name,
