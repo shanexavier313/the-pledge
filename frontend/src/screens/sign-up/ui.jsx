@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Button, Box, Flex, Input, Label } from 'theme-ui'
+import { Button, Box, Flex } from 'theme-ui'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
-import { FormFieldError } from '../../components/form-field-error'
 
 const signUpSchema = yup.object().shape({
   firstName: yup.string().required('First Name is required'),

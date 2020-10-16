@@ -3,7 +3,7 @@ import axios from 'axios'
 import axiosInstance from 'domains/axios'
 import { API_URL } from 'domains/constants'
 import * as actionTypes from '../constants'
-import { clearTokens, setTokens, getAccessToken } from 'domains/identity'
+import { clearTokens, setTokens } from 'domains/identity'
 
 export async function loginAction(dispatch, data, redirectUri = 'dashboard') {
   try {
