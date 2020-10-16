@@ -26,7 +26,11 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^5.10.0",
     "styled-components": "^5.2.0",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^5.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

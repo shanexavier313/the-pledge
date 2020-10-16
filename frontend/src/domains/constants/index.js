@@ -3,7 +3,6 @@ export const POLITICAL_LEANINGS = {
 	"fl": "FAR_LEFT", 
   "le": "LEFT",
   "cl": "CENTER_LEFT",
-  "cl": "CENTER_LEFT",
   "m": "MIDDLE",
   "cr": "CENTER_RIGHT",
   "ri": "RIGHT",

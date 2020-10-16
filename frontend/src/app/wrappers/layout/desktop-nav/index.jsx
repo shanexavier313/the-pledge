@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex, Text } from 'rebass'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'components/link'
 import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'
