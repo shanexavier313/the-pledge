@@ -18,7 +18,7 @@ export const CreateRecipient = () => {
       const { response, isError } = await createRecipient(dispatch, data)
       if (isError) {
         const responseData = response.response
-        enqueueSnackbar(responseData.data, { variant: 'warning' });
+        enqueueSnackbar(responseData.data, {  variant: 'warning' });
         if (responseData.status === 400) {
           setErrorState({ invalidInput: true, errors: responseData.data })
         }

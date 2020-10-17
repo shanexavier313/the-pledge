@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Checkbox from '@material-ui/core/Checkbox'
+import Dialog from '@material-ui/core/Dialog'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import DialogActions from '@material-ui/core/DialogActions'
+import IconButton from '@material-ui/core/IconButton'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import EditIcon from '@material-ui/icons/Edit'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Divider from '@material-ui/core/Divider'
-import { POLITICAL_LEANINGS, VOTER_STATUS,US_STATES } from 'domains/constants'
+import { POLITICAL_LEANINGS, VOTER_STATUS, US_STATES } from 'domains/constants'
 const ItemWrapper = styled(Grid)`
 	&& {
 		align-items: center;
@@ -21,7 +29,9 @@ const CallItemWrapper = styled(Grid)`
 		margin-bottom: 1rem;
 	}
 `
-const CallItem = ({ call = {}, recipient = {} }) => {
+const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
+	const [showMore, toggleShowMore] = useState(false)
+	const [editModal, toggleEditModal] = useState(false)
 	const {
 		first_name,
 		last_name,
@@ -31,6 +41,7 @@ const CallItem = ({ call = {}, recipient = {} }) => {
 		political_leaning,
 	} = recipient
 	const { notes, completed, date } = call
+	const [editNotes, setEditNotes] = useState(notes);
 	return (
 		<CallItemWrapper item xs={12}>
 			<ItemWrapper container>
@@ -45,19 +56,16 @@ const CallItem = ({ call = {}, recipient = {} }) => {
 						{' '}
 						{`${first_name} ${last_name}`}
 					</Typography>
+					<br />
 				</Grid>
 				<Grid item xs={4} className="right-col">
 					{notes && (
 						<FormControlLabel
-			        control={
-			          <Checkbox
-			            checked={completed}
-			            name="checkedB"
-			            color="primary"
-			          />
-			        }
-			        label="Contacted"
-			      />
+							control={
+								<Checkbox checked={completed} name="checkedB" color="primary" />
+							}
+							label="Contacted"
+						/>
 					)}
 				</Grid>
 			</ItemWrapper>
@@ -107,8 +115,54 @@ const CallItem = ({ call = {}, recipient = {} }) => {
 						{POLITICAL_LEANINGS[political_leaning]}
 					</Typography>
 				</Grid>
-
 			</ItemWrapper>
+			{notes && (
+				<>
+					<Button color="primary" onClick={() => toggleShowMore(!showMore)}>
+						{showMore ? 'Hide Notes' : 'Show Notes'}
+					</Button>
+					{showMore && (
+						<div>
+							<Typography variant="subtitle1" component="subtitle1">
+								{' '}
+								<i>{notes === '' ? 'No Notes' : notes}</i>
+							</Typography>
+							<IconButton onClick={() => toggleEditModal(true)}>
+								<EditIcon />
+							</IconButton>
+							<Dialog
+								onClose={() => toggleEditModal(false)}
+								aria-labelledby="simple-dialog-title"
+								open={editModal}>
+								<DialogTitle id="simple-dialog-title">Edit Notes</DialogTitle>
+								<DialogContent>
+									<TextField
+							          id="outlined-multiline-static"
+							          label="Multiline"
+							          multiline
+							          rows={4}
+							          defaultValue="Default Value"
+							          variant="outlined"
+							          value={editNotes}
+							          onChange={ev => setEditNotes(ev.target.value)}
+							        />
+								</DialogContent>
+								<DialogActions>
+									<Button
+										autoFocus
+										onClick={() => toggleEditModal(false)}
+										color="primary">
+										Cancel
+									</Button>
+									<Button onClick={() => updateCallNotesAction(call, editNotes)} color="primary">
+										Ok
+									</Button>
+								</DialogActions>
+							</Dialog>
+						</div>
+					)}
+				</>
+			)}
 		</CallItemWrapper>
 	)
 }

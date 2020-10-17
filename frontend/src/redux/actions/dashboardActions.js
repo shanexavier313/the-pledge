@@ -46,3 +46,13 @@ export async function createCall(dispatch, data) {
     return { response: error, isError: true }
   }
 }
+
+export async function updateCallNotesAction(data, notes) {
+  try {
+    data.notes = notes;
+    const response = await axiosInstance.put(`calls/${data.id}/`, data)
+    return { response: response.data, isError: false }
+  } catch (error) {
+    return { response: error, isError: true }
+  }
+}

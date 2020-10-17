@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box, Text, Flex } from 'rebass'
+import { navigate } from '@reach/router'
 import Grid from '@material-ui/core/Grid'
 import { dashboardTitleBanner } from 'content'
 import {
 	loadCallsAction,
 	loadRecipientsAction,
+	updateCallNotesAction,
 } from 'redux/actions/dashboardActions'
 import { TitleBanner } from 'components/title-banner'
 import TabButton from 'components/tab-button'
@@ -32,6 +34,11 @@ export const Dashboard = () => {
 		}
 	}, [tab])
 	console.log(calls, recipients)
+
+	const updateCallNotesActionCallback = (call, notes) => {
+		updateCallNotesAction(call, notes)
+		navigate('dashboard')
+	}
 	return (
 		<Box>
 			<TitleBanner
@@ -68,7 +75,11 @@ export const Dashboard = () => {
 				bg="muted">
 				{tab === 'calls' && (
 					<DashboardWrapper container spacing={4}>
-						<CallsList calls={calls} recipients={recipients} />
+						<CallsList
+							calls={calls}
+							recipients={recipients}
+							updateCallNotesAction={updateCallNotesActionCallback}
+						/>
 					</DashboardWrapper>
 				)}
 				{tab === 'recipients' && (
