@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { signUp } from './request'
+import { useDispatch } from 'react-redux'
+import { signUpAction } from 'redux/actions/authActions'
 import { Ui } from './ui'
 
 export const SignUp = () => {
@@ -8,9 +9,11 @@ export const SignUp = () => {
     errors: {},
   })
 
+  const dispatch = useDispatch()
+
   const onSubmit = async (data, e) => {
     try {
-      const { response, isError } = await signUp(data)
+      const { response, isError } = await signUpAction(dispatch, data)
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
