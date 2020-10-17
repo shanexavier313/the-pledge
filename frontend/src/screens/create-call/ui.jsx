@@ -5,22 +5,14 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
+import { POLITICAL_LEANINGS, VOTER_STATUS, US_STATES } from 'domains/constants'
 
 const signUpSchema = yup.object().shape({
-  firstName: yup.string().required('First Name is required'),
-  lastName: yup.string().required('Last Name is required'),
-  email: yup
-    .string()
-    .required('Email is required')
-    .email('Enter a valid email address'),
-  password: yup.string().required('Password is required'),
-  passwordCon: yup
-    .string()
-    .required('Password Confirmation is required')
-    .oneOf([yup.ref('password')], 'Passwords must match'),
+  recipient: yup.string().required('Recipient is required'),
+  date: yup.string().required('Date is required'),
 })
 
-export const Ui = ({ onSubmit, errorState }) => {
+export const Ui = ({ onSubmit, errorState , recipients}) => {
   const { register, handleSubmit, errors, setError } = useForm({
     resolver: yupResolver(signUpSchema),
   })
@@ -42,6 +34,9 @@ export const Ui = ({ onSubmit, errorState }) => {
         justifyContent: 'center',
         width: '100%',
       }}>
+      {errorState.invalidInput && (
+        <Alert isError={true}>Whoops. Looks like there are some errors.</Alert>
+      )}
       <Box
         mt={4}
         mb={6}
@@ -55,39 +50,27 @@ export const Ui = ({ onSubmit, errorState }) => {
           borderColor: 'primary',
         }}>
         <FormField
-          name="firstName"
-          label="First Name"
+          name="date"
+          label="Date"
           registerFn={register}
-          error={errors.firstName}
+          error={errors.date}
         />
         <FormField
-          name="lastName"
-          label="Last Name"
+          name="recipient"
+          label="Recipient"
           registerFn={register}
-          error={errors.lastName}
+          list={recipients}
+          error={errors.recipient}
         />
         <FormField
-          name="email"
-          label="Email"
+          name="notes"
+          label="Notes"
           registerFn={register}
-          error={errors.email}
-        />
-        <FormField
-          name="password"
-          label="Password"
-          type="password"
-          registerFn={register}
-          error={errors.password}
-        />
-        <FormField
-          name="passwordCon"
-          label="Password Confirmation"
-          type="password"
-          registerFn={register}
-          error={errors.passwordCon}
+          error={errors.notes}
+          multiLine
         />
         <Button mt={3} type="submit" variant="buttons.secondary">
-          Sign Up
+          Create New Call
         </Button>
       </Box>
     </Flex>

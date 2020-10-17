@@ -5,19 +5,15 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
+import { POLITICAL_LEANINGS, VOTER_STATUS, US_STATES } from 'domains/constants'
 
 const signUpSchema = yup.object().shape({
-  firstName: yup.string().required('First Name is required'),
-  lastName: yup.string().required('Last Name is required'),
-  email: yup
-    .string()
-    .required('Email is required')
-    .email('Enter a valid email address'),
-  password: yup.string().required('Password is required'),
-  passwordCon: yup
-    .string()
-    .required('Password Confirmation is required')
-    .oneOf([yup.ref('password')], 'Passwords must match'),
+  first_name: yup.string().required('First Name is required'),
+  last_name: yup.string().required('Last Name is required'),
+  state_residence: yup.string().required('State Residence is required'),
+  state_registered: yup.string().required('State Registered is required'),
+  registered_to_vote: yup.string().required('Registered To Vote is required'),
+  political_leaning: yup.string().required('Political Leaning is required'),
 })
 
 export const Ui = ({ onSubmit, errorState }) => {
@@ -42,6 +38,9 @@ export const Ui = ({ onSubmit, errorState }) => {
         justifyContent: 'center',
         width: '100%',
       }}>
+      {errorState.invalidInput && (
+        <Alert isError={true}>Whoops. Looks like there are some errors.</Alert>
+      )}
       <Box
         mt={4}
         mb={6}
@@ -55,39 +54,47 @@ export const Ui = ({ onSubmit, errorState }) => {
           borderColor: 'primary',
         }}>
         <FormField
-          name="firstName"
+          name="first_name"
           label="First Name"
           registerFn={register}
-          error={errors.firstName}
+          error={errors.first_name}
         />
         <FormField
-          name="lastName"
+          name="last_name"
           label="Last Name"
           registerFn={register}
-          error={errors.lastName}
+          error={errors.last_name}
         />
         <FormField
-          name="email"
-          label="Email"
+          name="state_residence"
+          label="State Residence"
           registerFn={register}
-          error={errors.email}
+          list={US_STATES}
+          error={errors.state_residence}
         />
         <FormField
-          name="password"
-          label="Password"
-          type="password"
+          name="state_registered"
+          label="State Registered"
           registerFn={register}
-          error={errors.password}
+          list={US_STATES}
+          error={errors.state_registered}
         />
         <FormField
-          name="passwordCon"
-          label="Password Confirmation"
-          type="password"
+          name="registered_to_vote"
+          label="Registered To Vote"
           registerFn={register}
-          error={errors.passwordCon}
+          list={VOTER_STATUS}
+          error={errors.registered_to_vote}
+        />
+        <FormField
+          name="political_leaning"
+          label="Political Leaning"
+          registerFn={register}
+          list={POLITICAL_LEANINGS}
+          error={errors.political_leaning}
         />
         <Button mt={3} type="submit" variant="buttons.secondary">
-          Sign Up
+          Create New Recipient
         </Button>
       </Box>
     </Flex>

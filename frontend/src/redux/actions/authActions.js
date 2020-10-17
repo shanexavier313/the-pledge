@@ -1,14 +1,14 @@
 import { navigate } from '@reach/router'
-import axios from 'axios'
 import axiosInstance from 'domains/axios'
 import { API_URL } from 'domains/constants'
 import { clearTokens, setTokens } from 'domains/identity'
 import * as actionTypes from '../constants'
 import { sendAlertMessage } from './alertActions'
 
-export async function loginAction(dispatch, data, redirectUri = 'dashboard') {
+export async function loginAction(enqueueSnackbar, dispatch, data, redirectUri = 'dashboard') {
   try {
-    const response = await axios.post(API_URL + 'login/', {
+    // enqueueSnackbar('Something went wrong during the API call. If the page does not reload correctly, please contact an administrator.', { variant: 'warning' });
+    const response = await axiosInstance.post('login/', {
       email: data.email,
       password: data.password,
     })
@@ -19,6 +19,7 @@ export async function loginAction(dispatch, data, redirectUri = 'dashboard') {
       message: 'Logged in!',
       isError: false,
     }
+    enqueueSnackbar(messagePayload.message, { variant: 'success' });
     dispatch({ type: actionTypes.ACTION_LOGIN_SUCCESS })
     sendAlertMessage(dispatch, messagePayload)
     navigate(redirectUri)
@@ -29,20 +30,22 @@ export async function loginAction(dispatch, data, redirectUri = 'dashboard') {
         message: 'Your email or password was incorrect. Please try again',
         isError: true,
       }
+      enqueueSnackbar(messagePayload.message, { variant: 'warning' });
       sendAlertMessage(dispatch, messagePayload)
     } else {
       const messagePayload = {
         message: 'Something went wrong. Please try again',
         isError: true,
       }
+      enqueueSnackbar(messagePayload.message, { variant: 'warning' });
       sendAlertMessage(dispatch, messagePayload)
     }
   }
 }
 
-export async function signUpAction(dispatch, data, redirectUri = 'login') {
+export async function signUpAction(enqueueSnackbar, dispatch, data, redirectUri = 'login') {
   try {
-    const response = await axios.post(API_URL + 'signup/', {
+    const response = await axiosInstance.post('signup/', {
       email: data.email,
       first_name: data.firstName,
       last_name: data.lastName,
@@ -54,6 +57,7 @@ export async function signUpAction(dispatch, data, redirectUri = 'login') {
       isError: false,
     }
     sendAlertMessage(dispatch, messagePayload)
+    enqueueSnackbar(messagePayload.message, { variant: 'success' });
     navigate(redirectUri)
     return { response: response.data, isError: false }
   } catch (error) {
@@ -62,16 +66,18 @@ export async function signUpAction(dispatch, data, redirectUri = 'login') {
       isError: true,
     }
     sendAlertMessage(dispatch, messagePayload)
+    enqueueSnackbar(messagePayload.message, { variant: 'warning' });
     return { response: error, isError: true }
   }
 }
 
-export function logoutAction(dispatch, redirectUri = 'home') {
+export function logoutAction(enqueueSnackbar, dispatch, redirectUri = 'home') {
   const messagePayload = {
     message: 'Logged out',
     isError: false,
   }
   sendAlertMessage(dispatch, messagePayload)
+  enqueueSnackbar(messagePayload.message, { variant: 'success' });
   navigate(redirectUri)
   setTimeout(() => {
     clearTokens()

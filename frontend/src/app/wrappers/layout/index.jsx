@@ -10,7 +10,7 @@ export const LayoutWrapper = ({ children }) => {
   const { message, isError } = useSelector((state) => state.alert)
   const content = (
     <Content>
-      {message && <Alert isError={isError}>{message}</Alert>}
+      {/* {message && <Alert isError={isError}>{message}</Alert>} */}
       {children}
     </Content>
   )
