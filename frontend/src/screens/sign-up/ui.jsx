@@ -75,12 +75,14 @@ export const Ui = ({ onSubmit, errorState }) => {
         <FormField
           name="password"
           label="Password"
+          type="password"
           registerFn={register}
           error={errors.password}
         />
         <FormField
           name="passwordCon"
           label="Password Confirmation"
+          type="password"
           registerFn={register}
           error={errors.passwordCon}
         />
