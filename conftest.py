@@ -51,9 +51,9 @@ def create_recipient(faker, create_user):
 @pytest.fixture
 def create_call(create_user, create_recipient):
     def _create_call(**kwargs):
-        caller = create_user()
+        caller = kwargs.get("caller", create_user())
         return Call.objects.create(
-            caller=kwargs.get("caller", caller),
+            caller=caller,
             recipient=kwargs.get("recipient", create_recipient(user=caller)),
             date=kwargs.get("date", datetime.now().date()),
         )
