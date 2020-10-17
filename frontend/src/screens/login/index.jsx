@@ -9,20 +9,12 @@ export const Login = () => {
 
   const onSubmit = async (data, e) => {
     try {
-      const { response, isError } = await loginAction(dispatch, data)
-      if (isError) {
-        const data = response.response
-        if (data.status === 401) {
-          setWereCredentialsDenied(true)
-        }
-      }
+      await loginAction(dispatch, data)
       e.preventDefault()
     } catch (error) {
       console.error(error)
     }
   }
 
-  return (
-    <Ui onSubmit={onSubmit} wereCredentialsDenied={wereCredentialsDenied} />
-  )
+  return <Ui onSubmit={onSubmit} />
 }
