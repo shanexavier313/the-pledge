@@ -1,4 +1,4 @@
-export const API_URL = process.env.NODE_ENV === "development" ? 'http://127.0.0.1:8000/api/' : 'http://3.138.203.41:8000/'
+export const API_URL = process.env.NODE_ENV === "development" ? 'http://127.0.0.1:8000/api/' : 'http://3.138.203.41:8000/api/'
 export const POLITICAL_LEANINGS = {
   fl: 'Far Left',
   le: 'Left',
