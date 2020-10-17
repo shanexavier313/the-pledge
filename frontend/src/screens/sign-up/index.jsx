@@ -1,20 +1,23 @@
 import React, { useState } from 'react'
-import { signUp } from './request'
+import { useDispatch } from 'react-redux'
+import { useSnackbar } from 'notistack';
+import { signUpAction } from 'redux/actions/authActions'
 import { Ui } from './ui'
 
 export const SignUp = () => {
   const [errorState, setErrorState] = useState({
-    invalidInput: false,
     errors: {},
   })
+  const { enqueueSnackbar } = useSnackbar();
+  const dispatch = useDispatch()
 
   const onSubmit = async (data, e) => {
     try {
-      const { response, isError } = await signUp(data)
+      const { response, isError } = await signUpAction(enqueueSnackbar, dispatch, data)
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
-          setErrorState({ invalidInput: true, errors: responseData.data })
+          setErrorState({ errors: responseData.data })
         }
       }
       e.preventDefault()

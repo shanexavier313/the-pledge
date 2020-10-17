@@ -39,7 +39,6 @@ export async function createRecipient(dispatch, data) {
 
 export async function createCall(dispatch, data) {
   try {
-    debugger
     data.caller = getUser().id;
     const response = await axiosInstance.post('calls/', data)
     return { response: response.data, isError: false }

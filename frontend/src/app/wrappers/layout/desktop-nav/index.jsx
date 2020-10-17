@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'components/link'
 import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'
+import { useSnackbar } from 'notistack';
 
 export const DesktopNav = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.auth);
-  const logOut = () => logoutAction(dispatch);
+  const { enqueueSnackbar } = useSnackbar();
+  const logOut = () => logoutAction(enqueueSnackbar, dispatch);
   
   return (
     <Flex color="black" bg="white" alignItems="bottom">

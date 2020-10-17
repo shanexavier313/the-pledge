@@ -9,17 +9,15 @@ export const TitleBanner = ({ title, description, bg }) => {
       sx={{
         width: '100%',
         height: '40vh',
-      }}
-    >
+      }}>
       <Flex
         px={2}
-        py={4}
+        pb={4}
         sx={{
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-        }}
-      >
+        }}>
         <Heading variant="text.h2" mb={4}>
           {title}
         </Heading>

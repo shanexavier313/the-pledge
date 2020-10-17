@@ -5,7 +5,7 @@ from .models import Call, Recipient
 
 class CallSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ("caller", "notes", "recipient", "date")
+        fields = ("completed", "caller", "notes", "recipient", "date")
         model = Call
         read_only_fields = ("id", "caller", "created", "updated")
 
