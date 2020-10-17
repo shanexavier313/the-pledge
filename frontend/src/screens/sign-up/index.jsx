@@ -5,7 +5,6 @@ import { Ui } from './ui'
 
 export const SignUp = () => {
   const [errorState, setErrorState] = useState({
-    invalidInput: false,
     errors: {},
   })
 
@@ -17,7 +16,7 @@ export const SignUp = () => {
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
-          setErrorState({ invalidInput: true, errors: responseData.data })
+          setErrorState({ errors: responseData.data })
         }
       }
       e.preventDefault()

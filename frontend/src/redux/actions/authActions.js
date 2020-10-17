@@ -15,12 +15,28 @@ export async function loginAction(dispatch, data, redirectUri = 'dashboard') {
     axiosInstance.defaults.headers['Authorization'] =
       'Token ' + response.data.access
     setTokens(response.data)
+    const messagePayload = {
+      message: 'Logged in!',
+      isError: false,
+    }
     dispatch({ type: actionTypes.ACTION_LOGIN_SUCCESS })
+    sendAlertMessage(dispatch, messagePayload)
     navigate(redirectUri)
-
-    return { response: response.data, isError: false }
   } catch (error) {
-    return { response: error, isError: true }
+    const data = error.response
+    if (data.status === 401) {
+      const messagePayload = {
+        message: 'Your email or password was incorrect. Please try again',
+        isError: true,
+      }
+      sendAlertMessage(dispatch, messagePayload)
+    } else {
+      const messagePayload = {
+        message: 'Something went wrong. Please try again',
+        isError: true,
+      }
+      sendAlertMessage(dispatch, messagePayload)
+    }
   }
 }
 
@@ -41,11 +57,21 @@ export async function signUpAction(dispatch, data, redirectUri = 'login') {
     navigate(redirectUri)
     return { response: response.data, isError: false }
   } catch (error) {
+    const messagePayload = {
+      message: 'Whoops! Looks like there are some errors :(',
+      isError: true,
+    }
+    sendAlertMessage(dispatch, messagePayload)
     return { response: error, isError: true }
   }
 }
 
 export function logoutAction(dispatch, redirectUri = 'home') {
+  const messagePayload = {
+    message: 'Logged out',
+    isError: false,
+  }
+  sendAlertMessage(dispatch, messagePayload)
   navigate(redirectUri)
   setTimeout(() => {
     clearTokens()

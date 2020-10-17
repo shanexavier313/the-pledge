@@ -1,10 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Box, Flex, Input, Label } from 'theme-ui'
-import { Alert } from '../../components/alert'
 import { FormFieldError } from '../../components/form-field-error'
 
-export const Ui = ({ onSubmit, wereCredentialsDenied }) => {
+export const Ui = ({ onSubmit }) => {
   const { register, handleSubmit, errors } = useForm()
 
   return (
@@ -16,11 +15,6 @@ export const Ui = ({ onSubmit, wereCredentialsDenied }) => {
         justifyContent: 'center',
         width: '100%',
       }}>
-      {wereCredentialsDenied && (
-        <Alert isError={true}>
-          Your email or password was incorrect. Please try again.
-        </Alert>
-      )}
       <Box
         mt={4}
         mb={6}

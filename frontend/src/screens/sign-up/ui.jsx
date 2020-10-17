@@ -42,9 +42,6 @@ export const Ui = ({ onSubmit, errorState }) => {
         justifyContent: 'center',
         width: '100%',
       }}>
-      {errorState.invalidInput && (
-        <Alert isError={true}>Whoops. Looks like there are some errors.</Alert>
-      )}
       <Box
         mt={4}
         mb={6}
