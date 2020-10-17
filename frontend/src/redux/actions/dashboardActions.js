@@ -26,3 +26,24 @@ export async function loadRecipientsAction(dispatch) {
     dispatch({ type: actionTypes.ACTION_LOAD_RECIPIENTS_FAIL, error });
   }
 }
+
+export async function createRecipient(dispatch, data) {
+  try {
+    data.user = getUser().id;
+    const response = await axiosInstance.post('recipients/', data)
+    return { response: response.data, isError: false }
+  } catch (error) {
+    return { response: error, isError: true }
+  }
+}
+
+export async function createCall(dispatch, data) {
+  try {
+    debugger
+    data.caller = getUser().id;
+    const response = await axiosInstance.post('calls/', data)
+    return { response: response.data, isError: false }
+  } catch (error) {
+    return { response: error, isError: true }
+  }
+}

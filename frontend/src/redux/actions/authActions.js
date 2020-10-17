@@ -8,19 +8,14 @@ import {
 } from 'domains/identity'
 import * as actionTypes from '../constants';
 
-export async function loginAction(dispatch, email, password, redirectUri = 'dashboard') {
+export async function loginAction(dispatch, credential, redirectUri = 'dashboard') {
 	try {
-    const response = await axiosInstance.post('login/', {
-      email: email,
-      password: password,
-    })
+    const response = await axiosInstance.post('login/', credential)
     const data = response.data
     axiosInstance.defaults.headers['Authorization'] = 'Token ' + data.access
     setTokens(data)
     dispatch({ type: actionTypes.ACTION_LOGIN_SUCCESS });
-    console.log('before redirect', getAccessToken())
     navigate(redirectUri)
-    console.log('after redirect', getAccessToken())
     return { data, isError: false }
   } catch (error) {
   	return { response: error, isError: true }
@@ -28,9 +23,9 @@ export async function loginAction(dispatch, email, password, redirectUri = 'dash
 }
 
 export function logoutAction(dispatch, redirectUri = 'home') {
-	navigate(redirectUri)
-	setTimeout(() => {
-	  clearTokens()
-	  dispatch({ type: actionTypes.ACTION_LOGOUT });
-	}, 1)
+  navigate(redirectUri)
+  setTimeout(() => {
+    clearTokens()
+    dispatch({ type: actionTypes.ACTION_LOGOUT })
+  }, 1)
 }

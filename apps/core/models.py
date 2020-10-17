@@ -21,7 +21,9 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     username = None
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    email = models.EmailField(blank=True, null=True, unique=True)
+    email = models.EmailField(
+        unique=True, error_messages={"unique": "Account with this email already exists"}
+    )
     mobile_phone = PhoneNumberField(blank=True, null=True, unique=True)
     signup_code = models.CharField(max_length=6, editable=False, unique=True, null=True)
 
@@ -46,12 +48,6 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     @property
     def mobile_phone_verified(self):
         return self.mobile_phone_validated_at is not None
-
-    def save(self, *args, **kwargs):
-        if not any((self.email, self.mobile_phone)):
-            raise ValidationError("Either email or mobile phone must be set")
-
-        super().save(*args, **kwargs)
 
 
 @receiver(post_save, sender=CustomUser)
