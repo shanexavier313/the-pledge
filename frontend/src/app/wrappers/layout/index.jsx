@@ -5,6 +5,7 @@ import { DesktopNav } from './desktop-nav'
 import { Content, Root, NavWrapper, FooterWrapper } from './styles'
 
 export const LayoutWrapper = ({ children }) => {
+  // eslint-disable-next-line
   const { message, isError } = useSelector((state) => state.alert)
   const content = (
     <Content>

@@ -22,6 +22,7 @@ export const Ui = ({ onSubmit, errorState, recipients }) => {
         setError(name, { type: 'server', message: errorState.errors[name] })
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorState])
 
   return (

@@ -32,8 +32,8 @@ export const Dashboard = () => {
     } else {
       loadRecipientsAction(dispatch)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab])
-  console.log(calls, recipients)
 
   const updateCallNotesActionCallback = (call, notes) => {
     updateCallNotesAction(call, notes)
