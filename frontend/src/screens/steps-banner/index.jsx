@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Flex, Heading, Text } from 'theme-ui'
 import { ButtonLink } from 'components/button-link'
+import { StepBannerCard } from 'components/step-banner-card'
 import { steps, stepsBanner } from 'content'
 import { theme } from 'styles/theme'
-import { StepBannerCard } from './step-banner-card'
 
 export const StepsBanner = () => (
   <Flex
