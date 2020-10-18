@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Heading, Text } from 'theme-ui'
 
-export const StepCard = ({ stepID, primaryText }) => (
+export const StepBannerCard = ({ stepID, primaryText }) => (
   <Card
     m={3}
     px={2}
@@ -13,8 +13,7 @@ export const StepCard = ({ stepID, primaryText }) => (
       textAlign: 'center',
       width: '240px',
       height: '144px',
-    }}
-  >
+    }}>
     <Heading variant="text.h4" mb={2} sx={{ opacity: '20%' }}>
       {stepID}
     </Heading>

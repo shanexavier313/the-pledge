@@ -28,6 +28,12 @@ export const whyThisWorks = {
   imageURL: 'nothing',
 }
 
+export const stepsBanner = {
+  title: 'Step by Step',
+  description:
+    "We need to get as many American citizens registered and planning to vote for Biden as possible! Trump has verbally stated that he will contest this election, and that he does not intend to pass power peacefully. He's stacking the Supreme Court now! ",
+}
+
 export const steps = [
   {
     stepID: 'Step 1',
