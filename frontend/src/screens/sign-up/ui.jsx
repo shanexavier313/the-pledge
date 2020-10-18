@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import { Button, Box, Flex } from 'theme-ui'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
 
 const signUpSchema = yup.object().shape({

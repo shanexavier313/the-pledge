@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
-import { Box, Text, Flex } from 'rebass'
+import { Box, Flex } from 'rebass'
 import { navigate } from '@reach/router'
 import { Grid } from '@material-ui/core'
 import { dashboardTitleBanner } from 'content'
