@@ -3,13 +3,15 @@ import { Router as ReachRouter } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
 import { About } from 'screens/about'
+import { CreateCall } from 'screens/create-call'
+import { CreateRecipient } from 'screens/create-recipient'
 import { Dashboard } from 'screens/dashboard'
 import { Home } from 'screens/home'
 import { Login } from 'screens/login'
 import { Resources } from 'screens/resources'
 import { SignUp } from 'screens/sign-up'
-import { CreateRecipient } from 'screens/create-recipient'
-import { CreateCall } from 'screens/create-call'
+import { Steps } from 'screens/steps'
+
 import { logoutAction } from 'redux/actions/authActions'
 import { getAccessToken } from 'domains/identity'
 
@@ -30,6 +32,7 @@ export const Router = ({ children }) => {
       <About path="about" />
       <Home path="home" />
       <Resources path="resources" />
+      <Steps path="steps" />
       {!isLoggedIn && <Login path="login" />}
       {!isLoggedIn && <SignUp path="signup" />}
       {isLoggedIn && <Dashboard path="dashboard" />}

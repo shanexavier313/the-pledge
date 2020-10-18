@@ -1,6 +1,6 @@
 import React from 'react'
-import { Box, Flex, Heading, Text } from 'theme-ui'
-import { ButtonLink } from 'components/button-link'
+import { navigate } from '@reach/router'
+import { Box, Button, Flex, Heading, Text } from 'theme-ui'
 import { StepBannerCard } from 'components/step-banner-card'
 import { steps, stepsBanner } from 'content'
 import { theme } from 'styles/theme'
@@ -42,13 +42,13 @@ export const StepsBanner = () => (
             primaryText={step.primary}></StepBannerCard>
         ))}
       </Flex>
-      <ButtonLink
-        to="steps"
+      <Button
+        onClick={() => navigate('steps')}
         variant="buttons.primary"
         px={5}
         sx={{ '&:hover': { boxShadow: 'small' } }}>
         Learn More >
-      </ButtonLink>
+      </Button>
     </Flex>
   </Flex>
 )
