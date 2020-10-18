@@ -2,11 +2,17 @@
 venv
 
 # Python files
+*.py[cod]
+*$py.class
 *.pyc
 __pycache__
 
 # Python Notebook dot files
 .ipynb*
+
+# Pytest cache
+.pytest_cache/
+
 
 # Secret environment settings
 .env
@@ -16,6 +22,7 @@ env
 node_modules
 npm-debug.log
 webpack-stats*
+
 
 # Yarn files
 yarn-error.log
@@ -30,4 +37,8 @@ db.sqlite3
 
 # Apple files
 .DS_Store
-docker-compose.yml
+
+# Production
+/frontend/dist
+/frontend/build
+/static_root
