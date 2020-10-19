@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex } from 'theme-ui'
-import { StepAccordion } from 'components/step-accordion'
+import { Typography } from '@material-ui/core'
+import { StepCard } from 'components/step-accordion'
 import { steps } from 'content'
 
 export const Steps = () => (
@@ -12,9 +13,9 @@ export const Steps = () => (
       justifyContent: 'center',
       width: '100%',
     }}>
-    {console.log(steps)}
+    <Typography variant="h5">Step by Step</Typography>
     {steps.map((step) => (
-      <StepAccordion key={step.stepID} step={{ step }}></StepAccordion>
+      <StepCard key={step.stepID} step={step}></StepCard>
     ))}
   </Flex>
 )
