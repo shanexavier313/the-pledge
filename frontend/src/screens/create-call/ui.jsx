@@ -6,9 +6,14 @@ import * as yup from 'yup'
 import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
 
+const today = new Date()
+
 const callSchema = yup.object().shape({
   recipient: yup.string().required('Recipient is required'),
-  date: yup.string().required('Date is required'),
+  date: yup
+    .date()
+    .required('Date is required')
+    .min(((limit: today), 'Date must be MM/DD/YYYY')),
 })
 
 export const Ui = ({ onSubmit, errorState, recipients }) => {
