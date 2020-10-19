@@ -13,7 +13,7 @@ const callSchema = yup.object().shape({
   date: yup
     .date()
     .required('Date is required')
-    .min(((limit: today), 'Date must be MM/DD/YYYY')),
+    .min(today, 'Date must be MM-DD-YYYY'),
 })
 
 export const Ui = ({ onSubmit, errorState, recipients }) => {

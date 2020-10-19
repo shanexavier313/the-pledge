@@ -36,8 +36,8 @@ export const Dashboard = () => {
   }, [tab])
 
   const updateCallNotesActionCallback = (call, notes) => {
-    updateCallNotesAction(call, notes)
-    navigate('dashboard')
+    updateCallNotesAction(dispatch, call, notes, calls)
+    // navigate('dashboard')
   }
   return (
     <Box>
