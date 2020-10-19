@@ -1,7 +1,14 @@
 import React from 'react'
 import { ThemeProvider } from 'emotion-theming'
-import { theme } from 'styles/theme'
+import { MuiThemeProvider } from '@material-ui/core'
+import { CssBaseline } from '@material-ui/core'
+import { muiTheme, theme } from 'styles/theme'
 
 export const StylesWrapper = ({ children }) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={muiTheme}>
+      <CssBaseline />
+      {children}
+    </MuiThemeProvider>
+  </ThemeProvider>
 )
