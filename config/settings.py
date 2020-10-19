@@ -62,7 +62,7 @@ MIDDLEWARE = [
 
 # CORS_ALLOWED_ORIGINS = ("http://127.0.0.1:3000", "http://3.138.203.41:5000")
 CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
@@ -102,7 +102,7 @@ DATABASES = {
 # REST framework
 
 REST_FRAMEWORK = {
-    "DATE_INPUT_FORMATS": ["%m-%d-%Y"],
+    "DATE_INPUT_FORMATS": ["%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y"],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",

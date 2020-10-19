@@ -10,10 +10,6 @@ const today = new Date()
 
 const callSchema = yup.object().shape({
   recipient: yup.string().required('Recipient is required'),
-  date: yup
-    .date()
-    .required('Date is required')
-    .min(today, 'Date must be MM-DD-YYYY'),
 })
 
 export const Ui = ({ onSubmit, errorState, recipients }) => {
