@@ -123,5 +123,5 @@ def test_user_can_edit_a_call(create_user, create_call, client):
     response = client.patch(url, data=data)
 
     client.force_authenticate(user=None)
-    breakpoint()
+
     assert response.status_code == 200
