@@ -45,6 +45,10 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
   } = recipient
   const { notes, completed, date } = call
   const [editNotes, setEditNotes] = useState(notes)
+  const onUpdateNotes = (call, editNotes) => {
+    updateCallNotesAction(call, editNotes);
+    toggleEditModal(false);
+  }
   return (
     <CallItemWrapper item xs={12}>
       <ItemWrapper container>
@@ -158,7 +162,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
                     Cancel
                   </Button>
                   <Button
-                    onClick={() => updateCallNotesAction(call, editNotes)}
+                    onClick={() => onUpdateNotes(call, editNotes)}
                     color="primary">
                     Ok
                   </Button>
