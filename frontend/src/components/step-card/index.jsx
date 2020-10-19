@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { muiTheme } from '../../styles/theme'
 
 export const StepCard = ({ step }) => (
   <Box width={0.8} my={1}>

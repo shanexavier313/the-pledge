@@ -1,8 +1,8 @@
 import React from 'react'
 import { Flex } from 'theme-ui'
 import { Typography } from '@material-ui/core'
-import { StepCard } from 'components/step-accordion'
-import { steps } from 'content'
+import { StepCard } from 'components/step-card'
+import * as steps from './steps'
 
 export const Steps = () => (
   <Flex
@@ -14,8 +14,5 @@ export const Steps = () => (
       width: '100%',
     }}>
     <Typography variant="h5">Step by Step</Typography>
-    {steps.map((step) => (
-      <StepCard key={step.stepID} step={step}></StepCard>
-    ))}
   </Flex>
 )
