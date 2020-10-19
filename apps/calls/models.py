@@ -57,7 +57,7 @@ class Recipient(TimeStampedModelMixin, models.Model):
         NOT_REGISTERED = "nr"
         UNKNOWN = "un"
 
-    state_residence = USStateField()
+    state_residence = USStateField(null=True, blank=True)
     state_registered = USStateField(null=True, blank=True)
     registered_to_vote = models.CharField(
         max_length=2,
