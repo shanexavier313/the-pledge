@@ -10,15 +10,15 @@ import { SnackbarProvider } from 'notistack'
 export const { store, persistor } = configureStore()
 
 export const App = ({ children }) => (
-	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor}>
-			<SnackbarProvider maxSnack={3}>
-				<StylesWrapper>
-					<LayoutWrapper>
-						<Router></Router>
-					</LayoutWrapper>
-				</StylesWrapper>
-			</SnackbarProvider>
-		</PersistGate>
-	</Provider>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <SnackbarProvider maxSnack={3}>
+        <StylesWrapper>
+          <LayoutWrapper>
+            <Router></Router>
+          </LayoutWrapper>
+        </StylesWrapper>
+      </SnackbarProvider>
+    </PersistGate>
+  </Provider>
 )

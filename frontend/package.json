@@ -16,7 +16,6 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
     "emotion-theming": "^10.0.27",
-    "lodash": "^4.17.20",
     "notistack": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -33,7 +32,7 @@
     "yup": "^0.29.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-app-rewired start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -52,6 +51,9 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "babel-plugin-import": "^1.13.1",
+    "customize-cra": "^1.0.0",
+    "prettier": "^2.1.2",
+    "react-app-rewired": "^2.1.6"
   }
 }

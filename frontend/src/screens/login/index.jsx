@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from 'notistack'
 import { loginAction } from 'redux/actions/authActions'
 import { Ui } from './ui'
 
 export const Login = () => {
-  const [wereCredentialsDenied, setWereCredentialsDenied] = useState(false)
   const dispatch = useDispatch()
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar()
 
   const onSubmit = async (data, e) => {
     try {

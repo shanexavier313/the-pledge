@@ -1,12 +1,11 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Alert } from 'components/alert'
+import { useSelector } from 'react-redux'
 import { DesktopFooter } from './desktop-footer'
 import { DesktopNav } from './desktop-nav'
 import { Content, Root, NavWrapper, FooterWrapper } from './styles'
 
 export const LayoutWrapper = ({ children }) => {
-  const dispatch = useDispatch()
+  // eslint-disable-next-line
   const { message, isError } = useSelector((state) => state.alert)
   const content = (
     <Content>

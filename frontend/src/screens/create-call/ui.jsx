@@ -5,16 +5,15 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
-import { POLITICAL_LEANINGS, VOTER_STATUS, US_STATES } from 'domains/constants'
 
-const signUpSchema = yup.object().shape({
+const callSchema = yup.object().shape({
   recipient: yup.string().required('Recipient is required'),
   date: yup.string().required('Date is required'),
 })
 
-export const Ui = ({ onSubmit, errorState , recipients}) => {
+export const Ui = ({ onSubmit, errorState, recipients }) => {
   const { register, handleSubmit, errors, setError } = useForm({
-    resolver: yupResolver(signUpSchema),
+    resolver: yupResolver(callSchema),
   })
 
   useEffect(() => {
@@ -23,6 +22,7 @@ export const Ui = ({ onSubmit, errorState , recipients}) => {
         setError(name, { type: 'server', message: errorState.errors[name] })
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorState])
 
   return (
