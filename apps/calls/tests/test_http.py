@@ -108,3 +108,20 @@ def test_user_can_create_a_call(create_user, create_recipient, client):
     assert response.status_code == 201
     assert response.data["caller"] == user.id
     assert response.data["recipient"] == recipient.id
+
+
+def test_user_can_edit_a_call(create_user, create_call, client):
+    user = create_user()
+    call = create_call(caller=user)
+
+    data = {
+        "notes": "New notes",
+    }
+
+    client.login(email=user.email, password="password")
+    url = reverse("call-detail", kwargs={"pk": call.id})
+    response = client.patch(url, data=data)
+
+    client.force_authenticate(user=None)
+
+    assert response.status_code == 200
