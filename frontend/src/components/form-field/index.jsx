@@ -9,9 +9,9 @@ export const FormField = ({
   registerFn,
   error,
   list,
-  multiLine = false
+  multiLine = false,
 }) => {
-  console.log(error);
+  console.log(error)
   return (
     <>
       <Label htmlFor={name} variant="text.body.small" color="base800">
@@ -32,25 +32,26 @@ export const FormField = ({
           ))}
         </Select>
       )}
-      {!list && (<>
-        {multiLine ?
-          <Textarea
-            name={name}
-            type={type}
-            aria-describedby={`${name}Error`}
-            ref={registerFn}
-            rows={2}
-            my={1}
-          />
-          :
-          <Input
-            name={name}
-            type={type}
-            aria-describedby={`${name}Error`}
-            ref={registerFn}
-            my={1}
-          />
-        }
+      {!list && (
+        <>
+          {multiLine ? (
+            <Textarea
+              name={name}
+              type={type}
+              aria-describedby={`${name}Error`}
+              ref={registerFn}
+              rows={2}
+              my={1}
+            />
+          ) : (
+            <Input
+              name={name}
+              type={type}
+              aria-describedby={`${name}Error`}
+              ref={registerFn}
+              my={1}
+            />
+          )}
         </>
       )}
 

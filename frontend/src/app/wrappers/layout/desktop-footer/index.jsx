@@ -26,8 +26,7 @@ export const DesktopFooter = () => (
             listStyle: 'none',
             m: 0,
             p: 0,
-          }}
-        >
+          }}>
           <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               Demographic Breakdown
@@ -56,8 +55,7 @@ export const DesktopFooter = () => (
             listStyle: 'none',
             m: 0,
             p: 0,
-          }}
-        >
+          }}>
           <li sx={{ my: 3 }}>
             <Link variant="links.footer" to="/">
               About the Pledge

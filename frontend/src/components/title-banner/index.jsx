@@ -6,6 +6,7 @@ export const TitleBanner = ({ title, description, bg }) => {
     <Flex
       mx="auto"
       variant="content.normal"
+      bg={bg}
       sx={{
         width: '100%',
         height: '40vh',

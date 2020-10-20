@@ -46,8 +46,8 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
   const { notes, completed, date } = call
   const [editNotes, setEditNotes] = useState(notes)
   const onUpdateNotes = (call, editNotes) => {
-    updateCallNotesAction(call, editNotes);
-    toggleEditModal(false);
+    updateCallNotesAction(call, editNotes)
+    toggleEditModal(false)
   }
   return (
     <CallItemWrapper item xs={12}>
