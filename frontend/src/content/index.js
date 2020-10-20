@@ -11,7 +11,14 @@ export const homeTitleBanner = {
   title: 'The Pledge',
   description:
     'The 2020 election is rapidly approaching and it’s time to motivate our extended networks to vote for Joe Biden. These conversations are often challenging - our step by step process helps you meet people where they are. Take the pledge and make a difference in this election.',
-  bg: theme.colors.white,
+  bg: theme.colors.grey300,
+}
+
+export const resourcesTitleBanner = {
+  title: 'Resources',
+  description:
+    'Here’s why you should read these resources! Read them in order! Read them multiple times! Mea aeterno eleifend antiopam ad. Est audiam animal molestiae te.',
+  bg: theme.colors.base300,
 }
 
 export const whoToCall = {
