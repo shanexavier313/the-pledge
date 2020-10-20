@@ -30,6 +30,7 @@ export async function createRecipient(dispatch, data) {
   try {
     data.user = getUser().id
     const response = await axiosInstance.post('recipients/', data)
+    dispatch({ type: actionTypes.ACTION_CREATE_RECIPIENTS_SUCCESS, recipient: response.data })
     return { response: response.data, isError: false }
   } catch (error) {
     return { response: error, isError: true }
@@ -49,10 +50,10 @@ export async function createCall(dispatch, data) {
 export async function updateCallNotesAction(dispatch, data, notes, calls) {
   try {
     const response = await axiosInstance.patch(`calls/${data.id}/`, { notes })
-    for (let i = 0; i < calls.length; i++) {
-      if (calls[i].id === data.id) {
-        calls[i].notes = notes
-        break
+    for(let i = 0; i < calls.length; i++) {
+      if(calls[i].id === data.id) {
+        calls[i].notes = notes;
+        break;
       }
     }
     dispatch({ type: actionTypes.ACTION_LOAD_CALLS_SUCCESS, calls })

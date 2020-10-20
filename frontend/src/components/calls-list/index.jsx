@@ -5,7 +5,7 @@ import CallItem from '../call-item'
 const CallsList = ({ calls, recipients, updateCallNotesAction }) => {
   return (
     <>
-      {calls.map((call, index) => {
+      {calls?.map((call, index) => {
         const recipient = recipients.find((item) => item.id === call.recipient)
         return (
           <CallItem
