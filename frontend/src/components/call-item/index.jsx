@@ -86,7 +86,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
         </Grid>
         <Grid item xs={4} className="right-col">
           <Typography variant="subtitle1" component="subtitle1">
-            {US_STATES[state_residence.toUpperCase()]}
+            {US_STATES[state_residence?.toUpperCase()]}
           </Typography>
         </Grid>
         <Grid item xs={8} className="left-col">
@@ -97,7 +97,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
         </Grid>
         <Grid item xs={4} className="right-col">
           <Typography variant="subtitle1" component="subtitle1">
-            {US_STATES[state_registered.toUpperCase()]}
+            {US_STATES[state_registered?.toUpperCase()]}
           </Typography>
         </Grid>
         <Grid item xs={8} className="left-col">
