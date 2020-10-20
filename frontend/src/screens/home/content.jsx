@@ -158,7 +158,6 @@ const WhoToCallBanner = () => {
           <img src={VoteImg1} width="100%" />
         </Grid>
       </Grid>
-      
     </MuiBox>
   )
 }
@@ -326,7 +325,6 @@ const WhyThisWorks = () => {
           <img src={VoteImg1} width="100%" />
         </Grid>
       </Grid>
-      
     </MuiBox>
   )
 }

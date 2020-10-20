@@ -49,10 +49,10 @@ export async function createCall(dispatch, data) {
 export async function updateCallNotesAction(dispatch, data, notes, calls) {
   try {
     const response = await axiosInstance.patch(`calls/${data.id}/`, { notes })
-    for(let i = 0; i < calls.length; i++) {
-      if(calls[i].id === data.id) {
-        calls[i].notes = notes;
-        break;
+    for (let i = 0; i < calls.length; i++) {
+      if (calls[i].id === data.id) {
+        calls[i].notes = notes
+        break
       }
     }
     dispatch({ type: actionTypes.ACTION_LOAD_CALLS_SUCCESS, calls })

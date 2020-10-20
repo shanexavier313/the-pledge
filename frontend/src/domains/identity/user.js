@@ -5,7 +5,7 @@ export const getUser = () => {
   if (accessToken) {
     const [, payload] = accessToken.split('.')
     const decoded = window.atob(payload)
-    
+
     console.log(decoded)
     return JSON.parse(decoded)
   }
