@@ -66,8 +66,8 @@ export const DemographicsResource = () => (
         display="flex"
         justifyContent="center"
         alignItems="center">
-        <img src={FrameworksIntro1} alt="fuckyou" width="60%" />
-        <img src={FrameworksIntro2} alt="fuckyou" width="60%" />
+        <img src={FrameworksIntro1} alt="frameworks-intro1" width="60%" />
+        <img src={FrameworksIntro2} alt="frameworks-intro2" width="60%" />
       </Box>
       <SlideStepper slides={framework1Slides} />
       <SlideStepper slides={framework2Slides} />
