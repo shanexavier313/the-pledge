@@ -45,6 +45,16 @@ const dashboardReducer = (state = initialState, action) => {
         error
       };
     }
+    case actionTypes.ACTION_CREATE_RECIPIENTS_SUCCESS: {
+      const { recipient } = action;
+      let { recipients } = state;
+      recipients.push(recipient);
+      debugger;
+      return {
+        ...state,
+        recipients
+      };
+    }
     default:
       return state;
   }

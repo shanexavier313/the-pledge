@@ -30,6 +30,7 @@ export async function createRecipient(dispatch, data) {
   try {
     data.user = getUser().id
     const response = await axiosInstance.post('recipients/', data)
+    dispatch({ type: actionTypes.ACTION_CREATE_RECIPIENTS_SUCCESS, recipient: response.data })
     return { response: response.data, isError: false }
   } catch (error) {
     return { response: error, isError: true }

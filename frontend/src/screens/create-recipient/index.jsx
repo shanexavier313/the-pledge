@@ -5,7 +5,7 @@ import { createRecipient } from 'redux/actions/dashboardActions'
 import { navigate } from '@reach/router'
 import { Ui } from './ui'
 
-export const CreateRecipient = () => {
+export const CreateRecipient = ({ toggleModal = null}) => {
   const dispatch = useDispatch()
   const { enqueueSnackbar } = useSnackbar()
   const [errorState, setErrorState] = useState({
@@ -22,8 +22,13 @@ export const CreateRecipient = () => {
           setErrorState({ invalidInput: true, errors: responseData.data })
         }
       } else {
+        if(toggleModal) {
+          toggleModal(false);
+        }
+        else {
+          navigate('dashboard')
+        }
         enqueueSnackbar('New Recipient is Created!', { variant: 'success' })
-        navigate('dashboard')
       }
       e.preventDefault()
     } catch (error) {
@@ -31,5 +36,5 @@ export const CreateRecipient = () => {
     }
   }
 
-  return <Ui onSubmit={onSubmit} errorState={errorState} />
+  return <Ui onSubmit={onSubmit} errorState={errorState} toggleModal={toggleModal} />
 }

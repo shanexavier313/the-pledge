@@ -27,6 +27,13 @@ const SectionSummary = styled(AccordionSummary)`
   }
 `
 
+const SectionDetails = styled(AccordionDetails)`
+  && {
+    box-shadow: none;
+    padding: 0;
+  }
+`
+
 const SectionAccordian = styled(Accordion)`
   && {
     box-shadow: none;
@@ -68,87 +75,79 @@ const WhoToCallBanner = () => {
                 </Typography>
               </MuiBox>
             </SectionSummary>
-            <AccordionDetails>
-              <MuiBox>
-                <MuiCard mb={2}>
-                  <Typography variant="h6">Here’s who to call:</Typography>
-                  <Typography variant="body">
-                    <ol>
-                      <li>
-                        Friends who are likely Biden supporters but who may need
-                        a push to get registered or to actually get out to vote.
-                        <ol type="a">
-                          <li>
-                            Get them registered and planning to vote for Biden.
-                          </li>
-                          <li>Get them to take the pledge</li>
-                        </ol>
-                      </li>
-                      <li>
-                        Friends who are already activated to Stop Trump and are
-                        looking for a way to help!
-                        <ol type="a">
-                          <li>Get them to take the pledge.</li>
-                        </ol>
-                      </li>
-                      <li>
-                        Friends who may not be planning to vote for Biden
-                        <ol type="a">
-                          <li>
-                            Get them registered and planning to vote for Biden.
-                          </li>
-                          <li>Get them to take the pledge</li>
-                        </ol>
-                      </li>
-                    </ol>
-                  </Typography>
-                </MuiCard>
-                <MuiCard mb={2}>
-                  <Typography variant="h6">Prioritize Swing States!</Typography>
-                  <Typography variant="body">
-                    <p>
-                      It is of pivotal importance that we reach potential voters
-                      in swing states. It is impossible to win this election
-                      without a handful of critical swing states (such as PA,
-                      FL, WI, MI, and AZ) going blue.{' '}
-                      <strong>
-                        Calling friends who live, have lived, or grew up in
-                        swing states, should be our key focus, even if they are
-                        not necessarily currently living/voting there.
-                      </strong>{' '}
-                      A larger chunk of their network will be people from that
-                      state making it easier for them to reach people there in a
-                      meaningful way.
-                    </p>
-                  </Typography>
-                </MuiCard>
+            <SectionDetails>
+              <div>
+                <Typography variant="h6">Here’s who to call:</Typography>
+                <Typography variant="body">
+                  <ol>
+                    <li>
+                      Friends who are likely Biden supporters but who may need
+                      a push to get registered or to actually get out to vote.
+                      <ol type="a">
+                        <li>
+                          Get them registered and planning to vote for Biden.
+                        </li>
+                        <li>Get them to take the pledge</li>
+                      </ol>
+                    </li>
+                    <li>
+                      Friends who are already activated to Stop Trump and are
+                      looking for a way to help!
+                      <ol type="a">
+                        <li>Get them to take the pledge.</li>
+                      </ol>
+                    </li>
+                    <li>
+                      Friends who may not be planning to vote for Biden
+                      <ol type="a">
+                        <li>
+                          Get them registered and planning to vote for Biden.
+                        </li>
+                        <li>Get them to take the pledge</li>
+                      </ol>
+                    </li>
+                  </ol>
+                </Typography>
+                <Typography variant="h6">Prioritize Swing States!</Typography>
+                <Typography variant="body">
+                  <p>
+                    It is of pivotal importance that we reach potential voters
+                    in swing states. It is impossible to win this election
+                    without a handful of critical swing states (such as PA,
+                    FL, WI, MI, and AZ) going blue.{' '}
+                    <strong>
+                      Calling friends who live, have lived, or grew up in
+                      swing states, should be our key focus, even if they are
+                      not necessarily currently living/voting there.
+                    </strong>{' '}
+                    A larger chunk of their network will be people from that
+                    state making it easier for them to reach people there in a
+                    meaningful way.
+                  </p>
+                </Typography>
 
-                <MuiCard mb={2}>
-                  <Typography variant="h6">The Swing States:</Typography>
+                <Typography variant="h6">The Swing States:</Typography>
 
-                  <img src={SwingStatesImg} alt="hello" width="100%"></img>
-                </MuiCard>
-                <MuiCard mb={2}>
-                  <Typography variant="h6">
-                    Finding Friends in Key States:
-                  </Typography>
-                  <Typography variant="body">
-                    A great way to find people in your network who are from
-                    swing states is on Facebook. Facebook has a feature where
-                    you can use any search window to type “My friends who live
-                    in [insert name of swing state].” The results list three
-                    names with the option to “See all.”
-                  </Typography>
-                  <MuiBox display="flex" justifyContent="center">
-                    <Box
-                      width={[1, 1, 3 / 4]}
-                      py={6}
-                      bg="primary"
-                      sx={{ opacity: '40%' }}></Box>
-                  </MuiBox>
-                </MuiCard>
-              </MuiBox>
-            </AccordionDetails>
+                <img src={SwingStatesImg} alt="hello" width="100%"></img>
+                <Typography variant="h6">
+                  Finding Friends in Key States:
+                </Typography>
+                <Typography variant="body">
+                  A great way to find people in your network who are from
+                  swing states is on Facebook. Facebook has a feature where
+                  you can use any search window to type “My friends who live
+                  in [insert name of swing state].” The results list three
+                  names with the option to “See all.”
+                </Typography>
+                <MuiBox display="flex" justifyContent="center">
+                  <Box
+                    width={[1, 1, 3 / 4]}
+                    py={6}
+                    bg="primary"
+                    sx={{ opacity: '40%' }}></Box>
+                </MuiBox>
+              </div>
+            </SectionDetails>
           </SectionAccordian>
           <Button color="primary" onClick={() => toggleExpand(!expand)}>
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -158,7 +157,6 @@ const WhoToCallBanner = () => {
           <img src={VoteImg1} width="100%" />
         </Grid>
       </Grid>
-      
     </MuiBox>
   )
 }
@@ -193,7 +191,7 @@ const WhoIsReachableBanner = () => {
                 </Typography>
               </MuiBox>
             </SectionSummary>
-            <AccordionDetails>
+            <SectionDetails>
               <Typography variant="body1">
                 <p>
                   Our highly polarized public discourse suggests that there is
@@ -226,7 +224,7 @@ const WhoIsReachableBanner = () => {
                   </i>
                 </blockqoute>
               </Typography>
-            </AccordionDetails>
+            </SectionDetails>
           </SectionAccordian>
           <Button color="primary" onClick={() => toggleExpand(!expand)}>
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -270,7 +268,7 @@ const WhyThisWorks = () => {
                 </Typography>
               </MuiBox>
             </SectionSummary>
-            <AccordionDetails>
+            <SectionDetails>
               <Typography variant="body1" mr={2}>
                 <p>
                   People are much more likely to change their minds on important
@@ -316,7 +314,7 @@ const WhyThisWorks = () => {
                   know and trust about the issues that matter.
                 </p>
               </Typography>
-            </AccordionDetails>
+            </SectionDetails>
           </SectionAccordian>
           <Button color="primary" onClick={() => toggleExpand(!expand)}>
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -326,7 +324,6 @@ const WhyThisWorks = () => {
           <img src={VoteImg1} width="100%" />
         </Grid>
       </Grid>
-      
     </MuiBox>
   )
 }

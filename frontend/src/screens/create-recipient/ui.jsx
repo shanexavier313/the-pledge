@@ -16,7 +16,7 @@ const signUpSchema = yup.object().shape({
   political_leaning: yup.string().required('Political Leaning is required'),
 })
 
-export const Ui = ({ onSubmit, errorState }) => {
+export const Ui = ({ onSubmit, errorState, toggleModal = null }) => {
   const { register, handleSubmit, errors, setError } = useForm({
     resolver: yupResolver(signUpSchema),
   })
@@ -97,6 +97,15 @@ export const Ui = ({ onSubmit, errorState }) => {
         <Button mt={3} type="submit" variant="buttons.secondary">
           Create New Recipient
         </Button>
+        {toggleModal && (
+          <Button
+            mt={3}
+            ml={1}
+            variant="buttons.secondary"
+            onClick={() => toggleModal(false)}>
+            Close
+          </Button>
+        )}
       </Box>
     </Flex>
   )
