@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Box, Typography } from '@material-ui/core'
 import { SlideStepper } from 'components/slide-stepper'
-import { framework1Slides, framework2Slides } from './slides'
+import { StateStepper } from 'components/state-stepper'
+import { framework1Slides, framework2Slides, swingStateSlides } from './slides'
 import FrameworksIntro1 from 'static/images/frameworks-intro1.png'
 import FrameworksIntro2 from 'static/images/frameworks-intro2.png'
 
@@ -123,5 +124,11 @@ export const KeyIssuesResource = () => (
 )
 
 export const SwingStatesResource = () => (
-  <Typography variant="body1">DemographicBreakdown</Typography>
+  <Box
+    display="flex"
+    flexDirection="column"
+    justifyContent="center"
+    alignItems="center">
+    <StateStepper slides={swingStateSlides} />
+  </Box>
 )
