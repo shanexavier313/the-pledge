@@ -17,8 +17,7 @@ const dashboardReducer = (state = initialState, action) => {
       const { calls } = action;
       return {
         ...state,
-        calls,
-        loading: false
+        calls
       };
     case actionTypes.ACTION_LOAD_RECIPIENTS_SUCCESS:
       const { recipients } = action;

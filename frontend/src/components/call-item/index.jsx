@@ -32,7 +32,7 @@ const CallItemWrapper = styled(Grid)`
     margin-bottom: 1rem;
   }
 `
-const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
+const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
   const [showMore, toggleShowMore] = useState(false)
   const [editModal, toggleEditModal] = useState(false)
   const {
@@ -45,10 +45,12 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
   } = recipient
   const { notes, completed, date } = call
   const [editNotes, setEditNotes] = useState(notes)
-  const onUpdateNotes = (call, editNotes) => {
-    updateCallNotesAction(call, editNotes)
+  const onUpdateData = (call, updatedData) => {
+    console.log('call1', call);
+    updateCallAction(call, updatedData)
     toggleEditModal(false)
   }
+
   return (
     <CallItemWrapper item xs={12}>
       <ItemWrapper container>
@@ -69,7 +71,14 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
           {notes && (
             <FormControlLabel
               control={
-                <Checkbox checked={completed} name="checkedB" color="primary" />
+                <Checkbox
+                  checked={completed}
+                  name="checkedB"
+                  color="primary"
+                  onChange={(ev) =>
+                    onUpdateData(call, { completed: ev.target.checked })
+                  }
+                />
               }
               label="Contacted"
             />
@@ -162,7 +171,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallNotesAction }) => {
                     Cancel
                   </Button>
                   <Button
-                    onClick={() => onUpdateNotes(call, editNotes)}
+                    onClick={() => onUpdateData(call, { notes: editNotes })}
                     color="primary">
                     Ok
                   </Button>

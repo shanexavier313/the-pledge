@@ -30,7 +30,10 @@ export async function createRecipient(dispatch, data) {
   try {
     data.user = getUser().id
     const response = await axiosInstance.post('recipients/', data)
-    dispatch({ type: actionTypes.ACTION_CREATE_RECIPIENTS_SUCCESS, recipient: response.data })
+    dispatch({
+      type: actionTypes.ACTION_CREATE_RECIPIENTS_SUCCESS,
+      recipient: response.data,
+    })
     return { response: response.data, isError: false }
   } catch (error) {
     return { response: error, isError: true }
@@ -47,12 +50,17 @@ export async function createCall(dispatch, data) {
   }
 }
 
-export async function updateCallNotesAction(dispatch, data, notes, calls) {
+export async function updateCallAction(dispatch, data, updatedData, calls) {
   try {
-    const response = await axiosInstance.patch(`calls/${data.id}/`, { notes })
-    for(let i = 0; i < calls.length; i++) {
-      if(calls[i].id === data.id) {
-        calls[i].notes = notes;
+    const response = await axiosInstance.patch(`calls/${data.id}/`, updatedData)
+    for (let i = 0; i < calls.length; i++) {
+      if (calls[i].id === data.id) {
+        if(updatedData.notes) {
+          calls[i].notes = updatedData.notes;
+        }
+        else {
+          calls[i].completed = updatedData.completed;
+        }
         break;
       }
     }
