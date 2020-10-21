@@ -8,7 +8,7 @@ import { dashboardTitleBanner } from 'content'
 import {
   loadCallsAction,
   loadRecipientsAction,
-  updateCallNotesAction,
+  updateCallAction,
 } from 'redux/actions/dashboardActions'
 import { TitleBanner } from 'components/title-banner'
 import TabButton from 'components/tab-button'
@@ -24,7 +24,7 @@ const DashboardWrapper = styled(Grid)`
 export const Dashboard = () => {
   const [tab, setTab] = useState('calls')
   const dispatch = useDispatch()
-  const { calls, recipients } = useSelector((state) => state.dashboard)
+  const { calls, recipients, loading } = useSelector((state) => state.dashboard)
   useEffect(() => {
     if (tab === 'calls') {
       loadCallsAction(dispatch)
@@ -35,8 +35,9 @@ export const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab])
 
-  const updateCallNotesActionCallback = (call, notes) => {
-    updateCallNotesAction(dispatch, call, notes, calls)
+  const updateCallActionCallback = (call, updatedData) => {
+    updateCallAction(dispatch, call, updatedData, calls)
+    // loadCallsAction(dispatch)
     // navigate('dashboard')
   }
   return (
@@ -78,7 +79,8 @@ export const Dashboard = () => {
             <CallsList
               calls={calls}
               recipients={recipients}
-              updateCallNotesAction={updateCallNotesActionCallback}
+              updateCallAction={updateCallActionCallback}
+              loading={loading}
             />
           </DashboardWrapper>
         )}
