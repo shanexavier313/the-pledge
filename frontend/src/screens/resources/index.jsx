@@ -25,11 +25,7 @@ export const Resources = ({ children }) => {
 
   return (
     <>
-      <TitleBanner
-        title={resourcesTitleBanner.title}
-        description={resourcesTitleBanner.description}
-        bg={resourcesTitleBanner.bg}
-      />
+      <TitleBanner content={resourcesTitleBanner} />
       <ResourcesNav tab={tab} setTab={setTab} />
       <Flex
         px={(2, 4, 6)}

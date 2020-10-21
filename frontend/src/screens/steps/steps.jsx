@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-export const step1 = (
+const Step1 = () => (
   <Box width={0.8} my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -34,7 +34,7 @@ export const step1 = (
   </Box>
 )
 
-export const step2 = (
+const Step2 = () => (
   <Box width={0.8} my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -64,7 +64,7 @@ export const step2 = (
   </Box>
 )
 
-export const step3 = (
+const Step3 = () => (
   <Box width={0.8} my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -93,4 +93,12 @@ export const step3 = (
       </AccordionDetails>
     </Accordion>
   </Box>
+)
+
+export const StepCards = () => (
+  <>
+    <Step1 />
+    <Step2 />
+    <Step3 />
+  </>
 )

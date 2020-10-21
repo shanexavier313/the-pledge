@@ -50,6 +50,7 @@ export const muiTheme = createMuiTheme({
       layout: colors.grey300,
     },
     text: {
+      white: colors.white,
       disabled: colors.grey300,
       hint: colors.grey400,
       primary: colors.grey800,
@@ -204,10 +205,14 @@ export const theme = {
       color: 'white',
       fontFamily: 'body',
       fontWeight: 'button',
+      borderStyle: 'solid',
+      borderColor: 'primary',
+      borderWidth: 'button',
       bg: 'primary',
       '&:focus': {
         bg: 'white',
         color: 'primary',
+        outline: 'none',
       },
     },
     secondary: {

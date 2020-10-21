@@ -16,9 +16,10 @@ import {
 } from '@material-ui/core'
 import { Box } from 'rebass'
 // import { Card, Flex, Heading, Image, Text } from 'theme-ui'
-import VoteImg1 from 'static/images/arnaud-jaegers-ibwjsmobnnu-unsplash.jpg'
+import PhoneImg from 'static/images/phone.jpg'
 import VoteImg2 from 'static/images/element5-digital-2i7Dn2uMEQE-unsplash.jpg'
 import SwingStatesImg from 'static/images/swingstates.jpg'
+import FacebookImg from 'static/images/facebook.jpg'
 
 const SectionSummary = styled(AccordionSummary)`
   && {
@@ -81,8 +82,8 @@ const WhoToCallBanner = () => {
                 <Typography variant="body">
                   <ol>
                     <li>
-                      Friends who are likely Biden supporters but who may need
-                      a push to get registered or to actually get out to vote.
+                      Friends who are likely Biden supporters but who may need a
+                      push to get registered or to actually get out to vote.
                       <ol type="a">
                         <li>
                           Get them registered and planning to vote for Biden.
@@ -113,12 +114,12 @@ const WhoToCallBanner = () => {
                   <p>
                     It is of pivotal importance that we reach potential voters
                     in swing states. It is impossible to win this election
-                    without a handful of critical swing states (such as PA,
-                    FL, WI, MI, and AZ) going blue.{' '}
+                    without a handful of critical swing states (such as PA, FL,
+                    WI, MI, and AZ) going blue.{' '}
                     <strong>
-                      Calling friends who live, have lived, or grew up in
-                      swing states, should be our key focus, even if they are
-                      not necessarily currently living/voting there.
+                      Calling friends who live, have lived, or grew up in swing
+                      states, should be our key focus, even if they are not
+                      necessarily currently living/voting there.
                     </strong>{' '}
                     A larger chunk of their network will be people from that
                     state making it easier for them to reach people there in a
@@ -127,24 +128,21 @@ const WhoToCallBanner = () => {
                 </Typography>
 
                 <Typography variant="h6">The Swing States:</Typography>
-
-                <img src={SwingStatesImg} alt="hello" width="100%"></img>
+                <MuiBox my={1} display="flex" justifyContent="center">
+                  <img src={SwingStatesImg} alt="hello" width="100%"></img>
+                </MuiBox>
                 <Typography variant="h6">
                   Finding Friends in Key States:
                 </Typography>
                 <Typography variant="body">
-                  A great way to find people in your network who are from
-                  swing states is on Facebook. Facebook has a feature where
-                  you can use any search window to type “My friends who live
-                  in [insert name of swing state].” The results list three
-                  names with the option to “See all.”
+                  A great way to find people in your network who are from swing
+                  states is on Facebook. Facebook has a feature where you can
+                  use any search window to type “My friends who live in [insert
+                  name of swing state].” The results list three names with the
+                  option to “See all.”
                 </Typography>
-                <MuiBox display="flex" justifyContent="center">
-                  <Box
-                    width={[1, 1, 3 / 4]}
-                    py={6}
-                    bg="primary"
-                    sx={{ opacity: '40%' }}></Box>
+                <MuiBox my={1} display="flex" justifyContent="center">
+                  <img src={FacebookImg} alt="hello" width="100%"></img>
                 </MuiBox>
               </div>
             </SectionDetails>
@@ -154,7 +152,7 @@ const WhoToCallBanner = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <img src={VoteImg1} width="100%" />
+          <img src={PhoneImg} width="100%" />
         </Grid>
       </Grid>
     </MuiBox>
@@ -321,7 +319,7 @@ const WhyThisWorks = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <img src={VoteImg1} width="100%" />
+          <img src={PhoneImg} width="100%" />
         </Grid>
       </Grid>
     </MuiBox>

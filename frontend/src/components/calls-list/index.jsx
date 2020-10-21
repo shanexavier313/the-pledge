@@ -23,7 +23,7 @@ const CallsList = ({ calls, recipients, updateCallAction, loading }) => {
           color="primary"
           onClick={() => navigate('create-call')}
           fullWidth>
-          Add Call +
+          Schedule Call +
         </Button>
       </Grid>
     </>

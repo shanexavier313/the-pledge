@@ -42,11 +42,7 @@ export const Dashboard = () => {
   }
   return (
     <Box>
-      <TitleBanner
-        title={dashboardTitleBanner.title}
-        description={dashboardTitleBanner.description}
-        bg={dashboardTitleBanner.bg}
-      />
+      <TitleBanner content={dashboardTitleBanner} />
       <Flex
         alignItems="center"
         justifyContent="center"

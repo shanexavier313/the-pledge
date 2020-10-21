@@ -19,6 +19,25 @@ import Framework2_9 from 'static/images/framework2-9.png'
 import Framework2_10 from 'static/images/framework2-10.png'
 import Framework2_11 from 'static/images/framework2-11.png'
 import Framework2_12 from 'static/images/framework2-12.png'
+// Swing States
+import Alabama from 'static/images/swing-states-al.png'
+import Arizona from 'static/images/swing-states-az.png'
+import Colorado from 'static/images/swing-states-co.png'
+import Florida from 'static/images/swing-states-fl.png'
+import Georgia from 'static/images/swing-states-ga.png'
+import Iowa from 'static/images/swing-states-ia.png'
+import Kansas from 'static/images/swing-states-ks.png'
+import Maine from 'static/images/swing-states-me.png'
+import Michigan from 'static/images/swing-states-mi.png'
+import Minnesota from 'static/images/swing-states-mn.png'
+import Montana from 'static/images/swing-states-mt.png'
+import NorthCarolina from 'static/images/swing-states-nc.png'
+import NewHampshire from 'static/images/swing-states-nh.png'
+import Nevada from 'static/images/swing-states-nv.png'
+import Ohio from 'static/images/swing-states-oh.png'
+import Pennsylvania from 'static/images/swing-states-pa.png'
+import Texas from 'static/images/swing-states-tx.png'
+import Wisconsin from 'static/images/swing-states-wi.png'
 
 export const framework1Slides = [
   Framework1_1,
@@ -43,4 +62,25 @@ export const framework2Slides = [
   Framework2_10,
   Framework2_11,
   Framework2_12,
+]
+
+export const swingStateSlides = [
+  Alabama,
+  Arizona,
+  Colorado,
+  Florida,
+  Georgia,
+  Iowa,
+  Kansas,
+  Maine,
+  Michigan,
+  Minnesota,
+  Montana,
+  NorthCarolina,
+  NewHampshire,
+  Nevada,
+  Ohio,
+  Pennsylvania,
+  Texas,
+  Wisconsin,
 ]

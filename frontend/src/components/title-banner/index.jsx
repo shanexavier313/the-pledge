@@ -1,30 +1,63 @@
 import React from 'react'
 import { Flex, Heading, Text } from 'rebass'
+import { Button } from 'theme-ui'
+import { navigate } from '@reach/router'
+import { Box, Paper, Typography } from '@material-ui/core'
 
-export const TitleBanner = ({ title, description, bg }) => {
+export const TitleBanner = ({ content, children }) => {
   return (
     <Flex
       mx="auto"
       variant="content.normal"
-      bg={bg}
+      bg={content.bg}
       sx={{
         width: '100%',
-        height: '40vh',
+        minHeight: '40vh',
       }}>
       <Flex
         px={2}
-        pb={4}
+        pb={1}
         sx={{
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Heading variant="text.h2" mb={4}>
-          {title}
-        </Heading>
-        <Text variant="text.body.large" sx={{ textAlign: 'center' }}>
-          {description}
-        </Text>
+        {children}
+        {content.title && (
+          <Typography variant="h5" mt={1} mb={4}>
+            <strong>{content.title}</strong>
+          </Typography>
+        )}
+        {content.description && content.ctaText && (
+          <Box
+            bgcolor="secondary.main"
+            borderRadius={'5px'}
+            p={2}
+            textAlign="center"
+            color="text.white">
+            <Typography variant="h6">
+              <strong>{content.description}</strong>
+            </Typography>
+          </Box>
+        )}
+        {content.description && !content.ctaText && (
+          <Box p={2} textAlign="center" color="text.primary">
+            <Typography variant="h6">{content.description}</Typography>
+          </Box>
+        )}
+
+        {content.ctaText && (
+          <Button
+            onClick={() => navigate('the-why')}
+            variant="buttons.tertiary"
+            my={3}
+            px={2}
+            bg="white"
+            color="secondary"
+            sx={{ boxShadow: 'small' }}>
+            <strong>{content.ctaText} ></strong>
+          </Button>
+        )}
       </Flex>
     </Flex>
   )
