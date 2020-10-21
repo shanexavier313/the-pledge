@@ -22,12 +22,9 @@ export const StepsBanner = () => (
         justifyContent: 'center',
       }}>
       <Box mx="auto" px={2} sx={{ textAlign: 'center' }}>
-        <Heading variant="text.h4" mb={2}>
+        <Heading variant="text.h4" mb={1}>
           {stepsBanner.title}
         </Heading>
-        <Text variant="text.body.small" mb={4} sx={{ textAlign: 'center' }}>
-          {stepsBanner.description}
-        </Text>
       </Box>
       <Flex
         sx={{
@@ -45,7 +42,7 @@ export const StepsBanner = () => (
       <Button
         onClick={() => navigate('steps')}
         variant="buttons.primary"
-        px={5}
+        px={4}
         sx={{ '&:hover': { boxShadow: 'small' } }}>
         Learn More >
       </Button>

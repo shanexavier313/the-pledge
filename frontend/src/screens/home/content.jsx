@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core'
 import { Box } from 'rebass'
 // import { Card, Flex, Heading, Image, Text } from 'theme-ui'
-import VoteImg1 from 'static/images/arnaud-jaegers-ibwjsmobnnu-unsplash.jpg'
+import PhoneImg from 'static/images/phone.jpg'
 import VoteImg2 from 'static/images/element5-digital-2i7Dn2uMEQE-unsplash.jpg'
 import SwingStatesImg from 'static/images/swingstates.jpg'
 import FacebookImg from 'static/images/facebook.jpg'
@@ -152,7 +152,7 @@ const WhoToCallBanner = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <img src={VoteImg1} width="100%" />
+          <img src={PhoneImg} width="100%" />
         </Grid>
       </Grid>
     </MuiBox>
@@ -319,7 +319,7 @@ const WhyThisWorks = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <img src={VoteImg1} width="100%" />
+          <img src={PhoneImg} width="100%" />
         </Grid>
       </Grid>
     </MuiBox>

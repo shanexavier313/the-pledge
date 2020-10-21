@@ -8,10 +8,10 @@ export const dashboardTitleBanner = {
 }
 
 export const homeTitleBanner = {
-  title: 'The Pledge',
   description:
-    'The 2020 election is rapidly approaching and it’s time to motivate our extended networks to vote for Joe Biden. These conversations are often challenging - our step by step process helps you meet people where they are. Take the pledge and make a difference in this election.',
+    'The pledge is our commitment to calling 5 or more people you know over the next 10 days and encouraging them to vote blue down the ballot — to get politicians who threaten our democracy out of office.',
   bg: theme.colors.grey300,
+  ctaText: "Why We're Doing This",
 }
 
 export const resourcesTitleBanner = {
@@ -37,8 +37,6 @@ export const whyThisWorks = {
 
 export const stepsBanner = {
   title: 'Step by Step',
-  description:
-    "We need to get as many American citizens registered and planning to vote for Biden as possible! Trump has verbally stated that he will contest this election, and that he does not intend to pass power peacefully. He's stacking the Supreme Court now! ",
 }
 
 export const steps = [
