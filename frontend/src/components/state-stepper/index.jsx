@@ -84,12 +84,15 @@ export const StateStepper = ({ slides }) => {
       <Box width={800}>
         <img src={slides[activeState]} alt={states[activeState]} width="100%" />
       </Box>
-      <Stepper alternativeLabel nonLinear activeStep={activeState}>
+      <Stepper
+        alternativeLabel
+        nonLinear
+        activeStep={activeState}
+        connector={false}>
         {states.map((label, index) => {
           return (
             <Step key={label}>
               <StepButton onClick={handleState(index)}>{label}</StepButton>
-              <StepConnector display="none" />
             </Step>
           )
         })}
