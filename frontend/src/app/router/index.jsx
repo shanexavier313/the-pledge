@@ -9,8 +9,10 @@ import { Dashboard } from 'screens/dashboard'
 import { Home } from 'screens/home'
 import { Login } from 'screens/login'
 import { Resources } from 'screens/resources'
+import { SharingThePledge } from 'screens/sharing-the-pledge'
 import { SignUp } from 'screens/sign-up'
 import { Steps } from 'screens/steps'
+import { TheWhy } from 'screens/the-why'
 
 import { logoutAction } from 'redux/actions/authActions'
 import { getAccessToken } from 'domains/identity'
@@ -32,7 +34,9 @@ export const Router = ({ children }) => {
       <About path="about" />
       <Home path="home" />
       <Resources path="resources" />
+      <SharingThePledge path="sharing-the-pledge" />
       <Steps path="steps" />
+      <TheWhy path="the-why" />
       {!isLoggedIn && <Login path="login" />}
       {!isLoggedIn && <SignUp path="signup" />}
       {isLoggedIn && <Dashboard path="dashboard" />}

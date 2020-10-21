@@ -1,8 +1,7 @@
 import React from 'react'
 import { Flex } from 'theme-ui'
 import { Typography } from '@material-ui/core'
-import { StepCard } from 'components/step-card'
-import * as steps from './steps'
+import { StepCards } from './steps'
 
 export const Steps = () => (
   <Flex
@@ -14,5 +13,6 @@ export const Steps = () => (
       width: '100%',
     }}>
     <Typography variant="h5">Step by Step</Typography>
+    <StepCards />
   </Flex>
 )
