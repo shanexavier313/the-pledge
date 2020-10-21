@@ -7,12 +7,13 @@ import {
   DialogContent,
   DialogTitle,
   DialogActions,
-} from '@material-ui/core';
+  Typography,
+} from '@material-ui/core'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'
 import { FormField } from '../../components/form-field'
-import { CreateRecipient } from '../create-recipient';
+import { CreateRecipient } from '../create-recipient'
 
 const today = new Date()
 
@@ -29,7 +30,7 @@ const RecipientDialog = styled(Dialog)`
       }
     }
   }
-`;
+`
 const callSchema = yup.object().shape({
   recipient: yup.string().required('Recipient is required'),
 })
@@ -38,7 +39,7 @@ export const Ui = ({ onSubmit, errorState, recipients }) => {
   const { register, handleSubmit, errors, setError } = useForm({
     resolver: yupResolver(callSchema),
   })
-  const [modal, toggleModal] = useState(false);
+  const [modal, toggleModal] = useState(false)
   useEffect(() => {
     if (errorState) {
       for (const name in errorState.errors) {
@@ -95,7 +96,11 @@ export const Ui = ({ onSubmit, errorState, recipients }) => {
         <Button mt={3} type="submit" variant="buttons.secondary">
           Create New Call
         </Button>
-        <Button mt={3} ml={1} variant="buttons.secondary" onClick={() => toggleModal(true)}>
+        <Button
+          mt={3}
+          ml={1}
+          variant="buttons.secondary"
+          onClick={() => toggleModal(true)}>
           Add New Recipient
         </Button>
         <RecipientDialog
@@ -104,7 +109,6 @@ export const Ui = ({ onSubmit, errorState, recipients }) => {
           open={modal}>
           <CreateRecipient toggleModal={toggleModal} />
         </RecipientDialog>
-        
       </Box>
     </Flex>
   )

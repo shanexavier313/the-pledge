@@ -55,15 +55,11 @@ class Recipient(TimeStampedModelMixin, models.Model):
     class VoterStatus(models.TextChoices):
         REGISTERED = "re"
         NOT_REGISTERED = "nr"
-        UNKNOWN = "un"
 
     state_residence = USStateField(null=True, blank=True)
     state_registered = USStateField(null=True, blank=True)
     registered_to_vote = models.CharField(
-        max_length=2,
-        choices=VoterStatus.choices,
-        default=VoterStatus.UNKNOWN,
-        blank=True,
+        max_length=2, choices=VoterStatus.choices, blank=True,
     )
 
     class PoliticalLeaning(models.TextChoices):
@@ -74,13 +70,9 @@ class Recipient(TimeStampedModelMixin, models.Model):
         CENTER_RIGHT = "cr"
         RIGHT = "ri"
         FAR_RIGHT = "fr"
-        UNKNOWN = "uk"
 
     political_leaning = models.CharField(
-        max_length=2,
-        choices=PoliticalLeaning.choices,
-        default=PoliticalLeaning.UNKNOWN,
-        blank=True,
+        max_length=2, choices=PoliticalLeaning.choices, blank=True,
     )
 
     user = models.ForeignKey(

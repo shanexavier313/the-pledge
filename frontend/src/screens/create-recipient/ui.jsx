@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Box, Flex } from 'theme-ui'
+import { Typography } from '@material-ui/core'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'
@@ -9,11 +10,6 @@ import { POLITICAL_LEANINGS, VOTER_STATUS, US_STATES } from 'domains/constants'
 
 const signUpSchema = yup.object().shape({
   first_name: yup.string().required('First Name is required'),
-  last_name: yup.string().required('Last Name is required'),
-  state_residence: yup.string().required('State Residence is required'),
-  state_registered: yup.string().required('State Registered is required'),
-  registered_to_vote: yup.string().required('Registered To Vote is required'),
-  political_leaning: yup.string().required('Political Leaning is required'),
 })
 
 export const Ui = ({ onSubmit, errorState, toggleModal = null }) => {
@@ -56,7 +52,7 @@ export const Ui = ({ onSubmit, errorState, toggleModal = null }) => {
         }}>
         <FormField
           name="first_name"
-          label="First Name"
+          label="First Name *"
           registerFn={register}
           error={errors.first_name}
         />
@@ -68,32 +64,43 @@ export const Ui = ({ onSubmit, errorState, toggleModal = null }) => {
         />
         <FormField
           name="state_residence"
-          label="State Residence"
+          label="State Residence (if unknown or you rather not to say, you can this leave blank)"
           registerFn={register}
           list={US_STATES}
           error={errors.state_residence}
         />
         <FormField
           name="state_registered"
-          label="State Registered"
+          label="State Registered (if unknown or you rather not to say, you can this leave blank)"
           registerFn={register}
           list={US_STATES}
           error={errors.state_registered}
         />
         <FormField
           name="registered_to_vote"
-          label="Registered To Vote"
+          label="Registered To Vote (if unknown or you rather not to say, you can this leave blank)"
           registerFn={register}
           list={VOTER_STATUS}
           error={errors.registered_to_vote}
         />
         <FormField
           name="political_leaning"
-          label="Political Leaning"
+          label="Political Leaning (if unknown or you rather not to say, you can this leave blank)"
           registerFn={register}
           list={POLITICAL_LEANINGS}
           error={errors.political_leaning}
         />
+        <Box px={2}>
+          <Typography variant="subtitle2">
+            <i>
+              For your organizational purposes, we want to give you some options
+              for categorizing your calls and your callees. Adding these details
+              in is <strong>totally optional</strong>. We will only ever look at
+              this information for aggregated, anonymized tracking of where The
+              Pledge has spread.
+            </i>
+          </Typography>
+        </Box>
         <Button mt={3} type="submit" variant="buttons.secondary">
           Create New Recipient
         </Button>

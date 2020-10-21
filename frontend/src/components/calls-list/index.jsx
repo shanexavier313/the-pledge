@@ -22,7 +22,7 @@ const CallsList = ({ calls, recipients, updateCallNotesAction }) => {
           color="primary"
           onClick={() => navigate('create-call')}
           fullWidth>
-          Add Call +
+          Schedule Call +
         </Button>
       </Grid>
     </>

@@ -14,7 +14,7 @@ export const ResourcesNav = ({ tab, setTab }) => (
     <Box p={1}>
       <TabButton
         active={tab === 'demographics'}
-        label="Demographics"
+        label="Political Identities"
         onClick={() => setTab('demographics')}
       />
       <TabButton
