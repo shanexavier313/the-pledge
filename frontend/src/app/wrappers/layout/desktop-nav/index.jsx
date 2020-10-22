@@ -61,8 +61,8 @@ export const DesktopNav = () => {
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink to="profile" my={2} ml={2} variant="buttons.secondary">
-          Profile
+        <ButtonLink to="account" my={2} ml={2} variant="buttons.secondary">
+          Account
         </ButtonLink>
       )}
     </Flex>

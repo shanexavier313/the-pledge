@@ -3,7 +3,7 @@ import { Flex } from 'theme-ui'
 import { Ui } from './ui'
 import { getUser } from 'domains/identity'
 
-export const Profile = () => {
+export const Account = () => {
   const user = getUser()
 
   return <Ui user={user} />

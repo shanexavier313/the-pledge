@@ -8,7 +8,7 @@ import { CreateRecipient } from 'screens/create-recipient'
 import { Dashboard } from 'screens/dashboard'
 import { Home } from 'screens/home'
 import { Login } from 'screens/login'
-import { Profile } from 'screens/profile'
+import { Account } from 'screens/account'
 import { Resources } from 'screens/resources'
 import { SharingThePledge } from 'screens/sharing-the-pledge'
 import { SignUp } from 'screens/sign-up'
@@ -34,7 +34,7 @@ export const Router = ({ children }) => {
     <ReachRouter>
       <About path="about" />
       <Home path="home" />
-      <Profile path="profile" />
+      <Account path="account" />
       <Resources path="resources" />
       <SharingThePledge path="sharing-the-pledge" />
       <Steps path="steps" />

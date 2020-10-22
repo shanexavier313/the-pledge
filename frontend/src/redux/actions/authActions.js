@@ -47,6 +47,20 @@ export async function loginAction(
   }
 }
 
+export function logoutAction(enqueueSnackbar, dispatch, redirectUri = 'home') {
+  const messagePayload = {
+    message: 'Logged out',
+    isError: false,
+  }
+  sendAlertMessage(dispatch, messagePayload)
+  enqueueSnackbar(messagePayload.message, { variant: 'success' })
+  navigate(redirectUri)
+  setTimeout(() => {
+    clearTokens()
+    dispatch({ type: actionTypes.ACTION_LOGOUT })
+  }, 1)
+}
+
 export async function signUpAction(
   enqueueSnackbar,
   dispatch,
@@ -80,16 +94,27 @@ export async function signUpAction(
   }
 }
 
-export function logoutAction(enqueueSnackbar, dispatch, redirectUri = 'home') {
-  const messagePayload = {
-    message: 'Logged out',
-    isError: false,
+export async function updateAccountAction(
+  dispatch,
+  data,
+  redirectUri = 'account',
+) {
+  try {
+    const response = await axiosInstance.put(`account/`, {
+      email: data.email,
+      first_name: data.firstName,
+      last_name: data.lastName,
+      password1: data.password,
+      password2: data.passwordCon,
+    })
+    const messagePayload = {
+      message: 'Account updated!',
+      isError: false,
+    }
+    sendAlertMessage(dispatch, messagePayload)
+    navigate(redirectUri)
+    return { response: response.data, isError: false }
+  } catch (error) {
+    return { response: error, isError: true }
   }
-  sendAlertMessage(dispatch, messagePayload)
-  enqueueSnackbar(messagePayload.message, { variant: 'success' })
-  navigate(redirectUri)
-  setTimeout(() => {
-    clearTokens()
-    dispatch({ type: actionTypes.ACTION_LOGOUT })
-  }, 1)
 }
