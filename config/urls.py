@@ -17,6 +17,7 @@ core_patterns = [
     path("signup/", core_views.SignUpView.as_view(), name="signup"),
     path("login/", core_views.LogInView.as_view(), name="login"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("account/", core_views.UpdateAccountView.as_view(), name="account"),
 ]
 
 api_urls = router.urls + core_patterns

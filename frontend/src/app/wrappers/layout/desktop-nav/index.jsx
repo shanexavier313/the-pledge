@@ -19,7 +19,7 @@ export const DesktopNav = () => {
       <MuiBox display="flex" justifyContent="center">
         <img src={logo} height="40rem" />
       </MuiBox>
-      <Link to="home" my={2} mx={1} variant="links.nav">
+      <Link to="/" my={2} mx={1} variant="links.nav">
         Home
       </Link>
       <Link to="resources" my={2} mx={1} variant="links.nav">
@@ -27,9 +27,6 @@ export const DesktopNav = () => {
       </Link>
       <Link to="the-why" my={2} mx={1} variant="links.nav">
         The Why
-      </Link>
-      <Link to="about" my={2} mx={1} variant="links.nav">
-        About
       </Link>
       <Link
         to="sharing-the-pledge"
@@ -51,18 +48,18 @@ export const DesktopNav = () => {
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink
-          to="home"
-          onClick={logOut}
-          my={2}
-          ml={2}
-          variant="buttons.primary">
+        <ButtonLink to="home" onClick={logOut} my={2} variant="buttons.primary">
           Logout
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.tertiary">
+        <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.secondary">
           Dashboard
+        </ButtonLink>
+      )}
+      {isLoggedIn && (
+        <ButtonLink to="account" my={2} ml={2} variant="buttons.secondary">
+          Account
         </ButtonLink>
       )}
     </Flex>

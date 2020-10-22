@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { Router as ReachRouter } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
-import { About } from 'screens/about'
 import { CreateCall } from 'screens/create-call'
 import { CreateRecipient } from 'screens/create-recipient'
 import { Dashboard } from 'screens/dashboard'
 import { Home } from 'screens/home'
 import { Login } from 'screens/login'
+import { Account } from 'screens/account'
 import { Resources } from 'screens/resources'
 import { SharingThePledge } from 'screens/sharing-the-pledge'
 import { SignUp } from 'screens/sign-up'
@@ -31,8 +31,8 @@ export const Router = ({ children }) => {
 
   return (
     <ReachRouter>
-      <About path="about" />
-      <Home path="home" />
+      <Home path="/" />
+      <Account path="account" />
       <Resources path="resources" />
       <SharingThePledge path="sharing-the-pledge" />
       <Steps path="steps" />

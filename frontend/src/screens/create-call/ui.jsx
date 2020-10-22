@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Box, Flex } from 'theme-ui'
 import styled from 'styled-components'
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogActions,
-  Typography,
-} from '@material-ui/core'
+import { Dialog, Typography } from '@material-ui/core'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { Alert } from '../../components/alert'

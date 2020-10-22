@@ -7,7 +7,7 @@ import { ResourcesNav } from 'components/resources-nav'
 import {
   ConversationGuideResource,
   CommonViewsResource,
-  DemographicsResource,
+  PoliticalIdentitiesResource,
   KeyIssuesResource,
   SwingStatesResource,
 } from 'components/resources'
@@ -21,7 +21,7 @@ const ResourcesWrapper = styled(Grid)`
 `
 
 export const Resources = ({ children }) => {
-  const [tab, setTab] = useState('calls')
+  const [tab, setTab] = useState('demographics')
 
   return (
     <>
@@ -31,7 +31,7 @@ export const Resources = ({ children }) => {
         px={(2, 4, 6)}
         variant="content.normal"
         sx={{ flexDirection: 'column' }}>
-        {tab === 'demographics' && <DemographicsResource />}
+        {tab === 'demographics' && <PoliticalIdentitiesResource />}
         {tab === 'common-views' && <CommonViewsResource />}
         {tab === 'call-tactics' && <ConversationGuideResource />}
         {tab === 'key-issues' && <KeyIssuesResource />}

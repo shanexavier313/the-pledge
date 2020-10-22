@@ -26,6 +26,7 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     )
     mobile_phone = PhoneNumberField(blank=True, null=True, unique=True)
     signup_code = models.CharField(max_length=6, editable=False, unique=True, null=True)
+    is_active = models.BooleanField("active", default=True)
 
     email_validated_at = models.DateTimeField(null=True, editable=False)
     mobile_phone_validated_at = models.DateTimeField(null=True, editable=False)

@@ -13,52 +13,52 @@ export const TitleBanner = ({ content, children }) => {
       sx={{
         width: '100%',
         minHeight: '40vh',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
-      <Flex
-        px={2}
-        pb={1}
-        sx={{
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        {children}
-        {content.title && (
-          <Typography variant="h5" mt={1} mb={4}>
-            <strong>{content.title}</strong>
+      {children}
+      {content.title && (
+        <Typography variant="h5" mt={1} mb={4}>
+          <strong>{content.title}</strong>
+        </Typography>
+      )}
+      {content.description && content.ctaText && (
+        <Box
+          bgcolor="secondary.main"
+          borderRadius={'5px'}
+          p={2}
+          textAlign="center"
+          color="text.white">
+          <Typography variant="h6">
+            <strong>{content.description}</strong>
           </Typography>
-        )}
-        {content.description && content.ctaText && (
-          <Box
-            bgcolor="secondary.main"
-            borderRadius={'5px'}
-            p={2}
-            textAlign="center"
-            color="text.white">
-            <Typography variant="h6">
-              <strong>{content.description}</strong>
-            </Typography>
-          </Box>
-        )}
-        {content.description && !content.ctaText && (
-          <Box p={2} textAlign="center" color="text.primary">
-            <Typography variant="h6">{content.description}</Typography>
-          </Box>
-        )}
+        </Box>
+      )}
+      {content.description && !content.ctaText && (
+        <Box width="100%" p={1} textAlign="center" color="text.primary">
+          <Typography variant="body1">{content.description}</Typography>
+        </Box>
+      )}
 
-        {content.ctaText && (
-          <Button
-            onClick={() => navigate('the-why')}
-            variant="buttons.tertiary"
-            my={3}
-            px={2}
-            bg="white"
-            color="secondary"
-            sx={{ boxShadow: 'small' }}>
-            <strong>{content.ctaText} ></strong>
-          </Button>
-        )}
-      </Flex>
+      {content.subDescription && (
+        <Box width="100%" pb={2} textAlign="center" color="text.primary">
+          <Typography variant="body1">{content.subDescription}</Typography>
+        </Box>
+      )}
+
+      {content.ctaText && (
+        <Button
+          onClick={() => navigate('the-why')}
+          variant="buttons.tertiary"
+          my={3}
+          px={2}
+          bg="white"
+          color="secondary"
+          sx={{ boxShadow: 'small' }}>
+          <strong>{content.ctaText} ></strong>
+        </Button>
+      )}
     </Flex>
   )
 }
