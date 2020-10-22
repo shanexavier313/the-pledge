@@ -33,7 +33,7 @@ export const Router = ({ children }) => {
   return (
     <ReachRouter>
       <About path="about" />
-      <Home path="home" />
+      <Home path="/" />
       <Account path="account" />
       <Resources path="resources" />
       <SharingThePledge path="sharing-the-pledge" />

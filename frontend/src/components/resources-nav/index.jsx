@@ -9,7 +9,7 @@ export const ResourcesNav = ({ tab, setTab }) => (
     display="flex"
     justifyContent="space-around"
     alignItems="center"
-    py={4}
+    py={1}
     px={8}>
     <Box p={1}>
       <TabButton
@@ -19,7 +19,7 @@ export const ResourcesNav = ({ tab, setTab }) => (
       />
       <TabButton
         active={tab === 'common-views'}
-        label="Common Views"
+        label="Views & Response Prep"
         onClick={() => setTab('common-views')}
       />
       <TabButton
