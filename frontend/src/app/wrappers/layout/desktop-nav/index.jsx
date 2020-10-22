@@ -51,18 +51,18 @@ export const DesktopNav = () => {
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink
-          to="home"
-          onClick={logOut}
-          my={2}
-          ml={2}
-          variant="buttons.primary">
+        <ButtonLink to="home" onClick={logOut} my={2} variant="buttons.primary">
           Logout
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.tertiary">
+        <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.secondary">
           Dashboard
+        </ButtonLink>
+      )}
+      {isLoggedIn && (
+        <ButtonLink to="profile" my={2} ml={2} variant="buttons.secondary">
+          Profile
         </ButtonLink>
       )}
     </Flex>

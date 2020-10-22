@@ -40,7 +40,7 @@ export const Dashboard = () => {
     // navigate('dashboard')
   }
   return (
-    <Box>
+    <>
       <TitleBanner content={dashboardTitleBanner} />
       <Flex
         alignItems="center"
@@ -84,6 +84,6 @@ export const Dashboard = () => {
           </DashboardWrapper>
         )}
       </Flex>
-    </Box>
+    </>
   )
 }
