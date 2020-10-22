@@ -22,6 +22,15 @@ class CustomUserSerializer(serializers.ModelSerializer):
         data["password"] = validated_data["password1"]
         return self.Meta.model.objects.create_user(**data)
 
+    def update(self, instance, validated_data):
+        data = {
+            key: value
+            for key, value in validated_data.items()
+            if key not in ("password1", "password2")
+        }
+        data["password"] = validated_data["password1"]
+        return self.Meta.model.objects.update_user(instance, **data)
+
     class Meta:
         model = get_user_model()
         fields = (

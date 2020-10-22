@@ -39,3 +39,24 @@ def test_sign_up_data_validations(db, client):
     assert response.status_code == 201
     assert response.data["id"] == str(user.id)
     assert response.data["first_name"] == user.first_name
+
+
+def test_user_can_update_account(user, client):
+    url = reverse("account")
+    data = {
+        "email": "user@example.com",
+        "first_name": "Test",
+        "last_name": "User",
+        "password1": "password",
+        "password2": "password",
+    }
+
+    client.login(email=user.email, password="password")
+    response = client.put(url, data=data)
+
+    client.force_authenticate(user=None)
+
+    user.refresh_from_db()
+
+    assert response.status_code == 200
+    assert user.email == "user@example.com"
