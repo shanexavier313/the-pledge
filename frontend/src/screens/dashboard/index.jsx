@@ -39,7 +39,7 @@ export const Dashboard = () => {
     // navigate('dashboard')
   }
   return (
-    <Box>
+    <>
       <TitleBanner content={dashboardTitleBanner} />
       <Grid container alignItems="center" justify="center" fullWidth>
         <Box p={1}>
@@ -76,6 +76,6 @@ export const Dashboard = () => {
           )}
         </Box>
       </Grid>
-    </Box>
+    </>
   )
 }

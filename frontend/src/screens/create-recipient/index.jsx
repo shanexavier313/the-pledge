@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
 import { createRecipient } from 'redux/actions/dashboardActions'
@@ -15,7 +15,7 @@ export const CreateRecipient = ({ toggleModal = null }) => {
         const responseData = response.response
         enqueueSnackbar(responseData.data, { variant: 'warning' })
         if (responseData.status === 400) {
-          return { error: { date: responseData.data } }
+          return { error: responseData.data }
         }
       } else {
         if (toggleModal) {

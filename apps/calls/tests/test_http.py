@@ -32,7 +32,7 @@ def test_user_can_view_resources_with_token(
     client.force_authenticate(user=None)
 
     assert len(call_response.data) == 3
-    assert len(recipient_response.data) == 3
+    assert len(recipient_response.data) == 6
 
 
 def test_user_can_view_recipients(create_recipient, create_call, client):

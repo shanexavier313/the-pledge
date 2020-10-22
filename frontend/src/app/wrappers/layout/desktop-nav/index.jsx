@@ -16,7 +16,7 @@ export const DesktopNav = () => {
   return (
     <Grid container color="black" bg="white" alignItems="center">
       <MuiBox display="flex" justifyContent="center">
-        <img src={logo} height="40rem" />
+        <img src={logo} height="40rem" alt="logo" />
       </MuiBox>
       <Link to="home" my={2} mx={1} className="nav-link">
         Home
@@ -61,6 +61,11 @@ export const DesktopNav = () => {
       {isLoggedIn && (
         <ButtonLink to="dashboard" color="primary" variant="outlined">
           Dashboard
+        </ButtonLink>
+      )}
+      {isLoggedIn && (
+        <ButtonLink to="account" color="primary" variant="outlined">
+          Account
         </ButtonLink>
       )}
     </Grid>

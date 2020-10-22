@@ -7,7 +7,6 @@ import {
   DialogContent,
   DialogTitle,
   DialogActions,
-  Divider,
   FormControlLabel,
   Grid,
   IconButton,

@@ -12,13 +12,13 @@ export const CreateCall = () => {
   const { enqueueSnackbar } = useSnackbar()
   const onSubmit = async (data, e) => {
     try {
-      data.date = moment(data.date, 'YYYY-MM-DD').format('MM-DD-YYYY');
+      data.date = moment(data.date, 'YYYY-MM-DD').format('MM-DD-YYYY')
       const { response, isError } = await createCall(dispatch, data)
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
           enqueueSnackbar(responseData.data, { variant: 'warning' })
-          return { error: { date: responseData.data } }
+          return { error: responseData.data }
         }
       } else {
         enqueueSnackbar('New Call is Created!', { variant: 'success' })
@@ -35,10 +35,5 @@ export const CreateCall = () => {
       recipient.id
     ] = `${recipient.first_name} ${recipient.last_name}`
   })
-  return (
-    <Ui
-      onSubmit={onSubmit}
-      recipients={recipientsList}
-    />
-  )
+  return <Ui onSubmit={onSubmit} recipients={recipientsList} />
 }

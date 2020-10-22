@@ -17,7 +17,9 @@ export const homeTitleBanner = {
 export const resourcesTitleBanner = {
   title: 'Resources',
   description:
-    'Here’s why you should read these resources! Read them in order! Read them multiple times! Mea aeterno eleifend antiopam ad. Est audiam animal molestiae te.',
+    'These resources are here to get you through Step 3: Prep For Your Calls.',
+  subDescription:
+    'Collectively, these resources allow us to do three things: (1) Meet our callees where they are by understanding their core values, beliefs, and viewpoints, (2) Learn skills that help us have more thoughtful, more open conversations, and, (3) Think strategically about where our calls can make the most difference between now and November 3rd',
   bg: theme.colors.base300,
 }
 

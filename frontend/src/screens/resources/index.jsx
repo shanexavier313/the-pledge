@@ -5,20 +5,21 @@ import { ResourcesNav } from 'components/resources-nav'
 import {
   ConversationGuideResource,
   CommonViewsResource,
-  DemographicsResource,
+  PoliticalIdentitiesResource,
   KeyIssuesResource,
   SwingStatesResource,
 } from 'components/resources'
 import { resourcesTitleBanner } from '../../content'
 
 export const Resources = ({ children }) => {
-  const [tab, setTab] = useState('calls')
+  const [tab, setTab] = useState('demographics')
+
   return (
     <>
       <TitleBanner content={resourcesTitleBanner} />
       <ResourcesNav tab={tab} setTab={setTab} />
       <Box px={6}>
-        {tab === 'demographics' && <DemographicsResource />}
+        {tab === 'demographics' && <PoliticalIdentitiesResource />}
         {tab === 'common-views' && <CommonViewsResource />}
         {tab === 'call-tactics' && <ConversationGuideResource />}
         {tab === 'key-issues' && <KeyIssuesResource />}
