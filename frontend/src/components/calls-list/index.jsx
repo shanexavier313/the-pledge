@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Grid } from '@material-ui/core'
 import { navigate } from '@reach/router'
 import CallItem from '../call-item'
-const CallsList = ({ calls, recipients, updateCallNotesAction }) => {
+const CallsList = ({ calls, recipients, updateCallAction, loading }) => {
   return (
     <>
       {calls?.map((call, index) => {
@@ -12,7 +12,8 @@ const CallsList = ({ calls, recipients, updateCallNotesAction }) => {
             call={call}
             recipient={recipient}
             key={index}
-            updateCallNotesAction={updateCallNotesAction}
+            updateCallAction={updateCallAction}
+            loading={loading}
           />
         )
       })}
