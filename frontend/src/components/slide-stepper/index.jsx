@@ -3,8 +3,6 @@ import {
   Box,
   Button,
   MobileStepper,
-  Paper,
-  Typography,
 } from '@material-ui/core'
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'

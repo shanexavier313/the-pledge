@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Box, Link, Typography } from '@material-ui/core'
 import { SlideStepper } from 'components/slide-stepper'
 import { StateStepper } from 'components/state-stepper'

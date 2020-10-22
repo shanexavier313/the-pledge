@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex } from 'rebass'
 import {
   Accordion,
   AccordionSummary,
@@ -9,6 +8,7 @@ import {
   Button,
   Link,
   Typography,
+  Grid
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
@@ -354,15 +354,7 @@ const Section4 = () => {
 }
 
 export const TheWhy = () => (
-  <Flex
-    mx="auto"
-    variant="content.normal"
-    sx={{
-      width: '100%',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
+  <Grid container direction="column" alignItems="center" justify="center">
     <Box
       width="60%"
       border={1}
@@ -410,5 +402,5 @@ export const TheWhy = () => (
     <Section2 />
     <Section3 />
     <Section4 />
-  </Flex>
+  </Grid>
 )

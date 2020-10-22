@@ -1,12 +1,7 @@
 import React from 'react'
-import { Text } from 'theme-ui'
-
+import Box from '@material-ui/core/Box'
 export const FormFieldError = ({ children }) => (
-  <Text
-    variant="text.body.small"
-    my={1}
-    color="secondary"
-    sx={{ fontStyle: 'italic' }}>
-    {children}
-  </Text>
+  <Box fontSize="body1.fontsize" color="secondary" my={1}>
+    <i>{children}</i>
+  </Box>
 )

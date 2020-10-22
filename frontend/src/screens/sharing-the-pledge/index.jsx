@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Text } from 'rebass'
+import { Box, Typography } from '@material-ui/core'
 
 export const SharingThePledge = () => (
   <Box>
-    <Text variant="text.heading">Sharing the Pledge</Text>
+    <Typography variant="h1">Sharing the Pledge</Typography>
   </Box>
 )

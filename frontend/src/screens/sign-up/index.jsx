@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
 import { signUpAction } from 'redux/actions/authActions'
 import { Ui } from './ui'
 
 export const SignUp = () => {
-  const [errorState, setErrorState] = useState({
-    errors: {},
-  })
   const { enqueueSnackbar } = useSnackbar()
   const dispatch = useDispatch()
 
@@ -21,7 +18,7 @@ export const SignUp = () => {
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
-          setErrorState({ errors: responseData.data })
+          return { error: responseData.data }
         }
       }
       e.preventDefault()
@@ -30,5 +27,5 @@ export const SignUp = () => {
     }
   }
 
-  return <Ui onSubmit={onSubmit} errorState={errorState} />
+  return <Ui onSubmit={onSubmit} />
 }

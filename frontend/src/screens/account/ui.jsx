@@ -1,17 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex } from 'theme-ui'
-import {
-  Box,
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogActions,
-  Paper,
-  Typography,
-} from '@material-ui/core'
-import { useForm } from 'react-hook-form'
+import { Box, Button, Dialog, Typography, Grid } from '@material-ui/core'
 import { UpdateAccount } from '../update-account'
 
 const AccountDialog = styled(Dialog)`
@@ -39,14 +28,7 @@ export const Ui = ({ user }) => {
   const [modal, toggleModal] = useState(false)
 
   return (
-    <Flex
-      variant="content.normal"
-      sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-      }}>
+    <Grid container direction="column" alignItems="center" justify="center">
       <Box color="primary.main">
         <Typography variant="h6">Profile</Typography>
       </Box>
@@ -91,6 +73,6 @@ export const Ui = ({ user }) => {
           <UpdateAccount toggleModal={toggleModal} />
         </AccountDialog>
       </Box>
-    </Flex>
+    </Grid>
   )
 }

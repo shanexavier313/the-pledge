@@ -1,73 +1,88 @@
-/** @jsx jsx */
 // eslint-disable-next-line
 import React from 'react'
-import { Box, Flex, Heading, Text } from 'rebass'
-import { jsx } from 'theme-ui'
-import { Divider } from 'components/divider'
+import styled from 'styled-components'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import { Link } from 'components/link'
 
+const DesktopFooterWrapper = styled(Grid)`
+  && {
+    padding: 1rem 0;
+    .right-content {
+      border-left: 1px solid black;
+    }
+    .right-content,
+    .left-content {
+      padding: 1rem 2rem;
+    }
+    .left-content {
+      padding-left: 0;
+    }
+  }
+`
+
+const FooterMenu = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+`;
+
 export const DesktopFooter = () => (
-  <Flex color="white" justifyContent="space-around" alignItems="center" py={3}>
-    <Box width={[1, 1, 1 / 2]}>
-      <Heading variant="text.h5" sx={{ fontWeight: 600, my: 2 }}>
+  <DesktopFooterWrapper container alignItems="center">
+    <Grid item xs={6} className="left-content">
+      <Box fontWeight={600} fontSize="h6.fontSize" my={0.5}>
         The Pledge
-      </Heading>
-      <Text variant="text.body.small">
+      </Box>
+      <Typography variant="body2" component="body2">
         We need to get as many American citizens registered and planning to vote
         for Biden as possible! Trump has verbally stated that he will contest
         this election, and that he does not intend to pass power peacefully.
-      </Text>
-    </Box>
-    <Divider />
-    <Flex width={[1, 1, 1 / 2]}>
-      <Box width={[1, 1, 1 / 2]}>
-        <ul
-          sx={{
-            listStyle: 'none',
-            m: 0,
-            p: 0,
-          }}>
-          <li sx={{ my: 3 }}>
-            <Link variant="links.footer" to="/">
+      </Typography>
+    </Grid>
+    <Grid item container xs={6} className="right-content">
+      <Grid item xs={6}>
+        <FooterMenu>
+          <li>
+            <Link className="footer-link" to="/">
               Demographic Breakdown
             </Link>
           </li>
-          <li sx={{ my: 3 }}>
-            <Link variant="links.footer" to="/">
+          <li>
+            <Link className="footer-link" to="/">
               Commonly Held Views
             </Link>
           </li>
-          <li sx={{ my: 3 }}>
-            <Link variant="links.footer" to="/">
+          <li>
+            <Link className="footer-link" to="/">
               Key Issues
             </Link>
           </li>
-          <li sx={{ my: 3 }}>
-            <Link variant="links.footer" to="/">
+          <li>
+            <Link className="footer-link" to="/">
               Swing State Information
             </Link>
           </li>
-        </ul>
-      </Box>
-      <Box width={[1, 1, 1 / 2]}>
-        <ul
-          sx={{
-            listStyle: 'none',
-            m: 0,
-            p: 0,
-          }}>
-          <li sx={{ my: 3 }}>
-            <Link variant="links.footer" to="/">
+        </FooterMenu>
+      </Grid>
+      <Grid item xs={6}>
+        <FooterMenu>
+          <li>
+            <Link className="footer-link" to="/">
               About the Pledge
             </Link>
           </li>
-          <li sx={{ my: 3 }}>
-            <Link variant="links.footer" to="/">
+          <li>
+            <Link className="footer-link" to="/">
               Contact Us
             </Link>
           </li>
-        </ul>
-      </Box>
-    </Flex>
-  </Flex>
+        </FooterMenu>
+      </Grid>
+    </Grid>
+  </DesktopFooterWrapper>
 )

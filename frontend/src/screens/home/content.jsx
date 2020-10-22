@@ -7,15 +7,11 @@ import {
   AccordionSummary,
   AccordionDetails,
   Box as MuiBox,
-  Card as MuiCard,
-  CardMedia,
   Link,
   Grid,
   Button,
   Typography,
 } from '@material-ui/core'
-import { Box } from 'rebass'
-// import { Card, Flex, Heading, Image, Text } from 'theme-ui'
 import PhoneImg from 'static/images/phone.jpg'
 import VoteImg2 from 'static/images/element5-digital-2i7Dn2uMEQE-unsplash.jpg'
 import ReachableImg from 'static/images/reachable.jpg'
@@ -158,7 +154,7 @@ const WhoToCallBanner = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <img src={PhoneImg} width="100%" />
+          <img src={PhoneImg} width="100%" alt="phone" />
         </Grid>
       </Grid>
     </MuiBox>
@@ -171,7 +167,7 @@ const WhoIsReachableBanner = () => {
     <MuiBox px={20} py={2}>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={4}>
-          <img src={ReachableImg} width="100%" />
+          <img src={ReachableImg} width="100%" alt="reachable" />
         </Grid>
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
@@ -362,7 +358,7 @@ const WhyThisWorks = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <img src={VoteImg2} width="100%" />
+          <img src={VoteImg2} width="100%" alt="voteimg" />
         </Grid>
       </Grid>
     </MuiBox>

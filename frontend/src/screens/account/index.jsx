@@ -1,5 +1,4 @@
 import React from 'react'
-import { Flex } from 'theme-ui'
 import { Ui } from './ui'
 import { getUser } from 'domains/identity'
 

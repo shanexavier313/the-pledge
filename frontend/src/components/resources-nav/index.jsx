@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Box } from '@material-ui/core'
 import TabButton from 'components/tab-button'
-import { theme } from 'styles/theme'
 
 export const ResourcesNav = ({ tab, setTab }) => (
   <Box

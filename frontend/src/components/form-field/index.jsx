@@ -1,64 +1,75 @@
 import React from 'react'
-import { Input, Label, Textarea, Select } from 'theme-ui'
-import { FormFieldError } from '../form-field-error'
+import TextField from '@material-ui/core/TextField'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import FormHelperText from '@material-ui/core/FormHelperText'
 
 export const FormField = ({
   name,
   label,
   type = 'text',
-  registerFn,
+  handleBlur,
+  handleChange,
+  helperText,
   error,
   list,
-  multiLine = false,
+  rows = 1,
+  values,
+  description,
+  size="small"
 }) => {
   console.log(error)
   return (
     <>
-      <Label htmlFor={name} variant="text.body.small" color="base800">
-        {label}
-      </Label>
       {list && (
-        <Select
-          defaultValue={null}
-          ref={registerFn}
-          my={1}
-          name={name}
-          aria-describedby={`${name}Error`}>
-          <option value={null}></option>
-          {Object.keys(list).map((key, index) => (
-            <option key={index} value={key}>
-              {list[key]}
-            </option>
-          ))}
-        </Select>
+        <FormControl
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          size={size}
+          error={error}>
+          <InputLabel htmlFor="age-native-simple">{label}</InputLabel>
+          <Select
+            fullWidth
+            label={label}
+            name={name}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            value={values[name]}>
+            <MenuItem value={''}></MenuItem>
+            {Object.keys(list).map((key, index) => (
+              <MenuItem key={index} value={key}>
+                {list[key]}
+              </MenuItem>
+            ))}
+          </Select>
+          {description && <FormHelperText>{description}</FormHelperText>}
+          <FormHelperText>{helperText}</FormHelperText>
+        </FormControl>
       )}
       {!list && (
-        <>
-          {multiLine ? (
-            <Textarea
-              name={name}
-              type={type}
-              aria-describedby={`${name}Error`}
-              ref={registerFn}
-              rows={2}
-              my={1}
-            />
-          ) : (
-            <Input
-              name={name}
-              type={type}
-              aria-describedby={`${name}Error`}
-              ref={registerFn}
-              my={1}
-            />
-          )}
-        </>
-      )}
-
-      {error && (
-        <FormFieldError id={`${name}Error`} mb={1}>
-          {error.message}
-        </FormFieldError>
+        <TextField
+          error={error}
+          fullWidth
+          helperText={helperText}
+          label={label}
+          margin="normal"
+          name={name}
+          type={type}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          value={values[name]}
+          variant="outlined"
+          size={size}
+          rows={rows}
+          InputLabelProps={
+            type === 'date' && {
+              shrink: true,
+            }
+          }
+        />
       )}
     </>
   )
