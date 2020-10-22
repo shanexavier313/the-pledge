@@ -9,10 +9,6 @@ import Container from '@material-ui/core/Container'
 import { POLITICAL_LEANINGS, VOTER_STATUS, US_STATES } from 'domains/constants'
 import { FormField } from 'components/form-field'
 
-const signUpSchema = yup.object().shape({
-  first_name: yup.string().required('First Name is required'),
-})
-
 const FormContainer = styled.div`
   &.form {
     padding: 2rem;

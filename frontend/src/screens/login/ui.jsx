@@ -1,72 +1,96 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
-import { Button, Box, Flex, Input, Label } from 'theme-ui'
-import { FormFieldError } from '../../components/form-field-error'
+import styled from 'styled-components'
+import * as yup from 'yup'
+import { Formik } from 'formik'
+import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
+import { FormField } from 'components/form-field'
 
+const FormContainer = styled.div`
+  padding: 2rem;
+  margin: 10rem 0;
+  border: 1px solid rgb(240, 104, 47);
+  min-height: 100%;
+  .actions {
+    margin-top: 1rem;
+  }
+`
 export const Ui = ({ onSubmit }) => {
-  const { register, handleSubmit, errors } = useForm()
-
   return (
-    <Flex
-      variant="content.normal"
-      sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-      }}>
-      <Box
-        mt={4}
-        mb={6}
-        py={6}
-        px={6}
-        as="form"
-        onSubmit={handleSubmit(onSubmit)}
-        sx={{
-          borderStyle: 'solid',
-          borderWidth: '1px',
-          borderColor: 'primary',
-        }}>
-        <Label htmlFor="email" color="base800" variant="text.body.small">
-          Email
-        </Label>
-        <Input
-          name="email"
-          id="email"
-          ref={register({
-            required: true,
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Invalid email address',
-            },
+    <Container maxWidth="sm">
+      <FormContainer>
+        <Formik
+          initialValues={{
+            email: '',
+            password: '',
+          }}
+          validationSchema={yup.object().shape({
+            email: yup
+              .string()
+              .email('Must be a valid email')
+              .max(255)
+              .required('Email is required'),
+            password: yup
+              .string()
+              .min(7)
+              .max(255)
+              .required('Password is required'),
           })}
-        />
-        {errors.email?.type === 'required' && (
-          <FormFieldError>Email is required</FormFieldError>
-        )}
-        {errors.email?.type === 'pattern' && (
-          <FormFieldError>Invalid email address</FormFieldError>
-        )}
-        <Label
-          htmlFor="password"
-          color="base800"
-          mt={2}
-          variant="text.body.small">
-          Password
-        </Label>
-        <Input
-          type="password"
-          name="password"
-          id="password"
-          ref={register({ required: true })}
-        />
-        {errors.password?.type === 'required' && (
-          <FormFieldError>Password is required</FormFieldError>
-        )}
-        <Button mt={3} type="submit" variant="buttons.secondary">
-          Login
-        </Button>
-      </Box>
-    </Flex>
+          onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+            const { error } = await onSubmit(values)
+            if (error) {
+              setStatus({ success: false })
+              setErrors(error)
+              setSubmitting(false)
+            }
+          }}>
+          {({
+            errors,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+            isSubmitting,
+            touched,
+            values,
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <FormField
+                error={Boolean(touched.email && errors.email)}
+                helperText={touched.email && errors.email}
+                label="Email"
+                name="email"
+                type="email"
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+                values={values}
+                size="large"
+              />
+              <FormField
+                error={Boolean(touched.password && errors.password)}
+                helperText={touched.password && errors.password}
+                label="Password"
+                name="password"
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+                values={values}
+                size="large"
+                type="password"
+              />
+              <Box mt={2}>
+                <Button
+                  color="primary"
+                  disabled={isSubmitting}
+                  fullWidth
+                  type="submit"
+                  variant="contained">
+                  Login
+                </Button>
+              </Box>
+            </form>
+          )}
+        </Formik>
+      </FormContainer>
+    </Container>
   )
 }

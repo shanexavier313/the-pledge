@@ -18,6 +18,7 @@ export const FormField = ({
   rows = 1,
   values,
   description,
+  size="small"
 }) => {
   console.log(error)
   return (
@@ -27,7 +28,7 @@ export const FormField = ({
           variant="outlined"
           fullWidth
           margin="normal"
-          size="small"
+          size={size}
           error={error}>
           <InputLabel htmlFor="age-native-simple">{label}</InputLabel>
           <Select
@@ -61,7 +62,7 @@ export const FormField = ({
           onChange={handleChange}
           value={values[name]}
           variant="outlined"
-          size="small"
+          size={size}
           rows={rows}
           InputLabelProps={
             type === 'date' && {

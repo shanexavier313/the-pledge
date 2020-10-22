@@ -21,7 +21,7 @@ export const SignUp = () => {
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
-          setErrorState({ errors: responseData.data })
+          return { error: { date: responseData.data } }
         }
       }
       e.preventDefault()

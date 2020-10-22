@@ -33,9 +33,6 @@ const FormContainer = styled.div`
     margin-top: 1rem;
   }
 `
-const callSchema = yup.object().shape({
-  recipient: yup.string().required('Recipient is required'),
-})
 
 export const Ui = ({ onSubmit, errorState, recipients }) => {
   const [modal, toggleModal] = useState(false)
