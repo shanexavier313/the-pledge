@@ -28,9 +28,6 @@ export const DesktopNav = () => {
       <Link to="the-why" my={2} mx={1} variant="links.nav">
         The Why
       </Link>
-      <Link to="about" my={2} mx={1} variant="links.nav">
-        About
-      </Link>
       <Link
         to="sharing-the-pledge"
         my={2}

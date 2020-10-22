@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Router as ReachRouter } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
-import { About } from 'screens/about'
 import { CreateCall } from 'screens/create-call'
 import { CreateRecipient } from 'screens/create-recipient'
 import { Dashboard } from 'screens/dashboard'
@@ -32,7 +31,6 @@ export const Router = ({ children }) => {
 
   return (
     <ReachRouter>
-      <About path="about" />
       <Home path="/" />
       <Account path="account" />
       <Resources path="resources" />
