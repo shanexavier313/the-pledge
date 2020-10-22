@@ -1,16 +1,9 @@
-from django.core.exceptions import ValidationError
-
 import pytest
 
 
 def test_user(create_user):
     user = create_user()
     assert len(user.signup_code) == 6
-
-
-def test_clean(django_user_model):
-    with pytest.raises(ValidationError) as _:
-        django_user_model.objects.create(password="password",)
 
 
 def test_create_staff_wrong_is_staff(django_user_model):

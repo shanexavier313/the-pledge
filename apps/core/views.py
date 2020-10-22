@@ -16,7 +16,7 @@ class LogInView(TokenObtainPairView):
     serializer_class = LogInSerializer
 
 
-class AccountView(generics.RetrieveUpdateAPIView):
+class UpdateAccountView(generics.UpdateAPIView):
     permission_classes = (IsUser,)
     serializer_class = CustomUserSerializer
 

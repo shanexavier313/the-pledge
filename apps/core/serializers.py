@@ -40,6 +40,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "password2",
             "first_name",
             "last_name",
+            "signup_code",
         )
         read_only_fields = ("id",)
 
