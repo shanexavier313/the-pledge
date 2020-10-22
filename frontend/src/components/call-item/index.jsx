@@ -85,7 +85,6 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
           )}
         </Grid>
       </ItemWrapper>
-      <Divider />
       <ItemWrapper container spacing={2}>
         <Grid item xs={8} className="left-col">
           <Typography variant="subtitle1" component="subtitle1">

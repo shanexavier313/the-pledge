@@ -1,30 +1,31 @@
 import React from 'react'
-import { Flex, Heading, Text } from 'rebass'
-import { Button } from 'theme-ui'
+import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import { Box, Paper, Typography } from '@material-ui/core'
+import { Box, Typography, Button } from '@material-ui/core'
+
+const TitleContainer = styled.div`
+  margin-right: auto;
+  margin-left: auto;
+  background-color: ${(props) => props.bg};
+  min-height: 40vh;
+  width: 100%;
+`
+const TitleBox = styled(Box)`
+  && {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+`
 
 export const TitleBanner = ({ content, children }) => {
   return (
-    <Flex
-      mx="auto"
-      variant="content.normal"
-      bg={content.bg}
-      sx={{
-        width: '100%',
-        minHeight: '40vh',
-      }}>
-      <Flex
-        px={2}
-        pb={1}
-        sx={{
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+    <TitleContainer bg={content.bg}>
+      <TitleBox p={2}>
         {children}
         {content.title && (
-          <Typography variant="h5" mt={1} mb={4}>
+          <Typography variant="h4" mt={1} mb={4}>
             <strong>{content.title}</strong>
           </Typography>
         )}
@@ -47,18 +48,16 @@ export const TitleBanner = ({ content, children }) => {
         )}
 
         {content.ctaText && (
-          <Button
-            onClick={() => navigate('the-why')}
-            variant="buttons.tertiary"
-            my={3}
-            px={2}
-            bg="white"
-            color="secondary"
-            sx={{ boxShadow: 'small' }}>
-            <strong>{content.ctaText} ></strong>
-          </Button>
+          <Box my={3} px={2}>
+            <Button
+              onClick={() => navigate('the-why')}
+              color="primary"
+              variant="contained">
+              <strong>{content.ctaText}</strong>
+            </Button>
+          </Box>
         )}
-      </Flex>
-    </Flex>
+      </TitleBox>
+    </TitleContainer>
   )
 }

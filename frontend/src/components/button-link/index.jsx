@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/aria-role */
 import React from 'react'
-import { Button } from 'rebass'
+import { Button, Box } from '@material-ui/core'
 import { Link } from '@reach/router'
 
 export const ButtonLink = (props) => (
-  <Button as={Link} role={null} aria-disabled={null} {...props} />
+  <Box my={1} ml={1}>
+    <Button component={Link} role={null} aria-disabled={null} {...props} />
+  </Box>
 )

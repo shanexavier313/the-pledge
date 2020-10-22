@@ -1,6 +1,5 @@
 import React from 'react'
 import { SvgIcon } from '@material-ui/core'
-import { ContentBanner } from 'components/content-banner'
 import { TitleBanner } from 'components/title-banner'
 import { StepsBanner } from '../steps-banner'
 import { homeTitleBanner } from '../../content'

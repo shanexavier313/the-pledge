@@ -1,24 +1,26 @@
 import React from 'react'
-import { Card, Heading, Text } from 'theme-ui'
-
+import styled from 'styled-components';
+import { Box, Card } from '@material-ui/core'
+const MuiCard = styled(Card)`
+  && {
+    text-align: center;
+    width: 240px;
+    height: 144px;
+    background-color: white;
+    .title {
+      opacity: 20%;
+    }
+  }
+`
 export const StepBannerCard = ({ stepID, primaryText }) => (
-  <Card
-    m={3}
-    px={2}
-    pt={4}
-    pb="auto"
-    bg="white"
-    sx={{
-      boxShadow: 'small',
-      textAlign: 'center',
-      width: '240px',
-      height: '144px',
-    }}>
-    <Heading variant="text.h4" mb={2} sx={{ opacity: '20%' }}>
-      {stepID}
-    </Heading>
-    <Text variant="text.body.small" sx={{ fontWeight: 'bold' }}>
-      {primaryText}
-    </Text>
-  </Card>
+  <MuiCard>
+    <Box m={0.5} px={0.5} pt={1} pb="auto">
+      <Box fontSize="h5.fontSize" mb={0.5} className="title">
+        {stepID}
+      </Box>
+      <Box fontSize="body1.fontSize" fontWeight="fontWeightBold">
+        {primaryText}
+      </Box>
+    </Box>
+  </MuiCard>
 )

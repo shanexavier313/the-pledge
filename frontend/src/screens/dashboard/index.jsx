@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
-import { Box, Flex } from 'rebass'
-import { navigate } from '@reach/router'
-import { Grid } from '@material-ui/core'
+import { Grid, Box } from '@material-ui/core'
 import { dashboardTitleBanner } from 'content'
 import {
   loadCallsAction,
@@ -43,12 +41,7 @@ export const Dashboard = () => {
   return (
     <Box>
       <TitleBanner content={dashboardTitleBanner} />
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        px={3}
-        py={4}
-        bg="muted">
+      <Grid container alignItems="center" justify="center" fullWidth>
         <Box p={1}>
           <TabButton
             active={tab === 'calls'}
@@ -63,29 +56,26 @@ export const Dashboard = () => {
             onClick={() => setTab('recipients')}
           />
         </Box>
-      </Flex>
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        px={3}
-        py={4}
-        bg="muted">
-        {tab === 'calls' && (
-          <DashboardWrapper container spacing={4}>
-            <CallsList
-              calls={calls}
-              recipients={recipients}
-              updateCallAction={updateCallActionCallback}
-              loading={loading}
-            />
-          </DashboardWrapper>
-        )}
-        {tab === 'recipients' && (
-          <DashboardWrapper container spacing={4}>
-            <RecipientsList recipients={recipients} />
-          </DashboardWrapper>
-        )}
-      </Flex>
+      </Grid>
+      <Grid container alignItems="center" justify="center" fullWidth>
+        <Box px={2} py={2}>
+          {tab === 'calls' && (
+            <DashboardWrapper container spacing={4}>
+              <CallsList
+                calls={calls}
+                recipients={recipients}
+                updateCallAction={updateCallActionCallback}
+                loading={loading}
+              />
+            </DashboardWrapper>
+          )}
+          {tab === 'recipients' && (
+            <DashboardWrapper container spacing={4}>
+              <RecipientsList recipients={recipients} />
+            </DashboardWrapper>
+          )}
+        </Box>
+      </Grid>
     </Box>
   )
 }

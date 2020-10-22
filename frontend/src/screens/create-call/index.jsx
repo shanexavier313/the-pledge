@@ -1,33 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createCall } from 'redux/actions/dashboardActions'
 import { useSnackbar } from 'notistack'
-import moment from 'moment';
+import moment from 'moment'
 import { navigate } from '@reach/router'
 import { Ui } from './ui'
-
 
 export const CreateCall = () => {
   const dispatch = useDispatch()
   const { recipients } = useSelector((state) => state.dashboard)
   const { enqueueSnackbar } = useSnackbar()
-  const [errorState, setErrorState] = useState({
-    invalidInput: false,
-    errors: {},
-  })
   const onSubmit = async (data, e) => {
     try {
-      console.log('12333', moment(data.date, 'MM-DD-YYYY'))
-      if(!moment(data.date, 'MM-DD-YYYY').isValid()) {
-        setErrorState({ invalidInput: true, errors: {date: 'Date must be MM-DD-YYYY'} })
-        return;
-      }
+      data.date = moment(data.date, 'YYYY-MM-DD').format('MM-DD-YYYY');
       const { response, isError } = await createCall(dispatch, data)
       if (isError) {
         const responseData = response.response
         if (responseData.status === 400) {
           enqueueSnackbar(responseData.data, { variant: 'warning' })
-          setErrorState({ invalidInput: true, errors: responseData.data })
+          return { error: { date: responseData.data } }
         }
       } else {
         enqueueSnackbar('New Call is Created!', { variant: 'success' })
@@ -47,7 +38,6 @@ export const CreateCall = () => {
   return (
     <Ui
       onSubmit={onSubmit}
-      errorState={errorState}
       recipients={recipientsList}
     />
   )

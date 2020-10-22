@@ -14,8 +14,6 @@ import {
   Grid,
   Button,
 } from '@material-ui/core'
-import { Box } from 'rebass'
-// import { Card, Flex, Heading, Image, Text } from 'theme-ui'
 import PhoneImg from 'static/images/phone.jpg'
 import VoteImg2 from 'static/images/element5-digital-2i7Dn2uMEQE-unsplash.jpg'
 import SwingStatesImg from 'static/images/swingstates.jpg'

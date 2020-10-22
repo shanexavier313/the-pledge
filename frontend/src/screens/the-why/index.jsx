@@ -1,8 +1,7 @@
 import React from 'react'
-import { Box, Text } from 'rebass'
-
+import { Box, Typography } from '@material-ui/core'
 export const TheWhy = () => (
   <Box>
-    <Text variant="text.heading">The Why</Text>
+    <Typography variant="h1">The Why</Typography>
   </Box>
 )

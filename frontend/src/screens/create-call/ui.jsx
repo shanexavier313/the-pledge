@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Button, Box, Flex } from 'theme-ui'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogActions,
-  Typography,
-} from '@material-ui/core'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { Dialog } from '@material-ui/core'
+import { Formik } from 'formik'
 import * as yup from 'yup'
-import { Alert } from '../../components/alert'
-import { FormField } from '../../components/form-field'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
 import { CreateRecipient } from '../create-recipient'
-
-const today = new Date()
+import { FormField } from 'components/form-field'
 
 const RecipientDialog = styled(Dialog)`
   && {
@@ -31,85 +23,114 @@ const RecipientDialog = styled(Dialog)`
     }
   }
 `
+
+const FormContainer = styled.div`
+  padding: 2rem;
+  margin: 10rem 0;
+  border: 1px solid rgb(240, 104, 47);
+  min-height: 100%;
+  .actions {
+    margin-top: 1rem;
+  }
+`
 const callSchema = yup.object().shape({
   recipient: yup.string().required('Recipient is required'),
 })
 
 export const Ui = ({ onSubmit, errorState, recipients }) => {
-  const { register, handleSubmit, errors, setError } = useForm({
-    resolver: yupResolver(callSchema),
-  })
   const [modal, toggleModal] = useState(false)
-  useEffect(() => {
-    if (errorState) {
-      for (const name in errorState.errors) {
-        setError(name, { type: 'server', message: errorState.errors[name] })
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [errorState])
-
   return (
-    <Flex
-      variant="content.normal"
-      sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-      }}>
-      {errorState.invalidInput && (
-        <Alert isError={true}>Whoops. Looks like there are some errors.</Alert>
-      )}
-      <Box
-        mt={4}
-        mb={6}
-        py={5}
-        px={6}
-        as="form"
-        onSubmit={handleSubmit(onSubmit)}
-        sx={{
-          borderStyle: 'solid',
-          borderWidth: '1px',
-          borderColor: 'primary',
-        }}>
-        <FormField
-          name="date"
-          label="Date"
-          registerFn={register}
-          error={errors.date}
-        />
-        <FormField
-          name="recipient"
-          label="Recipient"
-          registerFn={register}
-          list={recipients}
-          error={errors.recipient}
-        />
-        <FormField
-          name="notes"
-          label="Notes"
-          registerFn={register}
-          error={errors.notes}
-          multiLine
-        />
-        <Button mt={3} type="submit" variant="buttons.secondary">
-          Create New Call
-        </Button>
-        <Button
-          mt={3}
-          ml={1}
-          variant="buttons.secondary"
-          onClick={() => toggleModal(true)}>
-          Add New Recipient
-        </Button>
-        <RecipientDialog
-          onClose={() => toggleModal(false)}
-          aria-labelledby="simple-dialog-title"
-          open={modal}>
-          <CreateRecipient toggleModal={toggleModal} />
-        </RecipientDialog>
-      </Box>
-    </Flex>
+    <Container maxWidth="sm">
+      <FormContainer>
+        <Formik
+          initialValues={{
+            date: '',
+            recipient: '',
+            notes: '',
+          }}
+          validationSchema={yup.object().shape({
+            date: yup.string().required('Date is required'),
+            recipient: yup.string().required('Recipient is required'),
+          })}
+          onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+            const { error } = await onSubmit(values)
+            if (error) {
+              setStatus({ success: false })
+              setErrors(error)
+              setSubmitting(false)
+            }
+          }}>
+          {({
+            errors,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+            isSubmitting,
+            touched,
+            values,
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <FormField
+                error={Boolean(touched.date && errors.date)}
+                helperText={touched.date && errors.date}
+                label="Date"
+                name="date"
+                type="date"
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+                values={values}
+              />
+              <FormField
+                error={Boolean(touched.recipient && errors.recipient)}
+                helperText={touched.recipient && errors.recipient}
+                label="Recipient"
+                name="recipient"
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+                values={values}
+                list={recipients}
+              />
+              <FormField
+                error={Boolean(touched.notes && errors.notes)}
+                helperText={touched.notes && errors.notes}
+                label="Notes"
+                name="notes"
+                type="notes"
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+                values={values}
+                rows={2}
+              />
+              <Grid container spacing={1} className="actions">
+                <Grid item xs={6}>
+                  <Button
+                    color="primary"
+                    disabled={isSubmitting}
+                    fullWidth
+                    type="submit"
+                    variant="contained">
+                    Create New Call
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button
+                    color="default"
+                    fullWidth
+                    onClick={() => toggleModal(true)}>
+                    Add New Recipient
+                  </Button>
+                </Grid>
+                <RecipientDialog
+                  onClose={() => toggleModal(false)}
+                  aria-labelledby="simple-dialog-title"
+                  open={modal}>
+                  <CreateRecipient toggleModal={toggleModal} />
+                </RecipientDialog>
+              </Grid>
+            </form>
+          )}
+        </Formik>
+      </FormContainer>
+    </Container>
   )
 }

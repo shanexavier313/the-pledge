@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, Flex, Text } from 'rebass'
 import { useSelector, useDispatch } from 'react-redux'
-import { Box as MuiBox } from '@material-ui/core'
+import { Box as MuiBox, Grid } from '@material-ui/core'
 import { Link } from 'components/link'
 import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'
@@ -15,38 +14,38 @@ export const DesktopNav = () => {
   const logOut = () => logoutAction(enqueueSnackbar, dispatch)
 
   return (
-    <Flex color="black" bg="white" alignItems="center">
+    <Grid container color="black" bg="white" alignItems="center">
       <MuiBox display="flex" justifyContent="center">
         <img src={logo} height="40rem" />
       </MuiBox>
-      <Link to="home" my={2} mx={1} variant="links.nav">
+      <Link to="home" my={2} mx={1} className="nav-link">
         Home
       </Link>
-      <Link to="resources" my={2} mx={1} variant="links.nav">
+      <Link to="resources" my={2} mx={1} className="nav-link">
         Resources
       </Link>
-      <Link to="the-why" my={2} mx={1} variant="links.nav">
+      <Link to="the-why" my={2} mx={1} className="nav-link">
         The Why
       </Link>
-      <Link to="about" my={2} mx={1} variant="links.nav">
+      <Link to="about" my={2} mx={1} className="nav-link">
         About
       </Link>
       <Link
         to="sharing-the-pledge"
         my={2}
         mx={1}
-        variant="links.nav"
+        className="nav-link"
         sx={{ color: 'secondary' }}>
         Sharing the Pledge
       </Link>
-      <Box mx="auto" />
+      <MuiBox mx="auto" />
       {!isLoggedIn && (
-        <ButtonLink to="login" my={2} ml={2} variant="buttons.primary">
+        <ButtonLink to="login" color="primary" variant="contained">
           Login
         </ButtonLink>
       )}
       {!isLoggedIn && (
-        <ButtonLink to="signup" my={2} ml={2} variant="buttons.secondary">
+        <ButtonLink to="signup" color="primary" variant="outlined">
           Sign Up
         </ButtonLink>
       )}
@@ -54,17 +53,16 @@ export const DesktopNav = () => {
         <ButtonLink
           to="home"
           onClick={logOut}
-          my={2}
-          ml={2}
-          variant="buttons.primary">
+          color="primary"
+          variant="contained">
           Logout
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink to="dashboard" my={2} ml={2} variant="buttons.tertiary">
+        <ButtonLink to="dashboard" color="primary" variant="outlined">
           Dashboard
         </ButtonLink>
       )}
-    </Flex>
+    </Grid>
   )
 }
