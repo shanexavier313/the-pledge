@@ -18,7 +18,7 @@ export const DesktopNav = () => {
       <MuiBox display="flex" justifyContent="center">
         <img src={logo} height="40rem" alt="logo" />
       </MuiBox>
-      <Link to="home" my={2} mx={1} className="nav-link">
+      <Link to="/" my={2} mx={1} className="nav-link">
         Home
       </Link>
       <Link to="resources" my={2} mx={1} className="nav-link">
@@ -26,9 +26,6 @@ export const DesktopNav = () => {
       </Link>
       <Link to="the-why" my={2} mx={1} className="nav-link">
         The Why
-      </Link>
-      <Link to="about" my={2} mx={1} className="nav-link">
-        About
       </Link>
       <Link
         to="sharing-the-pledge"
