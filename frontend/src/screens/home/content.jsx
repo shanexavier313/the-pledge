@@ -12,11 +12,13 @@ import {
   Button,
   Typography,
 } from '@material-ui/core'
-import PhoneImg from 'static/images/phone.jpg'
-import VoteImg2 from 'static/images/element5-digital-2i7Dn2uMEQE-unsplash.jpg'
-import ReachableImg from 'static/images/reachable.jpg'
-import SwingStatesImg from 'static/images/swingstates.jpg'
-import FacebookImg from 'static/images/facebook.jpg'
+import { S3_BUCKET } from 'domains/constants'
+
+const PhoneImg = `${S3_BUCKET}/images/phone.jpg`
+const VoteImg2 = `${S3_BUCKET}/images/element5-digital-2i7Dn2uMEQE-unsplash.jpg`
+const ReachableImg = `${S3_BUCKET}/images/reachable.jpg`
+const SwingStatesImg = `${S3_BUCKET}/images/swingstates.jpg`
+const FacebookImg = `${S3_BUCKET}/images/facebook.jpg`
 
 const SectionSummary = styled(AccordionSummary)`
   && {

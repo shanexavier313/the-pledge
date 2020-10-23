@@ -1,9 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Ui } from './ui'
-import { getUser } from 'domains/identity'
 
 export const Account = () => {
-  const user = getUser()
+  const { user } = useSelector((state) => state.auth)
 
   return <Ui user={user} />
 }

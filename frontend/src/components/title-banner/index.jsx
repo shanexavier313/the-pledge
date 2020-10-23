@@ -29,8 +29,20 @@ export const TitleBanner = ({ content, children }) => {
             <strong>{content.title}</strong>
           </Typography>
         )}
+        {content.description && content.ctaText && (
+          <Box
+            bgcolor="secondary.main"
+            borderRadius={'5px'}
+            p={2}
+            textAlign="center"
+            color="text.white">
+            <Typography variant="h6">
+              <strong>{content.description}</strong>
+            </Typography>
+          </Box>
+        )}
         {content.description && !content.ctaText && (
-          <Box width="100%" p={1} textAlign="center" color="text.primary">
+          <Box width="100%" p={1} textAlign="center" className="description" color="primary">
             <Typography variant="body1">{content.description}</Typography>
           </Box>
         )}
