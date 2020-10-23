@@ -3,7 +3,8 @@ import { TitleBanner } from 'components/title-banner'
 import { StepsBanner } from '../steps-banner'
 import { homeTitleBanner } from '../../content'
 import { HomeContentBanners } from './content'
-import logo from 'static/images/logo.svg'
+import { S3_BUCKET } from 'domains/constants'
+const logo = `${S3_BUCKET}/images/logo.svg`
 
 export const Home = () => (
   <>

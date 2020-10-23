@@ -7,6 +7,7 @@ const MuiCard = styled(Card)`
     width: 240px;
     height: 144px;
     background-color: white;
+    margin-bottom: 1rem;
     .title {
       opacity: 20%;
     }

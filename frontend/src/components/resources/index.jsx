@@ -3,8 +3,9 @@ import { Box, Link, Typography } from '@material-ui/core'
 import { SlideStepper } from 'components/slide-stepper'
 import { StateStepper } from 'components/state-stepper'
 import { framework1Slides, framework2Slides, swingStateSlides } from './slides'
-import FrameworksIntro1 from 'static/images/frameworks-intro1.png'
-import FrameworksIntro2 from 'static/images/frameworks-intro2.png'
+import { S3_BUCKET } from 'domains/constants'
+const FrameworksIntro1 = `${S3_BUCKET}/images/frameworks-intro1.png`
+const FrameworksIntro2 = `${S3_BUCKET}/images/frameworks-intro2.png`
 
 export const PoliticalIdentitiesResource = () => (
   <>

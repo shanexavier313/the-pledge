@@ -3,6 +3,7 @@ import axiosInstance from 'domains/axios'
 import { clearTokens, setTokens } from 'domains/identity'
 import * as actionTypes from '../constants'
 import { sendAlertMessage } from './alertActions'
+import { getUser } from 'domains/identity'
 
 export async function loginAction(
   enqueueSnackbar,
@@ -24,7 +25,7 @@ export async function loginAction(
       isError: false,
     }
     enqueueSnackbar(messagePayload.message, { variant: 'success' })
-    dispatch({ type: actionTypes.ACTION_LOGIN_SUCCESS })
+    dispatch({ type: actionTypes.ACTION_LOGIN_SUCCESS, user: getUser() })
     sendAlertMessage(dispatch, messagePayload)
     navigate(redirectUri)
   } catch (error) {
@@ -111,6 +112,13 @@ export async function updateAccountAction(
       message: 'Account updated!',
       isError: false,
     }
+    dispatch({
+      type: actionTypes.ACTION_USER_UPDATE_SUCCESS, data: {
+        email: data.email,
+        first_name: data.firstName,
+        last_name: data.lastName,
+      }
+    })
     sendAlertMessage(dispatch, messagePayload)
     navigate(redirectUri)
     return { response: response.data, isError: false }

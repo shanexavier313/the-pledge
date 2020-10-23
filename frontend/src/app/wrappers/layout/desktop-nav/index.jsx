@@ -5,7 +5,8 @@ import { Link } from 'components/link'
 import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'
 import { useSnackbar } from 'notistack'
-import logo from 'static/images/logo.svg'
+import { S3_BUCKET } from 'domains/constants'
+const logo = `${S3_BUCKET}/images/logo.svg`
 
 export const DesktopNav = () => {
   const dispatch = useDispatch()

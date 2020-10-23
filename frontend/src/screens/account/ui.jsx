@@ -45,9 +45,9 @@ export const Ui = ({ user }) => {
         borderColor="primary.main">
         <Typography variant="h6">
           <p>
-            {user.first_name} {user.last_name}
+            {user?.first_name} {user?.last_name}
             <br />
-            {user.email}
+            {user?.email}
           </p>
         </Typography>
         <Box
@@ -56,7 +56,7 @@ export const Ui = ({ user }) => {
           bgcolor="secondary.main"
           color="text.white">
           <Typography variant="h6">
-            <strong>{user.signup_code}</strong>
+            <strong>{user?.signup_code}</strong>
           </Typography>
         </Box>
         <StyledButton
