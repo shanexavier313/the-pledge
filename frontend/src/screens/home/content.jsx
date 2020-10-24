@@ -136,8 +136,10 @@ const WhoToCallBanner = () => {
                   </p>
                 </Typography>
                 <Typography variant="h6">The Swing States:</Typography>
-                <Box my={1} display="flex" justifyContent="center">
-                  <img src={SwingStatesImg} alt="hello" width="100%"></img>
+                <Box my={1}>
+                  <Container>
+                    <img src={SwingStatesImg} alt="hello" width="100%"></img>
+                  </Container>
                 </Box>
                 <Typography variant="h6">
                   Finding Friends in Key States:
@@ -147,8 +149,10 @@ const WhoToCallBanner = () => {
                   type “My friends who live in [insert name of swing state].”
                   The results list three names with the option to “See all.”
                 </Typography>
-                <Box my={1} display="flex" justifyContent="center">
-                  <img src={FacebookImg} alt="hello" width="100%"></img>
+                <Box my={1}>
+                  <Container>
+                    <img src={FacebookImg} alt="hello" width="100%"></img>
+                  </Container>
                 </Box>
               </Box>
             </SectionDetails>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import { Box, Button, Typography } from '@material-ui/core'
+import { Box, Button, Typography, Container } from '@material-ui/core'
 import { StepBannerCard } from 'components/step-banner-card'
 import { steps, stepsBanner } from 'content'
 import { theme } from 'styles/theme'
@@ -44,15 +44,16 @@ export const StepsBanner = () => (
       <Box mx="auto" px={2} mb={1} textAlign="center" className="title-wrapper">
         <Typography variant="h4">{stepsBanner.title}</Typography>
       </Box>
-      <StepsContent mb={1}>
-        {steps.map((step, index) => (
-          <StepBannerCard
-            key={index}
-            stepID={step.stepID}
-            primaryText={step.primary}></StepBannerCard>
-        ))}
-      </StepsContent>
-
+      <Container maxWidth="md">
+        <StepsContent mb={1}>
+          {steps.map((step, index) => (
+            <StepBannerCard
+              key={index}
+              stepID={step.stepID}
+              primaryText={step.primary}></StepBannerCard>
+          ))}
+        </StepsContent>
+      </Container>
       <Button
         onClick={() => navigate('steps')}
         variant="contained"
