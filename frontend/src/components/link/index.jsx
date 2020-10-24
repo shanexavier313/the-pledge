@@ -23,10 +23,7 @@ const StyledLink = styled(RouterLink)`
     font-weight: 600;
     &:hover {
       color: #f0682f;
-<<<<<<< HEAD
       text-decoration: underline;
-=======
->>>>>>> 896926ffbf5fd448a75b6369f81bf6225b4b7f29
     }
   }
 `

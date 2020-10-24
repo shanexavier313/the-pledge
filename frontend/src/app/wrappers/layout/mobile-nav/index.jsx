@@ -10,7 +10,8 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
-import { Link as RouterLink } from '@reach/router'
+// import { Link as Link } from '@reach/router'
+import { Link } from 'components/link'
 import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'
 import { useSnackbar } from 'notistack'
@@ -58,16 +59,19 @@ export const MobileNav = () => {
       </Grid>
       {isOpen && (
         <MobileMenuList component="nav" aria-label="main mailbox folders">
-          <ListItem component={RouterLink} to="/">
+          <ListItem component={Link} to="/" className="nav-link">
             Home
           </ListItem>
-          <ListItem component={RouterLink} to="/resources">
+          <ListItem component={Link} to="/resources" className="nav-link">
             Resources
           </ListItem>
-          <ListItem component={RouterLink} to="/the-why">
+          <ListItem component={Link} to="/the-why" className="nav-link">
             The Why
           </ListItem>
-          <ListItem component={RouterLink} to="/sharing-the-pledge">
+          <ListItem
+            component={Link}
+            to="/sharing-the-pledge"
+            className="nav-link">
             Sharing the Pledge
           </ListItem>
           <Grid container>

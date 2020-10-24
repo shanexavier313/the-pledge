@@ -6,6 +6,8 @@ import {
   Box,
   Link,
   Typography,
+  Grid,
+  Container,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import styled from 'styled-components'
@@ -23,7 +25,7 @@ const StyledLink = styled(RouterLink)`
 `
 
 const Step1 = () => (
-  <Box width={0.8} my={1}>
+  <Box my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box
@@ -38,21 +40,28 @@ const Step1 = () => (
         </Box>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography variant="body1">
-          Sign up, take the Pledge and track your outreach in your dashboard.
-        </Typography>
-        <Box mt={2}>
-          <ButtonLink variant="outlined" color="primary" to="signup">
-            Sign Up
-          </ButtonLink>
-        </Box>
+        <Grid container>
+          <Grid item xs={12} md={6}>
+            <Typography variant="body1">
+              Sign up, take the Pledge and track your outreach in your
+              dashboard.
+            </Typography>
+          </Grid>
+          <Grid item container xs={12} md={6} justify="center">
+            <Box mt={2}>
+              <ButtonLink variant="outlined" color="primary" to="signup">
+                Sign Up
+              </ButtonLink>
+            </Box>
+          </Grid>
+        </Grid>
       </AccordionDetails>
     </Accordion>
   </Box>
 )
 
 const Step2 = () => (
-  <Box width={0.8} my={1}>
+  <Box my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box
@@ -120,8 +129,10 @@ const Step2 = () => (
             </p>
           </Typography>
           <Typography variant="subtitle1">The Swing States:</Typography>
-          <Box my={1} display="flex" justifyContent="center">
-            <img src={SwingStatesImg} alt="hello" width="60%"></img>
+          <Box my={1}>
+            <Container>
+              <img src={SwingStatesImg} alt="hello" width="60%"></img>
+            </Container>
           </Box>
           <Typography variant="subtitle1">
             Finding Friends in Key States:
@@ -131,8 +142,10 @@ const Step2 = () => (
             “My friends who live in [insert name of swing state].” The results
             list three names with the option to “See all.”
           </Typography>
-          <Box my={1} display="flex" justifyContent="center">
-            <img src={FacebookImg} alt="hello" width="60%"></img>
+          <Box my={1}>
+            <Container>
+              <img src={FacebookImg} alt="hello" width="60%"></img>
+            </Container>
           </Box>
         </Box>
       </AccordionDetails>
@@ -141,7 +154,7 @@ const Step2 = () => (
 )
 
 const Step3 = () => (
-  <Box width={0.8} my={1}>
+  <Box my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box
@@ -205,7 +218,7 @@ const Step3 = () => (
 )
 
 const Step4 = () => (
-  <Box width={0.8} my={1}>
+  <Box my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box
@@ -232,7 +245,7 @@ const Step4 = () => (
 )
 
 const Step5 = () => (
-  <Box width={0.8} my={1}>
+  <Box my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box
@@ -316,7 +329,7 @@ const Step5 = () => (
 )
 
 const Step6 = () => (
-  <Box width={0.8} my={1}>
+  <Box my={1}>
     <Accordion variant="outlined" square={true}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box
