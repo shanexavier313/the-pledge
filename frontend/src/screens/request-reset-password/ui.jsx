@@ -35,11 +35,6 @@ export const Ui = ({ onSubmit }) => {
               .email('Must be a valid email')
               .max(255)
               .required('Email is required'),
-            password: yup
-              .string()
-              .min(7)
-              .max(255)
-              .required('Password is required'),
           })}
           onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
             const { error } = await onSubmit(values)
@@ -70,17 +65,6 @@ export const Ui = ({ onSubmit }) => {
                 values={values}
                 size="large"
               />
-              <FormField
-                error={Boolean(touched.password && errors.password)}
-                helperText={touched.password && errors.password}
-                label="Password"
-                name="password"
-                handleBlur={handleBlur}
-                handleChange={handleChange}
-                values={values}
-                size="large"
-                type="password"
-              />
               <Box my={1}>
                 <Button
                   color="primary"
@@ -88,12 +72,9 @@ export const Ui = ({ onSubmit }) => {
                   fullWidth
                   type="submit"
                   variant="contained">
-                  Login
+                  Submit
                 </Button>
               </Box>
-              <Button component={RouterLink} to="/reset-password" color="secondary">
-                Forgot Password
-              </Button>
             </form>
           )}
         </Formik>

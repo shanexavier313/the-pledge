@@ -5,22 +5,19 @@ import { Formik } from 'formik'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import { Link as RouterLink } from '@reach/router'
 import { FormField } from 'components/form-field'
 
 const FormContainer = styled.div`
   padding: 2rem;
-  margin: 10rem 0;
+  margin: 2rem 0;
   border: 1px solid rgb(240, 104, 47);
-  @media only screen and (max-width: 800px) {
-    margin: 2rem 0;
-  }
   min-height: 100%;
   .actions {
     margin-top: 1rem;
   }
 `
-export const Ui = ({ onSubmit }) => {
+
+export const Ui = ({ onSubmit, errorState }) => {
   return (
     <Container maxWidth="sm">
       <FormContainer>
@@ -30,16 +27,11 @@ export const Ui = ({ onSubmit }) => {
             password: '',
           }}
           validationSchema={yup.object().shape({
-            email: yup
+            password: yup.string().required('Password is required'),
+            passwordCon: yup
               .string()
-              .email('Must be a valid email')
-              .max(255)
-              .required('Email is required'),
-            password: yup
-              .string()
-              .min(7)
-              .max(255)
-              .required('Password is required'),
+              .required('Password Confirmation is required')
+              .oneOf([yup.ref('password')], 'Passwords must match'),
           })}
           onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
             const { error } = await onSubmit(values)
@@ -60,17 +52,6 @@ export const Ui = ({ onSubmit }) => {
           }) => (
             <form onSubmit={handleSubmit}>
               <FormField
-                error={Boolean(touched.email && errors.email)}
-                helperText={touched.email && errors.email}
-                label="Email"
-                name="email"
-                type="email"
-                handleBlur={handleBlur}
-                handleChange={handleChange}
-                values={values}
-                size="large"
-              />
-              <FormField
                 error={Boolean(touched.password && errors.password)}
                 helperText={touched.password && errors.password}
                 label="Password"
@@ -81,19 +62,27 @@ export const Ui = ({ onSubmit }) => {
                 size="large"
                 type="password"
               />
-              <Box my={1}>
+              <FormField
+                error={Boolean(touched.passwordCon && errors.passwordCon)}
+                helperText={touched.passwordCon && errors.passwordCon}
+                label="Password Confirmation"
+                name="passwordCon"
+                handleBlur={handleBlur}
+                handleChange={handleChange}
+                values={values}
+                size="large"
+                type="password"
+              />
+              <Box mt={2}>
                 <Button
                   color="primary"
                   disabled={isSubmitting}
                   fullWidth
                   type="submit"
                   variant="contained">
-                  Login
+                  Reset
                 </Button>
               </Box>
-              <Button component={RouterLink} to="/reset-password" color="secondary">
-                Forgot Password
-              </Button>
             </form>
           )}
         </Formik>

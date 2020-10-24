@@ -1,10 +1,10 @@
 import { navigate } from '@reach/router'
 import axiosInstance from 'domains/axios'
-import { clearTokens, getAccessToken, getRefreshToken } from 'domains/identity'
+import { clearTokens, getAccessToken, getRefreshTokenm, setTokens } from 'domains/identity'
 import * as actionTypes from '../constants'
 import { sendAlertMessage } from './alertActions'
 
-export const checkAuthenticatedAction = () => async (dispatch) => {
+export const checkAuthenticatedAction = async (dispatch) => {
   if (typeof window == 'undefined') {
     dispatch({
       type: actionTypes.AUTHENTICATED_FAIL,
@@ -32,7 +32,7 @@ export const checkAuthenticatedAction = () => async (dispatch) => {
   }
 }
 
-export const loadUserAction = () => async (dispatch) => {
+export const loadUserAction = async (dispatch) => {
   try {
     const response = await axiosInstance.get('/auth/users/me/')
 
@@ -47,22 +47,24 @@ export const loadUserAction = () => async (dispatch) => {
   }
 }
 
-export const loginAction = () => async (
-  data,
-  dispatch,
+export const loginAction = async (
   enqueueSnackbar,
+  dispatch,
+  data,
   redirectUri = '/',
 ) => {
   const body = JSON.stringify({ email: data.email, password: data.password })
 
   try {
     const response = await axiosInstance.post('/auth/jwt/create/', body)
-
+    axiosInstance.defaults.headers['Authorization'] =
+      'Token ' + response.data.access
+    setTokens(response.data)
     dispatch({
       type: actionTypes.LOGIN_SUCCESS,
       payload: response.data,
     })
-    dispatch(loadUserAction())
+    loadUserAction(dispatch)
 
     const messagePayload = {
       message: 'Logged in!',
@@ -71,10 +73,11 @@ export const loginAction = () => async (
     enqueueSnackbar(messagePayload.message, { variant: 'success' })
     navigate(redirectUri)
   } catch (error) {
+    console.log(dispatch);
+    const data = error.response
     dispatch({
       type: actionTypes.LOGIN_FAIL,
     })
-    const data = error.response
     if (data.status === 401) {
       const messagePayload = {
         message: 'Your email or password was incorrect. Please try again',
@@ -93,10 +96,10 @@ export const loginAction = () => async (
   }
 }
 
-export const signUpAction = () => async (
-  data,
-  dispatch,
+export const signUpAction = async (
   enqueueSnackbar,
+  dispatch,
+  data,
   redirectUri = 'login',
 ) => {
   const body = JSON.stringify({
@@ -135,11 +138,11 @@ export const signUpAction = () => async (
   }
 }
 
-export const activateAction = () => async (
+export const activateAction = async (
   data,
   dispatch,
   enqueueSnackbar,
-  redirectUri = 'login',
+  redirectUri = '/login',
 ) => {
   const body = JSON.stringify({ uid: data.uid, token: data.token })
 
@@ -168,11 +171,11 @@ export const activateAction = () => async (
   }
 }
 
-export const resetPasswordAction = () => async (
+export const resetPasswordAction = async (
   data,
   dispatch,
   enqueueSnackbar,
-  redirectUri = 'login',
+  redirectUri = '/login',
 ) => {
   const body = JSON.stringify({ email: data.email })
 
@@ -203,17 +206,17 @@ export const resetPasswordAction = () => async (
   }
 }
 
-export const resetPasswordConfirmAction = () => async (
+export const resetPasswordConfirmAction = async (
   data,
   dispatch,
   enqueueSnackbar,
-  redirectUri = 'login',
+  redirectUri = '/login',
 ) => {
   const body = JSON.stringify({
     uid: data.uid,
     token: data.token,
-    new_password: data.newPassword,
-    re_new_password: data.newPasswordCon,
+    new_password: data.password,
+    re_new_password: data.passwordCon,
   })
 
   try {
@@ -244,13 +247,13 @@ export const resetPasswordConfirmAction = () => async (
   }
 }
 
-export const updateAccountAction = () => async (
+export const updateAccountAction = async (
   dispatch,
   data,
   redirectUri = 'account',
 ) => {
   try {
-    const response = await axiosInstance.put(`account/`, {
+    const response = await axiosInstance.put(`auth/users/me/`, {
       email: data.email,
       first_name: data.firstName,
       last_name: data.lastName,
@@ -277,16 +280,19 @@ export const updateAccountAction = () => async (
   }
 }
 
-export const logoutAction = () => (
-  dispatch,
+export const logoutAction = (
   enqueueSnackbar,
+  dispatch,
   redirectUri = '/',
 ) => {
-  dispatch({ type: actionTypes.LOGOUT })
   const messagePayload = {
     message: 'Logged out.',
     isError: false,
   }
   enqueueSnackbar(messagePayload.message, { variant: 'success' })
   navigate(redirectUri)
+  setTimeout(() => {
+    clearTokens()
+    dispatch({ type: actionTypes.LOGOUT })
+  }, 1)
 }
