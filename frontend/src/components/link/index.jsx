@@ -7,12 +7,12 @@ const StyledLink = styled(RouterLink)`
   min-width: 0px;
   font-family: Inter, system-ui, sans-serif;
   line-height: 1.5;
-  font-weight: 600;
   text-decoration: none;
-  &.footer-link {
+  color &.footer-link {
     margin: 0px;
     color: rgb(52, 58, 64);
     font-size: 14px;
+    font-weight: 600;
   }
   &.nav-link {
     padding-left: 8px;
@@ -20,9 +20,13 @@ const StyledLink = styled(RouterLink)`
     color: rgb(134, 142, 150);
     font-size: 16px;
     margin: 8px 4px;
+    font-weight: 600;
     &:hover {
       color: #f0682f;
+<<<<<<< HEAD
       text-decoration: underline;
+=======
+>>>>>>> 896926ffbf5fd448a75b6369f81bf6225b4b7f29
     }
   }
 `

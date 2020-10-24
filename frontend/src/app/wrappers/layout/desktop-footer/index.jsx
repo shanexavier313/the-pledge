@@ -1,9 +1,7 @@
 // eslint-disable-next-line
 import React from 'react'
 import styled from 'styled-components'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+import { Box, Grid, Link as MuiLink, Typography } from '@material-ui/core'
 import { Link } from 'components/link'
 
 const DesktopFooterWrapper = styled(Grid)`
@@ -44,6 +42,25 @@ const FooterMenu = styled.ul`
   }
 `
 
+const StyledFooterLink = styled(MuiLink)`
+  && {
+    box-sizing: border-box;
+    min-width: 0px;
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+    text-decoration: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #f0682f;
+    font-size: 16px;
+    margin: 8px 4px;
+    font-weight: 600;
+    &:hover {
+      color: rgb(134, 142, 150);
+    }
+  }
+`
+
 export const DesktopFooter = () => (
   <DesktopFooterWrapper container alignItems="center">
     <Grid item xs={12} sm={6} className="left-content">
@@ -51,32 +68,32 @@ export const DesktopFooter = () => (
         The Pledge
       </Box>
       <Typography variant="body2" component="body2">
-        We need to get as many American citizens registered and planning to vote
-        for Biden as possible! Trump has verbally stated that he will contest
-        this election, and that he does not intend to pass power peacefully.
+        The pledge is our commitment to calling 5 or more people you know before
+        November 3rd and encouraging them to vote blue down the ballot — to get
+        politicians who threaten our democracy out of office.
       </Typography>
     </Grid>
     <Grid item container xs={12} sm={6} className="right-content">
       <Grid item xs={12} md={6}>
         <FooterMenu>
           <li>
-            <Link className="footer-link" to="/">
-              Demographic Breakdown
+            <Link className="nav-link" to="/">
+              Home
             </Link>
           </li>
           <li>
-            <Link className="footer-link" to="/">
-              Commonly Held Views
+            <Link className="nav-link" to="resources">
+              Resources
             </Link>
           </li>
           <li>
-            <Link className="footer-link" to="/">
-              Key Issues
+            <Link className="nav-link" to="the-why">
+              The Why
             </Link>
           </li>
           <li>
-            <Link className="footer-link" to="/">
-              Swing State Information
+            <Link className="nav-link" to="steps">
+              Step by Step
             </Link>
           </li>
         </FooterMenu>
@@ -84,14 +101,14 @@ export const DesktopFooter = () => (
       <Grid item xs={12} md={6}>
         <FooterMenu>
           <li>
-            <Link className="footer-link" to="/">
-              About the Pledge
+            <Link className="nav-link" to="sharing-the-pledge">
+              Sharing the Pledge
             </Link>
           </li>
           <li>
-            <Link className="footer-link" to="/">
+            <StyledFooterLink href="mailto:sharethepledge.com">
               Contact Us
-            </Link>
+            </StyledFooterLink>
           </li>
         </FooterMenu>
       </Grid>

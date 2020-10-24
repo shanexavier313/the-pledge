@@ -6,7 +6,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Box as MuiBox,
+  Box,
   Link,
   Grid,
   Button,
@@ -44,12 +44,12 @@ const SectionAccordian = styled(Accordion)`
 const WhoToCallBanner = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <MuiBox py={2}>
+    <Box py={2}>
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
-              <MuiBox>
+              <Box>
                 <Typography mb={3} variant="h4">
                   Who To Call
                 </Typography>
@@ -75,10 +75,10 @@ const WhoToCallBanner = () => {
                     counts
                   </p>
                 </Typography>
-              </MuiBox>
+              </Box>
             </SectionSummary>
             <SectionDetails>
-              <div>
+              <Box>
                 <Typography variant="h6">Here’s who to call:</Typography>
                 <Typography variant="body">
                   <ol>
@@ -136,9 +136,9 @@ const WhoToCallBanner = () => {
                   </p>
                 </Typography>
                 <Typography variant="h6">The Swing States:</Typography>
-                <MuiBox my={1} display="flex" justifyContent="center">
+                <Box my={1} display="flex" justifyContent="center">
                   <img src={SwingStatesImg} alt="hello" width="100%"></img>
-                </MuiBox>
+                </Box>
                 <Typography variant="h6">
                   Finding Friends in Key States:
                 </Typography>
@@ -147,10 +147,10 @@ const WhoToCallBanner = () => {
                   type “My friends who live in [insert name of swing state].”
                   The results list three names with the option to “See all.”
                 </Typography>
-                <MuiBox my={1} display="flex" justifyContent="center">
+                <Box my={1} display="flex" justifyContent="center">
                   <img src={FacebookImg} alt="hello" width="100%"></img>
-                </MuiBox>
-              </div>
+                </Box>
+              </Box>
             </SectionDetails>
           </SectionAccordian>
           <Button color="primary" onClick={() => toggleExpand(!expand)}>
@@ -163,14 +163,14 @@ const WhoToCallBanner = () => {
           </Grid>
         </Hidden>
       </Grid>
-    </MuiBox>
+    </Box>
   )
 }
 
 const WhoIsReachableBanner = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <MuiBox py={2}>
+    <Box py={2}>
       <Grid container spacing={2} alignItems="center">
         <Hidden only={['sm', 'xs']}>
           <Grid item xs={12} md={4}>
@@ -180,7 +180,7 @@ const WhoIsReachableBanner = () => {
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
-              <MuiBox>
+              <Box>
                 <Typography mb={3} variant="h4">
                   Who is actually reachable...
                 </Typography>
@@ -203,7 +203,7 @@ const WhoIsReachableBanner = () => {
                     friend - all are potential Biden supporters.
                   </p>
                 </Typography>
-              </MuiBox>
+              </Box>
             </SectionSummary>
             <SectionDetails>
               <Typography variant="body1">
@@ -252,19 +252,19 @@ const WhoIsReachableBanner = () => {
           </Button>
         </Grid>
       </Grid>
-    </MuiBox>
+    </Box>
   )
 }
 
 const WhyThisWorks = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <MuiBox py={2}>
+    <Box py={2}>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
-              <MuiBox>
+              <Box>
                 <Typography mb={3} variant="h4">
                   Why this works…
                 </Typography>
@@ -290,7 +290,7 @@ const WhyThisWorks = () => {
                     achieve much higher campaign efficacy than ever before.
                   </p>
                 </Typography>
-              </MuiBox>
+              </Box>
             </SectionSummary>
             <SectionDetails>
               <Typography variant="body1" mr={2}>
@@ -371,7 +371,7 @@ const WhyThisWorks = () => {
           </Grid>
         </Hidden>
       </Grid>
-    </MuiBox>
+    </Box>
   )
 }
 

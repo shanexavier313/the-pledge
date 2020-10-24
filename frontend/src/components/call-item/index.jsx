@@ -60,7 +60,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
               {date}
             </Typography>
           )}
-          <Typography variant="subtitle1" component="subtitle1">
+          <Typography variant="body1" component="subtitle1">
             {' '}
             {`${first_name} ${last_name}`}
           </Typography>

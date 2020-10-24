@@ -142,7 +142,7 @@ const Section2 = () => {
                 doesn't matter is the main factor behind their decision not to
                 vote. President Trump has stated that he will contest this
                 election, and that he does not intend to pass power peacefully.
-                This means that <b>we need a blow-out -- every vote matters.</b>
+                This means that <b>we need a blow-out — every vote matters.</b>
               </p>
             </Typography>
           </Box>
@@ -400,10 +400,21 @@ export const TheWhy = () => (
           </Typography>
         </Box>
       </Container>
-
-      <Box textAlign="center" mt={2}>
-        <Typography variant="h4">WHY THE PLEDGE?</Typography>
-      </Box>
+      <Container>
+        <Box textAlign="center" mt={2}>
+          <Typography variant="h4">WHY THE PLEDGE?</Typography>
+        </Box>
+        <Typography variant="body1">
+          The pledge is our commitment to calling 5 or more friends and family
+          between now and November 3rd to encourage them to vote blue down the
+          ballot — to get politicians who threaten our democracy out of office.
+        </Typography>
+        <Box textAlign="center" mt={2}>
+          <Typography variant="h4">
+            <b>Why take the Pledge?</b>
+          </Typography>
+        </Box>
+      </Container>
       <Container>
         <Section1 />
         <Section2 />

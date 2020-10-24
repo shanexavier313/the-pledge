@@ -15,7 +15,6 @@ import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'
 import { useSnackbar } from 'notistack'
 import { S3_BUCKET } from 'domains/constants'
-import { theme } from 'styles/theme'
 const logo = `${S3_BUCKET}/images/logo.svg`
 
 const MobileMenuList = styled(List)`
@@ -36,11 +35,7 @@ export const MobileNav = () => {
 
   return (
     <>
-      <Grid
-        container
-        color="black"
-        bg={theme.colors.base300}
-        alignItems="center">
+      <Grid container color="black" bg="#E9EDF1" alignItems="center">
         <Grid item xs={3}>
           {!isOpen && (
             <IconButton onClick={() => toggleIsOpen(true)}>

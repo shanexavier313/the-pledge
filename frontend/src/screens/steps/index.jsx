@@ -11,7 +11,7 @@ export const Steps = () => (
       alignItems="center"
       justify="center"
       fullWidth>
-      <Typography variant="h5">Step by Step</Typography>
+      <Typography variant="h4">Step by Step</Typography>
       <StepCards />
     </Grid>
   </LayoutWrapper>

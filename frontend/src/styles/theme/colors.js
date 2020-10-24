@@ -1,5 +1,5 @@
 export const orangeMain = '#F0682F'
-export const orangeLight = '##FF995C'
+export const orangeLight = '#FF995C'
 export const orangeDark = '#B73700'
 export const blueMain = '#004EB1'
 export const blueLight = '#5579E4'

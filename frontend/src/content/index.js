@@ -3,24 +3,23 @@ import { theme } from 'styles/theme'
 export const dashboardTitleBanner = {
   title: 'Dashboard',
   description:
-    'Explanation of what the dashboard is, how to use it, etc. At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.At nam minimum ponderum. Est audiam animal molestiae te.',
-  bg: theme.colors.white,
+    'Don’t worry if you can’t think of a lot of people to call at first.  You can come back to this Dashboard at any time to add people to your list.',
+  bg: theme.palette.background.layout,
 }
 
 export const homeTitleBanner = {
   description:
-    'The pledge is our commitment to calling 5 or more people you know over the next 10 days and encouraging them to vote blue down the ballot — to get politicians who threaten our democracy out of office.',
-  bg: theme.colors.grey300,
+    'The pledge is our commitment to calling 5 or more people you know before November 3rd and encouraging them to vote blue down the ballot — to get politicians who threaten our democracy out of office.',
+  bg: theme.palette.background.default,
   ctaText: "Why We're Doing This",
 }
 
 export const resourcesTitleBanner = {
   title: 'Resources',
-  description:
-    'These resources are here to get you through Step 3: Prep For Your Calls.',
+  description: 'These resources are here help you prep for your calls',
   subDescription:
-    'Collectively, these resources allow us to do three things: (1) Meet our callees where they are by understanding their core values, beliefs, and viewpoints, (2) Learn skills that help us have more thoughtful, more open conversations, and, (3) Think strategically about where our calls can make the most difference between now and November 3rd',
-  bg: theme.colors.base300,
+    'They allow us to do three things: (1) Meet our callees where they are by understanding their core values, beliefs, and viewpoints, (2) Learn skills that help us have more thoughtful, more open conversations, and, (3) Think strategically about where our calls can make the most difference between now and November 3rd',
+  bg: theme.palette.background.layout,
 }
 
 export const whoToCall = {
@@ -34,7 +33,6 @@ export const whyThisWorks = {
   heading: 'Why This Works',
   body:
     'Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal, Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal, Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet. Est tation latine aliquip ideal',
-  imageURL: 'nothing',
 }
 
 export const stepsBanner = {
