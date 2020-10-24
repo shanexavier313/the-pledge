@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 
-// TODO: change to use theme ui `sx` prop
-
 export const Root = styled.div`
   position: relative;
 `
@@ -17,7 +15,7 @@ export const FooterWrapper = styled.footer`
   position: relative;
   padding-right: 10vh;
   padding-left: 10vh;
-  background-color: ${theme.colors.base300};
+  background-color: ${theme.palette.base['300']};
 `
 
 export const Content = styled.main.attrs(() => ({

@@ -8,7 +8,7 @@ import {
   Button,
   Link,
   Typography,
-  Grid
+  Grid,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
@@ -140,7 +140,7 @@ const Section2 = () => {
                 doesn't matter is the main factor behind their decision not to
                 vote. President Trump has stated that he will contest this
                 election, and that he does not intend to pass power peacefully.
-                This means that <b>we need a blow-out -- every vote matters.</b>
+                This means that <b>we need a blow-out — every vote matters.</b>
               </p>
             </Typography>
           </Box>
@@ -396,11 +396,15 @@ export const TheWhy = () => (
       </Typography>
     </Box>
     <Box textAlign="center" mt={2}>
-      <Typography variant="h4">WHY THE PLEDGE?</Typography>
+      <Typography variant="h4">
+        <b>Why take the Pledge?</b>
+      </Typography>
     </Box>
-    <Section1 />
-    <Section2 />
-    <Section3 />
-    <Section4 />
+    <Box px="10vh" mb={4}>
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+    </Box>
   </Grid>
 )

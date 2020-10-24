@@ -32,7 +32,7 @@ export const ResourcesNav = ({ tab, setTab }) => (
       />
       <TabButton
         active={tab === 'swing-states'}
-        label="Swing States"
+        label="Critical States"
         onClick={() => setTab('swing-states')}
       />
     </Box>

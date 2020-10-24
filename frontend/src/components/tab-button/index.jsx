@@ -4,6 +4,8 @@ import { Button } from '@material-ui/core'
 const TabBtn = styled(Button)`
   && {
     min-width: 150px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 `
 const TabButton = ({ label, onClick, active = false }) => {

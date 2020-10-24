@@ -10,26 +10,23 @@ const TitleContainer = styled.div`
   min-height: 40vh;
   width: 100%;
 `
-const TitleBox = styled(Box)`
-  && {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
-`
 
 export const TitleBanner = ({ content, children }) => {
   return (
     <TitleContainer bg={content.bg}>
-      <TitleBox p={2}>
+      <Box
+        p={2}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center">
         {children}
-        {content.title && (
-          <Typography variant="h4" mt={1} mb={4}>
+        {content.title ? (
+          <Typography variant="h4">
             <strong>{content.title}</strong>
           </Typography>
-        )}
-        {content.description && content.ctaText && (
+        ) : null}
+        {content.description && content.ctaText ? (
           <Box
             bgcolor="secondary.main"
             borderRadius={'5px'}
@@ -40,24 +37,38 @@ export const TitleBanner = ({ content, children }) => {
               <strong>{content.description}</strong>
             </Typography>
           </Box>
-        )}
-        {content.description && !content.ctaText && (
-          <Box width="100%" p={1} textAlign="center" className="description" color="primary">
-            <Typography variant="body1">{content.description}</Typography>
+        ) : null}
+        {content.description && !content.ctaText ? (
+          <Box
+            width="100%"
+            p={1}
+            textAlign="center"
+            className="description"
+            color="primary">
+            <Typography variant="h6">{content.description}</Typography>
           </Box>
-        )}
-
-        {content.ctaText && (
+        ) : null}
+        {content.subDescription ? (
+          <Box
+            width="100%"
+            p={1}
+            textAlign="center"
+            className="description"
+            color="primary">
+            <Typography variant="body1">{content.subDescription}</Typography>
+          </Box>
+        ) : null}
+        {content.ctaText ? (
           <Box my={3} px={2}>
             <Button
               onClick={() => navigate('the-why')}
               color="primary"
               variant="contained">
-              <strong>{content.ctaText}</strong>
+              {content.ctaText}
             </Button>
           </Box>
-        )}
-      </TitleBox>
+        ) : null}
+      </Box>
     </TitleContainer>
   )
 }

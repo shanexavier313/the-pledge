@@ -3,8 +3,15 @@ import { Typography, Grid } from '@material-ui/core'
 import { StepCards } from './steps'
 
 export const Steps = () => (
-  <Grid container direction="column" alignItems="center" justify="center" fullWidth>
-    <Typography variant="h5">Step by Step</Typography>
+  <Grid
+    container
+    direction="column"
+    alignItems="center"
+    justify="center"
+    fullWidth>
+    <Typography variant="h4">
+      <b>Step by Step</b>
+    </Typography>
     <StepCards />
   </Grid>
 )

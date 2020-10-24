@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import {
-  Box,
-  Button,
-  MobileStepper,
-} from '@material-ui/core'
+import { Box, Button, MobileStepper } from '@material-ui/core'
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
-import { muiTheme } from 'styles/theme'
+import { theme } from 'styles/theme'
 
 export const SlideStepper = ({ slides }) => {
   const [activeStep, setActiveStep] = useState(0)
@@ -34,7 +30,7 @@ export const SlideStepper = ({ slides }) => {
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}>
             Next
-            {muiTheme.direction === 'rtl' ? (
+            {theme.direction === 'rtl' ? (
               <KeyboardArrowLeft />
             ) : (
               <KeyboardArrowRight />
@@ -43,7 +39,7 @@ export const SlideStepper = ({ slides }) => {
         }
         backButton={
           <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {muiTheme.direction === 'rtl' ? (
+            {theme.direction === 'rtl' ? (
               <KeyboardArrowRight />
             ) : (
               <KeyboardArrowLeft />

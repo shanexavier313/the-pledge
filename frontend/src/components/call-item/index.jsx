@@ -45,7 +45,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
   const { notes, completed, date } = call
   const [editNotes, setEditNotes] = useState(notes)
   const onUpdateData = (call, updatedData) => {
-    console.log('call1', call);
+    console.log('call1', call)
     updateCallAction(call, updatedData)
     toggleEditModal(false)
   }
@@ -60,7 +60,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
               {date}
             </Typography>
           )}
-          <Typography variant="subtitle1" component="subtitle1">
+          <Typography variant="body1" component="subtitle1">
             {' '}
             {`${first_name} ${last_name}`}
           </Typography>

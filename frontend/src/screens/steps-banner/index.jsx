@@ -39,15 +39,15 @@ const StepsContent = styled(Box)`
   }
 `
 export const StepsBanner = () => (
-  <StepsBannerContainer bg={theme.colors.base300}>
+  <StepsBannerContainer bg={theme.palette.background.layout}>
     <StepsBannerContent px={2} py={4}>
       <Box mx="auto" px={2} mb={1} textAlign="center" className="title-wrapper">
         <Typography variant="h4">{stepsBanner.title}</Typography>
       </Box>
       <StepsContent mb={1}>
-        {steps.map((step) => (
+        {steps.map((step, index) => (
           <StepBannerCard
-            key={step.stepID}
+            key={index}
             stepID={step.stepID}
             primaryText={step.primary}></StepBannerCard>
         ))}
@@ -58,7 +58,7 @@ export const StepsBanner = () => (
         variant="contained"
         className="learn-more"
         color="primary">
-        Learn More >
+        Learn More
       </Button>
     </StepsBannerContent>
   </StepsBannerContainer>
