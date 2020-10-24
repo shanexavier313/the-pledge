@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 import { TitleBanner } from 'components/title-banner'
 import { ResourcesNav } from 'components/resources-nav'
 import {
@@ -10,21 +10,22 @@ import {
   SwingStatesResource,
 } from 'components/resources'
 import { resourcesTitleBanner } from '../../content'
+import { LayoutWrapper } from 'app/wrappers/layout'
 
 export const Resources = ({ children }) => {
   const [tab, setTab] = useState('demographics')
 
   return (
-    <>
+    <LayoutWrapper>
       <TitleBanner content={resourcesTitleBanner} />
       <ResourcesNav tab={tab} setTab={setTab} />
-      <Box px={6}>
+      <Container>
         {tab === 'demographics' && <PoliticalIdentitiesResource />}
         {tab === 'common-views' && <CommonViewsResource />}
         {tab === 'call-tactics' && <ConversationGuideResource />}
         {tab === 'key-issues' && <KeyIssuesResource />}
         {tab === 'swing-states' && <SwingStatesResource />}
-      </Box>
-    </>
+      </Container>
+    </LayoutWrapper>
   )
 }

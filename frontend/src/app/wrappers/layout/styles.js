@@ -9,14 +9,20 @@ export const Root = styled.div`
 
 export const NavWrapper = styled.nav`
   position: relative;
-  padding-right: 10vh;
-  padding-left: 10vh;
+  padding: 1rem 5rem;
+  @media only screen and (max-width: 800px) {
+    padding: 1rem;
+  }
 `
 
 export const FooterWrapper = styled.footer`
   position: relative;
-  padding-right: 10vh;
-  padding-left: 10vh;
+  padding-right: 4rem;
+  padding-left: 4rem;
+  @media only screen and (max-width: 500px) {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
   background-color: ${theme.colors.base300};
 `
 

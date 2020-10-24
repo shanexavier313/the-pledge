@@ -35,8 +35,9 @@ export const Ui = ({ user }) => {
       <Box
         mt={3}
         mb={6}
-        py={5}
-        px={6}
+        mx={1}
+        py={3}
+        px={3}
         border={1}
         display="flex"
         flexDirection="column"

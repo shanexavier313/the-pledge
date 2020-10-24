@@ -11,6 +11,8 @@ import {
   Grid,
   Button,
   Typography,
+  Container,
+  Hidden,
 } from '@material-ui/core'
 import { S3_BUCKET } from 'domains/constants'
 
@@ -42,7 +44,7 @@ const SectionAccordian = styled(Accordion)`
 const WhoToCallBanner = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <MuiBox px={20} py={2}>
+    <MuiBox py={2}>
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
@@ -155,9 +157,11 @@ const WhoToCallBanner = () => {
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </Button>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <img src={PhoneImg} width="100%" alt="phone" />
-        </Grid>
+        <Hidden only={['sm', 'xs']}>
+          <Grid item xs={12} md={4}>
+            <img src={PhoneImg} width="100%" alt="phone" />
+          </Grid>
+        </Hidden>
       </Grid>
     </MuiBox>
   )
@@ -166,11 +170,13 @@ const WhoToCallBanner = () => {
 const WhoIsReachableBanner = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <MuiBox px={20} py={2}>
+    <MuiBox py={2}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} md={4}>
-          <img src={ReachableImg} width="100%" alt="reachable" />
-        </Grid>
+        <Hidden only={['sm', 'xs']}>
+          <Grid item xs={12} md={4}>
+            <img src={ReachableImg} width="100%" alt="reachable" />
+          </Grid>
+        </Hidden>
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
@@ -253,7 +259,7 @@ const WhoIsReachableBanner = () => {
 const WhyThisWorks = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <MuiBox px={20} py={2}>
+    <MuiBox py={2}>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
@@ -359,18 +365,20 @@ const WhyThisWorks = () => {
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </Button>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <img src={VoteImg2} width="100%" alt="voteimg" />
-        </Grid>
+        <Hidden only={['sm', 'xs']}>
+          <Grid item xs={12} md={4}>
+            <img src={VoteImg2} width="100%" alt="voteimg" />
+          </Grid>
+        </Hidden>
       </Grid>
     </MuiBox>
   )
 }
 
 export const HomeContentBanners = () => (
-  <>
+  <Container>
     <WhoToCallBanner />
     <WhoIsReachableBanner />
     <WhyThisWorks />
-  </>
+  </Container>
 )

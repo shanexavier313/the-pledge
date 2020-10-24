@@ -21,7 +21,7 @@ const StyledLink = styled(RouterLink)`
     font-size: 16px;
     margin: 8px 4px;
     &:hover {
-      color: #F0682F;
+      color: #f0682f;
       text-decoration: underline;
     }
   }

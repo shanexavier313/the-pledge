@@ -12,6 +12,7 @@ import { TitleBanner } from 'components/title-banner'
 import TabButton from 'components/tab-button'
 import CallsList from 'components/calls-list'
 import RecipientsList from 'components/recipients-list'
+import { LayoutWrapper } from 'app/wrappers/layout'
 
 const DashboardWrapper = styled(Grid)`
   && {
@@ -39,7 +40,7 @@ export const Dashboard = () => {
     // navigate('dashboard')
   }
   return (
-    <>
+    <LayoutWrapper>
       <TitleBanner content={dashboardTitleBanner} />
       <Grid container alignItems="center" justify="center" fullWidth>
         <Box p={1}>
@@ -76,6 +77,6 @@ export const Dashboard = () => {
           )}
         </Box>
       </Grid>
-    </>
+    </LayoutWrapper>
   )
 }

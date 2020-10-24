@@ -18,7 +18,7 @@ export const FormField = ({
   rows = 1,
   values,
   description,
-  size="small"
+  size = 'small',
 }) => {
   console.log(error)
   return (

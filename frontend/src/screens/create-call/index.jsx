@@ -5,6 +5,7 @@ import { useSnackbar } from 'notistack'
 import moment from 'moment'
 import { navigate } from '@reach/router'
 import { Ui } from './ui'
+import { LayoutWrapper } from 'app/wrappers/layout'
 
 export const CreateCall = () => {
   const dispatch = useDispatch()
@@ -35,5 +36,9 @@ export const CreateCall = () => {
       recipient.id
     ] = `${recipient.first_name} ${recipient.last_name}`
   })
-  return <Ui onSubmit={onSubmit} recipients={recipientsList} />
+  return (
+    <LayoutWrapper>
+      <Ui onSubmit={onSubmit} recipients={recipientsList} />
+    </LayoutWrapper>
+  )
 }

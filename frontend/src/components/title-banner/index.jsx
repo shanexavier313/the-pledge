@@ -42,7 +42,12 @@ export const TitleBanner = ({ content, children }) => {
           </Box>
         )}
         {content.description && !content.ctaText && (
-          <Box width="100%" p={1} textAlign="center" className="description" color="primary">
+          <Box
+            width="100%"
+            p={1}
+            textAlign="center"
+            className="description"
+            color="primary">
             <Typography variant="body1">{content.description}</Typography>
           </Box>
         )}

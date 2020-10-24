@@ -45,7 +45,7 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
   const { notes, completed, date } = call
   const [editNotes, setEditNotes] = useState(notes)
   const onUpdateData = (call, updatedData) => {
-    console.log('call1', call);
+    console.log('call1', call)
     updateCallAction(call, updatedData)
     toggleEditModal(false)
   }

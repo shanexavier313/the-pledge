@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Link, Typography } from '@material-ui/core'
+import { Box, Link, Typography, Grid } from '@material-ui/core'
 import { SlideStepper } from 'components/slide-stepper'
 import { StateStepper } from 'components/state-stepper'
 import { framework1Slides, framework2Slides, swingStateSlides } from './slides'
@@ -41,15 +41,14 @@ export const PoliticalIdentitiesResource = () => (
       flexDirection="column"
       justifyContent="center"
       alignItems="center">
-      <Box
-        width="80%"
-        display="flex"
-        mb={2}
-        justifyContent="center"
-        alignItems="center">
-        <img src={FrameworksIntro1} alt="frameworks-intro1" width="60%" />
-        <img src={FrameworksIntro2} alt="frameworks-intro2" width="60%" />
-      </Box>
+      <Grid container>
+        <Grid item xs={12} lg={6}>
+          <img src={FrameworksIntro1} alt="frameworks-intro1" width="100%" />
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          <img src={FrameworksIntro2} alt="frameworks-intro2" width="100%" />
+        </Grid>
+      </Grid>
       <SlideStepper slides={framework1Slides} />
       <br />
       <SlideStepper slides={framework2Slides} />

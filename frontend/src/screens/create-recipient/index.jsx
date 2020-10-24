@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
 import { createRecipient } from 'redux/actions/dashboardActions'
 import { navigate } from '@reach/router'
+import { LayoutWrapper } from 'app/wrappers/layout'
 import { Ui } from './ui'
 
 export const CreateRecipient = ({ toggleModal = null }) => {
@@ -31,5 +32,9 @@ export const CreateRecipient = ({ toggleModal = null }) => {
     }
   }
 
-  return <Ui onSubmit={onSubmit} toggleModal={toggleModal} />
+  return (
+    <LayoutWrapper>
+      <Ui onSubmit={onSubmit} toggleModal={toggleModal} />
+    </LayoutWrapper>
+  )
 }

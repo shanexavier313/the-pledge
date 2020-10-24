@@ -18,65 +18,7 @@ const FormContainer = styled.div`
 `
 
 export const Ui = ({ onSubmit, errorState }) => {
-
   return (
-    // <Flex
-    //   variant="content.normal"
-    //   sx={{
-    //     flexDirection: 'column',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     width: '100%',
-    //   }}>
-    //   <Box
-    //     mt={4}
-    //     mb={6}
-    //     py={5}
-    //     px={6}
-    //     as="form"
-    //     onSubmit={handleSubmit(onSubmit)}
-    //     sx={{
-    //       borderStyle: 'solid',
-    //       borderWidth: '1px',
-    //       borderColor: 'primary',
-    //     }}>
-    //     <FormField
-    //       name="firstName"
-    //       label="First Name"
-    //       registerFn={register}
-    //       error={errors.firstName}
-    //     />
-    //     <FormField
-    //       name="lastName"
-    //       label="Last Name"
-    //       registerFn={register}
-    //       error={errors.lastName}
-    //     />
-    //     <FormField
-    //       name="email"
-    //       label="Email"
-    //       registerFn={register}
-    //       error={errors.email}
-    //     />
-    //     <FormField
-    //       name="password"
-    //       label="Password"
-    //       type="password"
-    //       registerFn={register}
-    //       error={errors.password}
-    //     />
-    //     <FormField
-    //       name="passwordCon"
-    //       label="Password Confirmation"
-    //       type="password"
-    //       registerFn={register}
-    //       error={errors.passwordCon}
-    //     />
-    //     <Button mt={3} type="submit" variant="buttons.secondary">
-    //       Sign Up
-    //     </Button>
-    //   </Box>
-    // </Flex>
     <Container maxWidth="sm">
       <FormContainer>
         <Formik

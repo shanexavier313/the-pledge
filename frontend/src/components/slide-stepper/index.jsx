@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Box,
-  Button,
-  MobileStepper,
-} from '@material-ui/core'
+import { Box, Button, MobileStepper } from '@material-ui/core'
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
 import { muiTheme } from 'styles/theme'
@@ -21,7 +17,7 @@ export const SlideStepper = ({ slides }) => {
   }
 
   return (
-    <Box width={800}>
+    <Box>
       <img src={slides[activeStep]} alt="framework" width="100%" />
       <MobileStepper
         steps={maxSteps}
