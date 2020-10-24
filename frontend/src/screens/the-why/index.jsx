@@ -52,11 +52,17 @@ const Section1 = () => {
                 young people who hope for a future. We face a global
                 environmental reality of consistent climate catastrophe,
                 population increase and{' '}
-                <Link href="https://www.nytimes.com/interactive/2020/07/23/magazine/climate-migration.html">
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://www.nytimes.com/interactive/2020/07/23/magazine/climate-migration.html">
                   widespread population displacement
                 </Link>
                 , an{' '}
-                <Link href="https://www.wsj.com/articles/viral-outbreaks-once-rare-become-part-of-the-global-landscape-11583455309">
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://www.wsj.com/articles/viral-outbreaks-once-rare-become-part-of-the-global-landscape-11583455309">
                   increase in global pandemics
                 </Link>
                 , rising income inequality domestically, heightened nuclear
@@ -77,12 +83,20 @@ const Section1 = () => {
               to deal with nuclear weapons and climate change,” and “largely
               because of statements [made by] the president” the Bulletin of
               Atomic Scientists has set the clock to 100 seconds to midnight—
-              <Link href="https://www.independent.co.uk/news/world/americas/us-politics/noam-chomsky-donald-trump-doomsday-clock-midnight-close-nuclear-war-north-korea-a8014626.html">
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://www.independent.co.uk/news/world/americas/us-politics/noam-chomsky-donald-trump-doomsday-clock-midnight-close-nuclear-war-north-korea-a8014626.html">
                 the closest it’s ever been.
               </Link>{' '}
             </p>
             <p>
-              <Link href="https://lincolnproject.us/">The Lincoln Project</Link>
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://lincolnproject.us/">
+                The Lincoln Project
+              </Link>
               , a group of high-powered and politically engaged conservatives
               who have pledged to fight to protect our democracy against Trump
               and his band of corrupt Republicans, states the constitutional
@@ -153,18 +167,26 @@ const Section2 = () => {
             <p>
               Many Americans feel that their contributions to the democratic
               process don’t matter. The “
-              <Link href="https://knightfoundation.org/reports/the-100-million-project/">
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://knightfoundation.org/reports/the-100-million-project/">
                 100 Million Project
               </Link>
               ,” a study conducted by the Knight Foundation, found that for some
               20% of chronic non-voters and young people, the primary reasons
               for not voting were that their “vote doesn’t matter” and that “the
               system is [too] corrupt” to be changed. Moreover, the “
-              <Link href="https://hiddentribes.us/">Hidden Tribes</Link>” study
-              indicates that many liberals of lower socioeconomic status--many
-              of whom are registered to vote-do not end up voting because they
-              have no faith that the system will operate fairly or in their
-              interest.{' '}
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://hiddentribes.us/">
+                Hidden Tribes
+              </Link>
+              ” study indicates that many liberals of lower socioeconomic
+              status--many of whom are registered to vote-do not end up voting
+              because they have no faith that the system will operate fairly or
+              in their interest.{' '}
               <b>
                 For many people, the belief that their vote doesn't matter is
                 the key factor underlying their decision not to engage in the
@@ -184,7 +206,10 @@ const Section2 = () => {
               states, but, more importantly, we need a landslide to ensure that
               this election is decided by the people and not by President
               Trump's new ultraconservative Supreme Court. On September 24th,
-              <Link href="https://www.reviewjournal.com/news/politics-and-government/eric-trump-says-his-father-will-concede-if-joe-biden-wins-big-2129305">
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://www.reviewjournal.com/news/politics-and-government/eric-trump-says-his-father-will-concede-if-joe-biden-wins-big-2129305">
                 Eric Trump told supporters
               </Link>{' '}
               at a Las Vegas campaign stop that his father “of course [would]
@@ -235,10 +260,15 @@ const Section3 = () => {
               When we participate in the democratic process, for example by
               taking The Pledge, our potential for impact grows exponentially.
               The authors of book “
-              <Link href="http://www.connectedthebook.com/">Connected</Link>”
-              discuss a series of consistent, dependable phenomena, so pervasive
-              in social networks that they’ve deemed them rules (“Rules of Life
-              in the Network”):
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://www.connectedthebook.com/">
+                Connected
+              </Link>
+              ” discuss a series of consistent, dependable phenomena, so
+              pervasive in social networks that they’ve deemed them rules
+              (“Rules of Life in the Network”):
             </p>
             <p>
               <i>

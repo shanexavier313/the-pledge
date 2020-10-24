@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {
   Button,
+  Box,
   Checkbox,
   Dialog,
   DialogContent,
@@ -50,38 +51,40 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
     toggleEditModal(false)
   }
 
+  console.log(date)
+
   return (
     <CallItemWrapper item xs={12}>
       <ItemWrapper container>
         <Grid item xs={8} className="left-col">
           {date && (
-            <Typography variant="h5" component="h5">
+            <Typography variant="h6" component="h5">
               {' '}
               {date}
             </Typography>
           )}
-          <Typography variant="body1" component="subtitle1">
-            {' '}
-            {`${first_name} ${last_name}`}
-          </Typography>
+          <Box color="primary.main">
+            <Typography variant="h5" component="subtitle1">
+              {' '}
+              {`${first_name} ${last_name}`}
+            </Typography>
+          </Box>
           <br />
         </Grid>
         <Grid item xs={4} className="right-col">
-          {notes && (
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={completed}
-                  name="checkedB"
-                  color="primary"
-                  onChange={(ev) =>
-                    onUpdateData(call, { completed: ev.target.checked })
-                  }
-                />
-              }
-              label="Contacted"
-            />
-          )}
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={completed}
+                name="checkedB"
+                color="primary"
+                onChange={(ev) =>
+                  onUpdateData(call, { completed: ev.target.checked })
+                }
+              />
+            }
+            label="Contacted"
+          />
         </Grid>
       </ItemWrapper>
       <ItemWrapper container spacing={2}>
@@ -132,9 +135,11 @@ const CallItem = ({ call = {}, recipient = {}, updateCallAction, loading }) => {
       </ItemWrapper>
       {notes && (
         <>
-          <Button color="primary" onClick={() => toggleShowMore(!showMore)}>
-            {showMore ? 'Hide Notes' : 'Show Notes'}
-          </Button>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Button color="primary" onClick={() => toggleShowMore(!showMore)}>
+              {showMore ? 'Hide Notes' : 'Show Notes'}
+            </Button>
+          </Box>
           {showMore && (
             <div>
               <Typography variant="subtitle1" component="subtitle1">

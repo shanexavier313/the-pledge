@@ -49,7 +49,11 @@ export const Ui = ({ onSubmit, errorState, recipients }) => {
             notes: '',
           }}
           validationSchema={yup.object().shape({
-            date: yup.string().required('Date is required'),
+            date: yup
+              .date()
+              .required('Date is required')
+              .min(new Date(), "Can't schedule a call in the past")
+              .max(new Date('11/3/2020'), 'Make sure you call before Nov 3rd!'),
             recipient: yup.string().required('Recipient is required'),
           })}
           onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {

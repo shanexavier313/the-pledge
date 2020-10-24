@@ -32,7 +32,12 @@ export const SharingThePledge = () => (
                 Hi X. The election is in X days, and I made a pledge to call 5
                 members of my friend group to encourage them to vote for Biden.
                 Here’s how you can sign up to join me:{' '}
-                <Link href="sharethepledge.com">sharethepledge.com</Link>
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://sharethepledge.com">
+                  sharethepledge.com
+                </Link>
               </i>
             </p>
           </Typography>
@@ -50,7 +55,12 @@ export const SharingThePledge = () => (
                 stay energized and motivated in the lead-up to the election and
                 can potentially have a real impact on turnout. Here’s how to
                 sign up:{' '}
-                <Link href="sharethepledge.com">sharethepledge.com</Link>
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://sharethepledge.com">
+                  sharethepledge.com
+                </Link>
               </i>
             </p>
           </Typography>

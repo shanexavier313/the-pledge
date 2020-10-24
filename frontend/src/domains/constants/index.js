@@ -3,7 +3,8 @@ export const API_URL =
     ? 'http://127.0.0.1:8000/api/'
     : '/api/'
 
-export const S3_BUCKET = 'https://sharethepledge-assets.s3.us-east-2.amazonaws.com';
+export const S3_BUCKET =
+  'https://sharethepledge-assets.s3.us-east-2.amazonaws.com'
 export const POLITICAL_LEANINGS = {
   fl: 'Far Left',
   le: 'Left',
@@ -18,7 +19,7 @@ export const POLITICAL_LEANINGS = {
 export const VOTER_STATUS = {
   re: 'Registered',
   nr: 'Not Registered',
-  un: 'Unknow',
+  un: 'Unknown',
 }
 
 export const US_STATES = {

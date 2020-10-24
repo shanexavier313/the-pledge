@@ -104,11 +104,12 @@ DATABASES = {
 # REST framework
 
 REST_FRAMEWORK = {
+    "DATE-FORMAT": ["%m/%d/%Y"],
     "DATE_INPUT_FORMATS": ["%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y"],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
-        'rest_framework.authentication.TokenAuthentication'
+        "rest_framework.authentication.TokenAuthentication",
     ),
 }
 

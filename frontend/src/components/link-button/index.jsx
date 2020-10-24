@@ -4,7 +4,11 @@ import { Button, Link } from '@material-ui/core'
 
 export const LinkButton = (props) => (
   <Button {...props}>
-    <Link href={props.href} color={props.linkColor}>
+    <Link
+      target="_blank"
+      rel="noreferrer noopener"
+      href={props.href}
+      color={props.linkColor}>
       {props.children}
     </Link>
   </Button>

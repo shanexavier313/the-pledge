@@ -39,7 +39,10 @@ export const PoliticalIdentitiesResource = () => (
       <p>
         To get an overview of the different political identities people might
         hold, we recommend this 19-minute{' '}
-        <Link href="https://www.join-theconversation.com/conversations/episode/c1833383/daniel-yudkin-americas-hidden-tribes">
+        <Link
+          target="_blank"
+          rel="noreferrer noopener"
+          href="https://www.join-theconversation.com/conversations/episode/c1833383/daniel-yudkin-americas-hidden-tribes">
           podcast with Daniel Yudkin
         </Link>
         , one of the writers of “America’s Hidden Tribes” report.
@@ -65,12 +68,18 @@ export const PoliticalIdentitiesResource = () => (
         <Typography variant="body1">
           If you want to see a{' '}
           <b>stunningly clear example of value systems at work</b>, read this{' '}
-          <Link href="https://www.chicksonright.com/blog/2020/08/24/its-not-that-we-love-donald-trump-so-much-its-that-we-cant-stand-you/">
+          <Link
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://www.chicksonright.com/blog/2020/08/24/its-not-that-we-love-donald-trump-so-much-its-that-we-cant-stand-you/">
             open letter
           </Link>{' '}
           to liberals. For a breakdown of the values and beliefs we see at play
           in this op-ed, click{' '}
-          <Link href="https://docs.google.com/document/d/1_bS54pzCO6NrD5aGORq8mTH4-FE8YFbs33_i9uULHjg/edit?usp=sharing">
+          <Link
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://docs.google.com/document/d/1_bS54pzCO6NrD5aGORq8mTH4-FE8YFbs33_i9uULHjg/edit?usp=sharing">
             here
           </Link>
         </Typography>
@@ -258,33 +267,52 @@ export const SwingStatesResource = () => (
       <Typography variant="body1">
         <ul>
           <li>
-            <Link href="https://www.vote411.org/ballot">Vote411</Link>:
-            Everything. Important dates, down ballot race information and links
-            to candidate websites, registration links and check sites, polling
-            place information, etc.
+            <Link
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.vote411.org/ballot">
+              Vote411
+            </Link>
+            : Everything. Important dates, down ballot race information and
+            links to candidate websites, registration links and check sites,
+            polling place information, etc.
           </li>
           <li>
-            <Link href="https://www.headcount.org/verify-voter-registration/?source=HChomepage">
+            <Link
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.headcount.org/verify-voter-registration/?source=HChomepage">
               Headcount
             </Link>
             : Also everything.
           </li>
           <li>
-            <Link href="https://www.voteamerica.com/">VoteAmerica</Link>: Easy
-            registration, find out where to vote, track your ballot, check your
-            registration status, register to vote, vote by mail information,
-            request your absentee ballot, receive election reminders, contact
-            your election office, etc.
+            <Link
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.voteamerica.com/">
+              VoteAmerica
+            </Link>
+            : Easy registration, find out where to vote, track your ballot,
+            check your registration status, register to vote, vote by mail
+            information, request your absentee ballot, receive election
+            reminders, contact your election office, etc.
           </li>
           <li>
-            <Link href="https://www.nytimes.com/interactive/2020/09/24/us/politics/how-to-vote-register.html">
+            <Link
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.nytimes.com/interactive/2020/09/24/us/politics/how-to-vote-register.html">
               NYTimes Interactive How-to-vote/register
             </Link>
             : Key dates, registration info, detailed/helpful voting information.
             Requires NYT login.
           </li>
           <li>
-            <Link href="https://www.usa.gov/voter-registration">
+            <Link
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.usa.gov/voter-registration">
               usa.gov/voter-registration
             </Link>
             : Voter registration checks and info.

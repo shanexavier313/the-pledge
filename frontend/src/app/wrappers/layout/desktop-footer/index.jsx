@@ -82,17 +82,17 @@ export const DesktopFooter = () => (
             </Link>
           </li>
           <li>
-            <Link className="nav-link" to="resources">
+            <Link className="nav-link" to="/resources">
               Resources
             </Link>
           </li>
           <li>
-            <Link className="nav-link" to="the-why">
+            <Link className="nav-link" to="/the-why">
               The Why
             </Link>
           </li>
           <li>
-            <Link className="nav-link" to="steps">
+            <Link className="nav-link" to="/steps">
               Step by Step
             </Link>
           </li>
@@ -101,7 +101,7 @@ export const DesktopFooter = () => (
       <Grid item xs={12} md={6}>
         <FooterMenu>
           <li>
-            <Link className="nav-link" to="sharing-the-pledge">
+            <Link className="nav-link" to="/sharing-the-pledge">
               Sharing the Pledge
             </Link>
           </li>

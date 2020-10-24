@@ -41,15 +41,14 @@ const Step1 = () => (
       </AccordionSummary>
       <AccordionDetails>
         <Grid container>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={12}>
             <Typography variant="body1">
-              Sign up, take the Pledge and track your outreach in your
-              dashboard.
+              Sign up and track your outreach in your dashboard.
             </Typography>
           </Grid>
-          <Grid item container xs={12} md={6} justify="center">
-            <Box mt={2}>
-              <ButtonLink variant="outlined" color="primary" to="signup">
+          <Grid item container xs={12} md={12} justify="center">
+            <Box mt={1}>
+              <ButtonLink variant="outlined" color="primary" to="/signup">
                 Sign Up
               </ButtonLink>
             </Box>
@@ -173,7 +172,7 @@ const Step3 = () => (
           <ol type="A">
             <li>
               Use our{' '}
-              <StyledLink to="resources">
+              <StyledLink to="/resources">
                 Political Identities Resource
               </StyledLink>{' '}
               to assess where you think your callee most likely falls on the
@@ -182,7 +181,10 @@ const Step3 = () => (
             </li>
             <li>
               Use our{' '}
-              <Link href="https://docs.google.com/document/d/1E1DpvhtSdoRn2Ak3EpBJnmV2-PljygTlcTp0zY43xLs/edit?usp=sharing">
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://docs.google.com/document/d/1E1DpvhtSdoRn2Ak3EpBJnmV2-PljygTlcTp0zY43xLs/edit?usp=sharing">
                 Political Views & Response Resource
               </Link>{' '}
               to prepare yourself for the nature of the conversation you will
@@ -194,7 +196,10 @@ const Step3 = () => (
             </li>
             <li>
               Use our{' '}
-              <Link href="https://docs.google.com/document/d/1z-V_mOlN5EXXA-dpMjy5GcxPP8tWnva4iwHX1pFvkys/edit?usp=sharing">
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://docs.google.com/document/d/1z-V_mOlN5EXXA-dpMjy5GcxPP8tWnva4iwHX1pFvkys/edit?usp=sharing">
                 Conversation Guide Resource
               </Link>{' '}
               to prepare for how you want to approach the conversation from an
@@ -203,7 +208,10 @@ const Step3 = () => (
             </li>
             <li>
               Use our{' '}
-              <Link href="https://docs.google.com/document/d/1-wgo0bhW5TJzUyq1bZSl69HTCd-D-pqD-24MZ0vrQKs/edit?usp=sharing">
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://docs.google.com/document/d/1-wgo0bhW5TJzUyq1bZSl69HTCd-D-pqD-24MZ0vrQKs/edit?usp=sharing">
                 Key Issues Resource
               </Link>{' '}
               to prep yourself with specific information that it may be helpful
@@ -235,9 +243,9 @@ const Step4 = () => (
       <AccordionDetails>
         <Typography variant="body1">
           Have any or all of our{' '}
-          <StyledLink to="resources">Resources</StyledLink> open when you make
+          <StyledLink to="/resources">Resources</StyledLink> open when you make
           your call. And when you’re done with a call, add details in your{' '}
-          <StyledLink to="dashboard">Dashboard</StyledLink> about how it went.
+          <StyledLink to="/dashboard">Dashboard</StyledLink> about how it went.
         </Typography>
       </AccordionDetails>
     </Accordion>
@@ -280,27 +288,43 @@ const Step5 = () => (
             </p>
             <ul>
               <li>
-                <Link href="https://www.vote411.org/ballot">Vote411</Link>:
-                Everything. Important dates, down ballot race information and
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://www.vote411.org/ballot">
+                  Vote411
+                </Link>
+                : Everything. Important dates, down ballot race information and
                 links to candidate websites, registration links and check sites,
                 polling place information, etc. Headcount: Also everything.
               </li>
               <li>
-                <Link href="https://www.voteamerica.com/">VoteAmerica</Link>:
-                Easy registration, find out where to vote, track your ballot,
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://www.voteamerica.com/">
+                  VoteAmerica
+                </Link>
+                : Easy registration, find out where to vote, track your ballot,
                 check your registration status, register to vote, vote by mail
                 information, request your absentee ballot, receive election
                 reminders, contact your election office, etc.
               </li>
               <li>
-                <Link href="https://www.nytimes.com/interactive/2020/09/24/us/politics/how-to-vote-register.html">
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://www.nytimes.com/interactive/2020/09/24/us/politics/how-to-vote-register.html">
                   NYTimes Interactive How-to-vote/register
                 </Link>{' '}
                 Key dates, registration info, detailed/helpful voting
                 information. Requires NYT login.
               </li>
               <li>
-                <Link href="https://www.usa.gov/voter-registration">
+                <Link
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://www.usa.gov/voter-registration">
                   usa.gov/voter-registration
                 </Link>{' '}
                 Voter registration checks and info.{' '}
@@ -311,8 +335,14 @@ const Step5 = () => (
             </p>
             <p>
               If your friend agreed to take the pledge, send them a link{' '}
-              <Link href="sharethepledge.com"> The Pledge</Link> and encourage
-              them to get signed up.
+              <Link
+                target="_blank"
+                rel="noreferrer noopener"
+                href="sharethepledge.com">
+                {' '}
+                The Pledge
+              </Link>{' '}
+              and encourage them to get signed up.
             </p>
             <p>
               <i>

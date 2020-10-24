@@ -4,6 +4,8 @@ from .models import Call, Recipient
 
 
 class CallSerializer(serializers.ModelSerializer):
+    date = serializers.DateField(format="%m/%d/%Y")
+
     class Meta:
         fields = ("id", "completed", "caller", "notes", "recipient", "date")
         model = Call
@@ -13,7 +15,7 @@ class CallSerializer(serializers.ModelSerializer):
 class RecipientSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
-            "id", 
+            "id",
             "first_name",
             "last_name",
             "state_residence",
