@@ -11,6 +11,8 @@ import {
   Grid,
   Button,
   Typography,
+  Container,
+  Hidden,
 } from '@material-ui/core'
 import { S3_BUCKET } from 'domains/constants'
 
@@ -42,9 +44,9 @@ const SectionAccordian = styled(Accordion)`
 const WhoToCallBanner = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <Box px={4} py={2}>
+    <Box py={2}>
       <Grid container spacing={3} alignItems="center">
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
               <Box>
@@ -155,9 +157,11 @@ const WhoToCallBanner = () => {
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </Button>
         </Grid>
-        <Grid item xs={12} md={2}>
-          <img src={PhoneImg} width="100%" alt="phone" />
-        </Grid>
+        <Hidden only={['sm', 'xs']}>
+          <Grid item xs={12} md={4}>
+            <img src={PhoneImg} width="100%" alt="phone" />
+          </Grid>
+        </Hidden>
       </Grid>
     </Box>
   )
@@ -166,12 +170,14 @@ const WhoToCallBanner = () => {
 const WhoIsReachableBanner = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <Box px={4} py={2}>
+    <Box py={2}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} md={2}>
-          <img src={ReachableImg} width="100%" alt="reachable" />
-        </Grid>
-        <Grid item xs={12} md={10}>
+        <Hidden only={['sm', 'xs']}>
+          <Grid item xs={12} md={4}>
+            <img src={ReachableImg} width="100%" alt="reachable" />
+          </Grid>
+        </Hidden>
+        <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
               <Box>
@@ -253,9 +259,9 @@ const WhoIsReachableBanner = () => {
 const WhyThisWorks = () => {
   const [expand, toggleExpand] = useState(false)
   return (
-    <Box px={4} py={2}>
+    <Box py={2}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={8}>
           <SectionAccordian expanded={expand}>
             <SectionSummary>
               <Box>
@@ -359,18 +365,20 @@ const WhyThisWorks = () => {
             Learn More {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </Button>
         </Grid>
-        <Grid item xs={12} md={2}>
-          <img src={VoteImg2} width="100%" alt="voteimg" />
-        </Grid>
+        <Hidden only={['sm', 'xs']}>
+          <Grid item xs={12} md={4}>
+            <img src={VoteImg2} width="100%" alt="voteimg" />
+          </Grid>
+        </Hidden>
       </Grid>
     </Box>
   )
 }
 
 export const HomeContentBanners = () => (
-  <>
+  <Container>
     <WhoToCallBanner />
     <WhoIsReachableBanner />
     <WhyThisWorks />
-  </>
+  </Container>
 )

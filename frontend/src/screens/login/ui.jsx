@@ -11,6 +11,9 @@ const FormContainer = styled.div`
   padding: 2rem;
   margin: 10rem 0;
   border: 1px solid rgb(240, 104, 47);
+  @media only screen and (max-width: 800px) {
+    margin: 2rem 0;
+  }
   min-height: 100%;
   .actions {
     margin-top: 1rem;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
+import { LayoutWrapper } from 'app/wrappers/layout'
 import { signUpAction } from 'redux/actions/authActions'
 import { Ui } from './ui'
 
@@ -27,5 +28,9 @@ export const SignUp = () => {
     }
   }
 
-  return <Ui onSubmit={onSubmit} />
+  return (
+    <LayoutWrapper>
+      <Ui onSubmit={onSubmit} />
+    </LayoutWrapper>
+  )
 }

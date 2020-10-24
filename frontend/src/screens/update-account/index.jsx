@@ -15,10 +15,9 @@ export const UpdateAccount = ({ toggleModal = null }) => {
         if (responseData.status === 400) {
           return { error: responseData.data }
         }
-      }
-      else {
+      } else {
         enqueueSnackbar('Account is updated', { variant: 'success' })
-        toggleModal(false);
+        toggleModal(false)
       }
       e.preventDefault()
     } catch (error) {

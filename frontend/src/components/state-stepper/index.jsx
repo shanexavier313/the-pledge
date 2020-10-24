@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Box, Step, Stepper, StepButton } from '@material-ui/core'
 
 function getStates() {
@@ -24,6 +25,14 @@ function getStates() {
   ]
 }
 
+const StateStepperComp = styled(Stepper)`
+  && {
+    flex-wrap: wrap;
+    & > div {
+      margin-bottom: 1rem;
+    }
+  }
+`
 // function getStateContent(step, states) {
 //   switch (step) {
 //     case 0:
@@ -73,10 +82,10 @@ export const StateStepper = ({ slides }) => {
 
   return (
     <>
-      <Box width={800}>
+      <Box>
         <img src={slides[activeState]} alt={states[activeState]} width="100%" />
       </Box>
-      <Stepper
+      <StateStepperComp
         alternativeLabel
         nonLinear
         activeStep={activeState}
@@ -88,7 +97,7 @@ export const StateStepper = ({ slides }) => {
             </Step>
           )
         })}
-      </Stepper>
+      </StateStepperComp>
     </>
   )
 }

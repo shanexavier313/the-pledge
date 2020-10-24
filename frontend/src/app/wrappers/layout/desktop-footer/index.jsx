@@ -7,15 +7,27 @@ import { Link } from 'components/link'
 const DesktopFooterWrapper = styled(Grid)`
   && {
     padding: 1rem 0;
-    .right-content {
-      border-left: 1px solid black;
-    }
+
     .right-content,
     .left-content {
       padding: 1rem 2rem;
     }
     .left-content {
       padding-left: 0;
+    }
+
+    @media only screen and (min-width: 600px) {
+      .right-content {
+        border-left: 1px solid black;
+      }
+    }
+    @media only screen and (max-width: 600px) {
+      .right-content {
+        padding: 0;
+        & > div {
+          border-top: 1px solid black;
+        }
+      }
     }
   }
 `
@@ -51,7 +63,7 @@ const StyledFooterLink = styled(MuiLink)`
 
 export const DesktopFooter = () => (
   <DesktopFooterWrapper container alignItems="center">
-    <Grid item xs={6} className="left-content">
+    <Grid item xs={12} sm={6} className="left-content">
       <Box fontWeight={600} fontSize="h6.fontSize" my={0.5}>
         The Pledge
       </Box>
@@ -61,8 +73,8 @@ export const DesktopFooter = () => (
         politicians who threaten our democracy out of office.
       </Typography>
     </Grid>
-    <Grid item container xs={6} className="right-content">
-      <Grid item xs={6}>
+    <Grid item container xs={12} sm={6} className="right-content">
+      <Grid item xs={12} md={6}>
         <FooterMenu>
           <li>
             <Link className="nav-link" to="/">
@@ -86,7 +98,7 @@ export const DesktopFooter = () => (
           </li>
         </FooterMenu>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <FooterMenu>
           <li>
             <Link className="nav-link" to="sharing-the-pledge">

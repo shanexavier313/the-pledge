@@ -9,9 +9,11 @@ import {
   Link,
   Typography,
   Grid,
+  Container,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
+import { LayoutWrapper } from 'app/wrappers/layout'
 
 const SectionSummary = styled(AccordionSummary)`
   && {
@@ -354,57 +356,71 @@ const Section4 = () => {
 }
 
 export const TheWhy = () => (
-  <Grid container direction="column" alignItems="center" justify="center">
-    <Box
-      width="60%"
-      border={1}
-      mt={2}
-      p={2}
-      borderColor="primary.main"
-      textAlign="center">
-      <Box color="primary.main" textAlign="center">
-        <Typography variant="h6">
-          <b>OUR MISSION.</b>
+  <LayoutWrapper>
+    <Grid container direction="column" alignItems="center" justify="center">
+      <Container>
+        <Box
+          border={1}
+          mt={2}
+          p={2}
+          borderColor="primary.main"
+          textAlign="center">
+          <Box color="primary.main" textAlign="center">
+            <Typography variant="h6">
+              <b>OUR MISSION.</b>
+            </Typography>
+          </Box>
+          <Typography variant="body1">
+            Our mission is to harness the power of personal social networks to
+            encourage our friends and family to vote for Joe Biden – to preserve
+            the integrity of our democracy and the future of our planet.
+          </Typography>
+          <Box color="primary.main" textAlign="center">
+            <Typography variant="h6">
+              <b>WHAT BROUGHT US HERE</b>
+            </Typography>
+          </Box>
+          <Typography variant="body1">
+            2020 has thrown a lot at us: a global pandemic; economic recession;
+            racial and social discord. President Donald Trump and his
+            administration have not helped the majority of the country that is
+            in crisis. We as a country, as a people, and as a society, need new
+            leadership, rekindled hope, and resounding change.
+          </Typography>
+          <Box color="primary.main" textAlign="center">
+            <Typography variant="h6">
+              <b>THE PLEDGE</b>
+            </Typography>
+          </Box>
+          <Typography variant="body1">
+            The pledge is our commitment to calling 5 or more friends and family
+            between now and November 3rd to encourage them to vote blue down the
+            ballot — to get politicians who threaten our democracy out of
+            office.
+          </Typography>
+        </Box>
+      </Container>
+      <Container>
+        <Box textAlign="center" mt={2}>
+          <Typography variant="h4">WHY THE PLEDGE?</Typography>
+        </Box>
+        <Typography variant="body1">
+          The pledge is our commitment to calling 5 or more friends and family
+          between now and November 3rd to encourage them to vote blue down the
+          ballot — to get politicians who threaten our democracy out of office.
         </Typography>
-      </Box>
-      <Typography variant="body1">
-        Our mission is to harness the power of personal social networks to
-        encourage our friends and family to vote for Joe Biden – to preserve the
-        integrity of our democracy and the future of our planet.
-      </Typography>
-      <Box color="primary.main" textAlign="center">
-        <Typography variant="h6">
-          <b>WHAT BROUGHT US HERE</b>
-        </Typography>
-      </Box>
-      <Typography variant="body1">
-        2020 has thrown a lot at us: a global pandemic; economic recession;
-        racial and social discord. President Donald Trump and his administration
-        have not helped the majority of the country that is in crisis. We as a
-        country, as a people, and as a society, need new leadership, rekindled
-        hope, and resounding change.
-      </Typography>
-      <Box color="primary.main" textAlign="center">
-        <Typography variant="h6">
-          <b>THE PLEDGE</b>
-        </Typography>
-      </Box>
-      <Typography variant="body1">
-        The pledge is our commitment to calling 5 or more friends and family
-        between now and November 3rd to encourage them to vote blue down the
-        ballot — to get politicians who threaten our democracy out of office.
-      </Typography>
-    </Box>
-    <Box textAlign="center" mt={2}>
-      <Typography variant="h4">
-        <b>Why take the Pledge?</b>
-      </Typography>
-    </Box>
-    <Box px="10vh" mb={4}>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-    </Box>
-  </Grid>
+        <Box textAlign="center" mt={2}>
+          <Typography variant="h4">
+            <b>Why take the Pledge?</b>
+          </Typography>
+        </Box>
+      </Container>
+      <Container>
+        <Section1 />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+      </Container>
+    </Grid>
+  </LayoutWrapper>
 )

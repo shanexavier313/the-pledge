@@ -1,15 +1,16 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
+import { Box, Container } from '@material-ui/core'
 import TabButton from 'components/tab-button'
 
 export const ResourcesNav = ({ tab, setTab }) => (
-  <Box
-    display="flex"
-    justifyContent="space-around"
-    alignItems="center"
-    py={1}
-    px={8}>
-    <Box p={1}>
+  <Container>
+    <Box
+      display="flex"
+      justifyContent="space-around"
+      alignItems="center"
+      flexWrap="wrap"
+      py={1}
+      pb={3}>
       <TabButton
         active={tab === 'demographics'}
         label="Political Identities"
@@ -36,5 +37,5 @@ export const ResourcesNav = ({ tab, setTab }) => (
         onClick={() => setTab('swing-states')}
       />
     </Box>
-  </Box>
+  </Container>
 )

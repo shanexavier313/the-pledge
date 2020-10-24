@@ -9,6 +9,8 @@ import {
   Grid,
   Link,
   Typography,
+  Container,
+  Hidden,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import {
@@ -19,6 +21,7 @@ import {
 import TabButton from 'components/tab-button'
 import CallsList from 'components/calls-list'
 import RecipientsList from 'components/recipients-list'
+import { LayoutWrapper } from 'app/wrappers/layout'
 
 const DashboardWrapper = styled(Grid)`
   && {
@@ -46,7 +49,7 @@ export const Dashboard = () => {
     // navigate('dashboard')
   }
   return (
-    <>
+    <LayoutWrapper>
       <Box
         minHeight={'40vh'}
         display="flex"
@@ -54,8 +57,9 @@ export const Dashboard = () => {
         justifyContent="center"
         flexDirection="column"
         bgcolor="base.300"
-        px={'10vh'}>
-        <Box m={1}>
+        px={'10vh'}
+        my={2}>
+        <Box mb={1}>
           <Typography variant="h4">
             <b>Dashboard</b>
           </Typography>
@@ -68,7 +72,7 @@ export const Dashboard = () => {
           </Typography>
         </Box>
       </Box>
-      <Box width={0.8} my={1} mx={'10vh'}>
+      <Container>
         <Accordion variant="outlined" square={true}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Box
@@ -79,9 +83,11 @@ export const Dashboard = () => {
               <Typography variant="h6">
                 <b>What to do after a call</b>
               </Typography>
-              <Typography variant="body1" color="primary">
-                LEARN MORE
-              </Typography>
+              <Hidden smDown>
+                <Typography variant="body1" color="primary">
+                  LEARN MORE
+                </Typography>
+              </Hidden>
             </Box>
           </AccordionSummary>
           <AccordionDetails>
@@ -180,8 +186,8 @@ export const Dashboard = () => {
             </Box>
           </AccordionDetails>
         </Accordion>
-      </Box>
-      <Box textAlign="center">
+      </Container>
+      <Box textAlign="center" mt={1}>
         <Typography variant="subtitle1">
           <i>
             Remember to add notes about your calls to organize your personalized
@@ -224,6 +230,6 @@ export const Dashboard = () => {
           )}
         </Box>
       </Grid>
-    </>
+    </LayoutWrapper>
   )
 }

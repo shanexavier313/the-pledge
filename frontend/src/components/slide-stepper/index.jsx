@@ -17,7 +17,7 @@ export const SlideStepper = ({ slides }) => {
   }
 
   return (
-    <Box width={800}>
+    <Box>
       <img src={slides[activeStep]} alt="framework" width="100%" />
       <MobileStepper
         steps={maxSteps}

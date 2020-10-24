@@ -22,14 +22,14 @@ export const DesktopNav = () => {
       <Link to="/" my={2} mx={1} className="nav-link">
         Home
       </Link>
-      <Link to="resources" my={2} mx={1} className="nav-link">
+      <Link to="/resources" my={2} mx={1} className="nav-link">
         Resources
       </Link>
-      <Link to="the-why" my={2} mx={1} className="nav-link">
+      <Link to="/the-why" my={2} mx={1} className="nav-link">
         The Why
       </Link>
       <Link
-        to="sharing-the-pledge"
+        to="/sharing-the-pledge"
         my={2}
         mx={1}
         className="nav-link"
@@ -38,31 +38,27 @@ export const DesktopNav = () => {
       </Link>
       <MuiBox mx="auto" />
       {!isLoggedIn && (
-        <ButtonLink to="login" color="primary" variant="contained">
+        <ButtonLink to="/login" color="primary" variant="contained">
           Login
         </ButtonLink>
       )}
       {!isLoggedIn && (
-        <ButtonLink to="signup" color="primary" variant="outlined">
+        <ButtonLink to="/signup" color="primary" variant="outlined">
           Sign Up
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink
-          to="home"
-          onClick={logOut}
-          color="primary"
-          variant="contained">
+        <ButtonLink to="/" onClick={logOut} color="primary" variant="contained">
           Logout
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink to="dashboard" color="primary" variant="outlined">
+        <ButtonLink to="/dashboard" color="primary" variant="outlined">
           Dashboard
         </ButtonLink>
       )}
       {isLoggedIn && (
-        <ButtonLink to="account" color="primary" variant="outlined">
+        <ButtonLink to="/account" color="primary" variant="outlined">
           Account
         </ButtonLink>
       )}
