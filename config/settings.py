@@ -117,7 +117,7 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(hours=48),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=14),
-    "AUTH_HEADER_TYPES": ("JWT",),
+    "AUTH_HEADER_TYPES": ("Token",),
 }
 
 
@@ -149,6 +149,7 @@ DJOSER = {
     "USER_CREATE_PASSWORD_RETYPE": True,
     "LOGOUT_ON_PASSWORD_CHANGE": True,
     "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
+    "PASSWORD_RESET_CONFIRM_URL": "reset_password/{uid}/{token}",
 }
 
 # Auth and User Settings
