@@ -5,7 +5,6 @@ import { Formik } from 'formik'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import { Link as RouterLink } from '@reach/router'
 import { FormField } from 'components/form-field'
 
 const FormContainer = styled.div`

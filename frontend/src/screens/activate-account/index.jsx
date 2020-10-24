@@ -11,6 +11,7 @@ export const ActivateAccount = (props) => {
     if (props.uid && props.token) {
       activateAction(props, dispatch, enqueueSnackbar)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <LayoutWrapper>

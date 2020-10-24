@@ -1,6 +1,6 @@
 import { navigate } from '@reach/router'
 import axiosInstance from 'domains/axios'
-import { clearTokens, getAccessToken, getRefreshTokenm, setTokens } from 'domains/identity'
+import { clearTokens, getAccessToken, setTokens } from 'domains/identity'
 import * as actionTypes from '../constants'
 import { sendAlertMessage } from './alertActions'
 
@@ -73,7 +73,7 @@ export const loginAction = async (
     enqueueSnackbar(messagePayload.message, { variant: 'success' })
     navigate(redirectUri)
   } catch (error) {
-    console.log(dispatch);
+    console.log(dispatch)
     const data = error.response
     dispatch({
       type: actionTypes.LOGIN_FAIL,
@@ -280,11 +280,7 @@ export const updateAccountAction = async (
   }
 }
 
-export const logoutAction = (
-  enqueueSnackbar,
-  dispatch,
-  redirectUri = '/',
-) => {
+export const logoutAction = (enqueueSnackbar, dispatch, redirectUri = '/') => {
   const messagePayload = {
     message: 'Logged out.',
     isError: false,

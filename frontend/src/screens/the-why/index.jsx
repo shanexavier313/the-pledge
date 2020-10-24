@@ -6,6 +6,7 @@ import {
   AccordionDetails,
   Box,
   Button,
+  Divider,
   Link,
   Typography,
   Grid,
@@ -402,14 +403,6 @@ export const TheWhy = () => (
       </Container>
       <Container>
         <Box textAlign="center" mt={2}>
-          <Typography variant="h4">WHY THE PLEDGE?</Typography>
-        </Box>
-        <Typography variant="body1">
-          The pledge is our commitment to calling 5 or more friends and family
-          between now and November 3rd to encourage them to vote blue down the
-          ballot — to get politicians who threaten our democracy out of office.
-        </Typography>
-        <Box textAlign="center" mt={2}>
           <Typography variant="h4">
             <b>Why take the Pledge?</b>
           </Typography>
@@ -417,8 +410,10 @@ export const TheWhy = () => (
       </Container>
       <Container>
         <Section1 />
+        <Divider />
         <Section2 />
         <Section3 />
+        <Divider />
         <Section4 />
       </Container>
     </Grid>
