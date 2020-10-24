@@ -4,7 +4,7 @@ import { clearTokens, getAccessToken, getRefreshToken } from 'domains/identity'
 import * as actionTypes from '../constants'
 import { sendAlertMessage } from './alertActions'
 
-export const checkAuthenticatedAction = () => async (dispatch) => {
+export const checkAuthenticatedAction = async (dispatch) => {
   if (typeof window == 'undefined') {
     dispatch({
       type: actionTypes.AUTHENTICATED_FAIL,
@@ -32,7 +32,7 @@ export const checkAuthenticatedAction = () => async (dispatch) => {
   }
 }
 
-export const loadUserAction = () => async (dispatch) => {
+export const loadUserAction = async (dispatch) => {
   try {
     const response = await axiosInstance.get('/auth/users/me/')
 
@@ -47,7 +47,7 @@ export const loadUserAction = () => async (dispatch) => {
   }
 }
 
-export const loginAction = () => async (
+export const loginAction = async (
   data,
   dispatch,
   enqueueSnackbar,
@@ -57,7 +57,7 @@ export const loginAction = () => async (
 
   try {
     const response = await axiosInstance.post('/auth/jwt/create/', body)
-
+    console.log(response)
     dispatch({
       type: actionTypes.LOGIN_SUCCESS,
       payload: response.data,
@@ -93,7 +93,7 @@ export const loginAction = () => async (
   }
 }
 
-export const signUpAction = () => async (
+export const signUpAction = async (
   data,
   dispatch,
   enqueueSnackbar,
@@ -135,7 +135,7 @@ export const signUpAction = () => async (
   }
 }
 
-export const activateAction = () => async (
+export const activateAction = async (
   data,
   dispatch,
   enqueueSnackbar,
@@ -168,7 +168,7 @@ export const activateAction = () => async (
   }
 }
 
-export const resetPasswordAction = () => async (
+export const resetPasswordAction = async (
   data,
   dispatch,
   enqueueSnackbar,
@@ -203,7 +203,7 @@ export const resetPasswordAction = () => async (
   }
 }
 
-export const resetPasswordConfirmAction = () => async (
+export const resetPasswordConfirmAction = async (
   data,
   dispatch,
   enqueueSnackbar,
@@ -244,7 +244,7 @@ export const resetPasswordConfirmAction = () => async (
   }
 }
 
-export const updateAccountAction = () => async (
+export const updateAccountAction = async (
   dispatch,
   data,
   redirectUri = 'account',
