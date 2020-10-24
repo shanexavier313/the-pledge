@@ -9,10 +9,9 @@ export const Login = () => {
   const dispatch = useDispatch()
   const { enqueueSnackbar } = useSnackbar()
 
-  const onSubmit = async (data, e) => {
+  const onSubmit = async (data) => {
     try {
       await loginAction(enqueueSnackbar, dispatch, data)
-      e.preventDefault()
     } catch (error) {
       console.error(error)
     }

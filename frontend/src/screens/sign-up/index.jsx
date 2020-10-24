@@ -9,7 +9,7 @@ export const SignUp = () => {
   const { enqueueSnackbar } = useSnackbar()
   const dispatch = useDispatch()
 
-  const onSubmit = async (data, e) => {
+  const onSubmit = async (data) => {
     try {
       const { response, isError } = await signUpAction(
         enqueueSnackbar,
@@ -22,7 +22,6 @@ export const SignUp = () => {
           return { error: responseData.data }
         }
       }
-      e.preventDefault()
     } catch (error) {
       console.error(error)
     }

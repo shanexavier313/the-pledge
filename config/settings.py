@@ -149,7 +149,8 @@ DJOSER = {
     "USER_CREATE_PASSWORD_RETYPE": True,
     "LOGOUT_ON_PASSWORD_CHANGE": True,
     "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
-    "PASSWORD_RESET_CONFIRM_URL": "reset_password/{uid}/{token}",
+    "PASSWORD_RESET_CONFIRM_URL": "reset-password/confirm/{uid}/{token}",
+    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
 }
 
 # Auth and User Settings

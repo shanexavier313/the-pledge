@@ -11,6 +11,6 @@ router.register("recipients", calls_views.RecipientViewSet, basename="recipient"
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    path("auth/", include("djoser.urls")),
-    path("auth/", include("djoser.urls.jwt")),
+    path("api/auth/", include("djoser.urls")),
+    path("api/auth/", include("djoser.urls.jwt")),
 ]

@@ -12,8 +12,7 @@ export async function loginAction(
   redirectUri = 'dashboard',
 ) {
   try {
-    // enqueueSnackbar('Something went wrong during the API call. If the page does not reload correctly, please contact an administrator.', { variant: 'warning' });
-    const response = await axiosInstance.post('login/', {
+    const response = await axiosInstance.post('auth/jwt/create/', {
       email: data.email,
       password: data.password,
     })
@@ -69,12 +68,13 @@ export async function signUpAction(
   redirectUri = 'login',
 ) {
   try {
-    const response = await axiosInstance.post('signup/', {
+    console.log(data)
+    const response = await axiosInstance.post('auth/users/', {
       email: data.email,
       first_name: data.firstName,
       last_name: data.lastName,
-      password1: data.password,
-      password2: data.passwordCon,
+      password: data.password,
+      re_password: data.passwordCon,
     })
     const messagePayload = {
       message: 'Signed up! You can now log in',
@@ -101,7 +101,7 @@ export async function updateAccountAction(
   redirectUri = 'account',
 ) {
   try {
-    const response = await axiosInstance.put(`account/`, {
+    const response = await axiosInstance.put(`auth/users/me`, {
       email: data.email,
       first_name: data.firstName,
       last_name: data.lastName,
@@ -113,11 +113,12 @@ export async function updateAccountAction(
       isError: false,
     }
     dispatch({
-      type: actionTypes.ACTION_USER_UPDATE_SUCCESS, data: {
+      type: actionTypes.ACTION_USER_UPDATE_SUCCESS,
+      data: {
         email: data.email,
         first_name: data.firstName,
         last_name: data.lastName,
-      }
+      },
     })
     sendAlertMessage(dispatch, messagePayload)
     navigate(redirectUri)

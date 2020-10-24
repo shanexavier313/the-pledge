@@ -20,7 +20,6 @@ export const FormField = ({
   description,
   size = 'small',
 }) => {
-  console.log(error)
   return (
     <>
       {list && (
