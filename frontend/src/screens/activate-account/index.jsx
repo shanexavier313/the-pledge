@@ -1,3 +1,22 @@
-import React from 'react'
-
-export const ActivateAccount = () => <p>Account Activated</p>
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useSnackbar } from 'notistack'
+import { Box } from '@material-ui/core'
+import { LayoutWrapper } from 'app/wrappers/layout'
+import { activateAction } from 'redux/actions/authActions'
+export const ActivateAccount = (props) => {
+  const dispatch = useDispatch()
+  const { enqueueSnackbar } = useSnackbar()
+  useEffect(() => {
+    if (props.uid && props.token) {
+      activateAction(props, dispatch, enqueueSnackbar)
+    }
+  }, [])
+  return (
+    <LayoutWrapper>
+      <Box fontSize="h4.fontSize" textAlign="center" my={3}>
+        Activating Account
+      </Box>
+    </LayoutWrapper>
+  )
+}
