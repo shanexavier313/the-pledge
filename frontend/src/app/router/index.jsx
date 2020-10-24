@@ -2,13 +2,16 @@ import React, { useEffect } from 'react'
 import { Router as ReachRouter } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
+import { Account } from 'screens/account'
+import { ActivateAccount } from 'screens/activate-account'
 import { CreateCall } from 'screens/create-call'
 import { CreateRecipient } from 'screens/create-recipient'
 import { Dashboard } from 'screens/dashboard'
 import { Home } from 'screens/home'
 import { Login } from 'screens/login'
-import { Account } from 'screens/account'
 import { Resources } from 'screens/resources'
+import { RequestResetPassword } from 'screens/request-reset-password'
+import { ResetPassword } from 'screens/reset-password'
 import { SharingThePledge } from 'screens/sharing-the-pledge'
 import { SignUp } from 'screens/sign-up'
 import { Steps } from 'screens/steps'
@@ -33,7 +36,10 @@ export const Router = ({ children }) => {
     <ReachRouter>
       <Home path="/" />
       <Account path="account" />
+      <ActivateAccount path="activate/:uid/:token" />
       <Resources path="resources" />
+      <RequestResetPassword path="reset-password" />
+      <ResetPassword path="reset-password/confirm/:uid/:token" />
       <SharingThePledge path="sharing-the-pledge" />
       <Steps path="steps" />
       <TheWhy path="the-why" />

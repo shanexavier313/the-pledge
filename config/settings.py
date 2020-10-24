@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     "localflavor",
     "phonenumber_field",
     "rest_framework",
+    "rest_framework.authtoken",
     "rest_framework_simplejwt",
+    "djoser",
     # local
     "apps.core",
     "apps.calls",
@@ -115,10 +117,6 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": datetime.timedelta(hours=48),
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=14),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": False,
-    "USER_FIELD_CLAIM": "id",
-    "USER_ID_CLAIM": "id",
     "AUTH_HEADER_TYPES": ("Token",),
 }
 
@@ -136,6 +134,28 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "pledgedevelopers@gmail.com"
+EMAIL_HOST_PASSWORD = "hpgqdrsttmkzeeek"
+EMAIL_USE_TLS = True
+
+
+DJOSER = {
+    "LOGIN_FIELD": "email",
+    "SEND_ACTIVATION_EMAIL": True,
+    "ACTIVATION_URL": "activate/{uid}/{token}",
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "LOGOUT_ON_PASSWORD_CHANGE": True,
+    "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
+    "PASSWORD_RESET_CONFIRM_URL": "reset-password/confirm/{uid}/{token}",
+    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
+}
+
+# Auth and User Settings
+AUTH_USER_MODEL = "core.CustomUser"
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -152,10 +172,6 @@ USE_TZ = True
 
 # Phone number handling
 PHONENUMBER_DEFAULT_REGION = "US"
-
-
-# Auth and User Settings
-AUTH_USER_MODEL = "core.CustomUser"
 
 
 # Static files (CSS, JavaScript, Images)

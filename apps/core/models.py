@@ -1,7 +1,6 @@
 import string
-import uuid
 
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.signals import post_save
@@ -14,11 +13,10 @@ from .managers import CustomUserManager
 from .mixins import TimeStampedModelMixin
 
 
-class CustomUser(TimeStampedModelMixin, AbstractUser):
-    id = models.UUIDField(
-        default=uuid.uuid4, editable=False, db_index=True, primary_key=True
-    )
-    username = None
+class CustomUser(TimeStampedModelMixin, AbstractBaseUser):
+    is_active = models.BooleanField("active", default=True)
+    is_staff = models.BooleanField(default=False)
+
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(
@@ -26,9 +24,6 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
     )
     mobile_phone = PhoneNumberField(blank=True, null=True, unique=True)
     signup_code = models.CharField(max_length=6, editable=False, unique=True, null=True)
-    is_active = models.BooleanField("active", default=True)
-
-    email_validated_at = models.DateTimeField(null=True, editable=False)
     mobile_phone_validated_at = models.DateTimeField(null=True, editable=False)
 
     USERNAME_FIELD = "email"
@@ -41,10 +36,6 @@ class CustomUser(TimeStampedModelMixin, AbstractUser):
 
     class Meta:
         verbose_name = "user"
-
-    @property
-    def email_verified(self):
-        return self.email_validated_at is not None
 
     @property
     def mobile_phone_verified(self):
