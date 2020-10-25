@@ -5,7 +5,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_SETTINGS_MODULE 'config.settings.prod'
 
 # Get utils
 RUN apt-get update -qq && apt-get install -y -qq \
