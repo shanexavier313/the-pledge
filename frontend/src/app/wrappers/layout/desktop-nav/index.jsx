@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box as MuiBox, Grid } from '@material-ui/core'
+import { Link as RouterLink } from '@reach/router'
 import { Link } from 'components/link'
 import { ButtonLink } from 'components/button-link'
 import { logoutAction } from 'redux/actions/authActions'

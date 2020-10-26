@@ -34,7 +34,7 @@ export const Router = ({ children }) => {
 
   return (
     <ReachRouter>
-      <Home path="/" />
+      <Home path="/" default />
       <Account path="account" />
       <ActivateAccount path="activate/:uid/:token" />
       <Resources path="resources" />
