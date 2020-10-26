@@ -18,6 +18,8 @@ services:
     restart: always
     volumes:
       - .:/app:delegated
+    env_file:
+      - ./secrets.env
     ports:
       - 8000:8000
     depends_on:

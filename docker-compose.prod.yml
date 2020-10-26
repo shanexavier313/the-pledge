@@ -18,24 +18,15 @@ services:
     restart: always
     volumes:
       - .:/app:delegated
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+      - EMAIL_HOST_USER=${EMAIL_HOST_USER}
     ports:
       - 8000:8000
     depends_on:
       - db
-
-  # frontend:
-  #   build:
-  #     context: .
-  #   command: yarn run start
-  #   working_dir: /app/frontend
-  #   environment:
-  #     - NODE_ENV=development
-  #   volumes:
-  #     - .:/app
-  #     - node_modules:/app/frontend/node_modules
-  #   ports:
-  #     - 3000:3000
-  #   stdin_open: true
 
 volumes:
   local_data:

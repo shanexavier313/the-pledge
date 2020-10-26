@@ -15,7 +15,7 @@ __pycache__
 
 
 # Secret environment settings
-.env
+*.env
 env
 
 # Node and Webpack files
@@ -41,3 +41,4 @@ db.sqlite3
 # Production
 /frontend/dist
 /static_root
+*.pem

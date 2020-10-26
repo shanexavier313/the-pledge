@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
 import datetime
+import os
 from pathlib import Path
 
 
@@ -22,10 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "c&t&cxxcmbw!zw6vr_by)u!%%ohba!g4wra=*8ppb!bf922+8$"
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY", "c&t&cxxcmbw!zw6vr_by)u!%%ohba!g4wra=*8ppb!bf922+8$"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", False)
+
 
 # Application definition
 
@@ -38,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # 3rd party
-    "corsheaders",
     "localflavor",
     "phonenumber_field",
     "rest_framework",
@@ -51,8 +53,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -62,9 +62,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# CORS_ALLOWED_ORIGINS = ("http://127.0.0.1:3000", "http://3.138.203.41:5000")
-CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
+
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
@@ -135,11 +134,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Email
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "pledgedevelopers@gmail.com"
-EMAIL_HOST_PASSWORD = "hpgqdrsttmkzeeek"
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 
 
