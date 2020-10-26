@@ -18,7 +18,9 @@ export const DesktopNav = () => {
   return (
     <Grid container color="black" bg="white" alignItems="center">
       <MuiBox display="flex" justifyContent="center">
-        <img src={logo} height="40rem" alt="logo" />
+        <RouterLink to="/">
+          <img src={logo} height="40rem" alt="logo" />
+        </RouterLink>
       </MuiBox>
       <Link to="/" my={2} mx={1} className="nav-link">
         Home

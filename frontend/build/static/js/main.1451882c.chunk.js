@@ -940,11 +940,15 @@
             l.a.createElement(
               N.a,
               { display: 'flex', justifyContent: 'center' },
-              l.a.createElement('img', {
-                src: ge,
-                height: '40rem',
-                alt: 'logo',
-              }),
+              l.a.createElement(
+                S.a,
+                { to: '/' },
+                l.a.createElement('img', {
+                  src: ge,
+                  height: '40rem',
+                  alt: 'logo',
+                }),
+              ),
             ),
             l.a.createElement(
               L,
@@ -6991,4 +6995,4 @@
   },
   [[191, 1, 2]],
 ])
-//# sourceMappingURL=main.ab24ecfd.chunk.js.map
+//# sourceMappingURL=main.1451882c.chunk.js.map

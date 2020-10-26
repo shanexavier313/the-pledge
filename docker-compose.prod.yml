@@ -23,20 +23,19 @@ services:
     depends_on:
       - db
 
-  # comment out when deploying to prod
-  frontend:
-    build:
-      context: .
-    command: yarn run start
-    working_dir: /app/frontend
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - .:/app
-      - node_modules:/app/frontend/node_modules
-    ports:
-      - 3000:3000
-    stdin_open: true
+  # frontend:
+  #   build:
+  #     context: .
+  #   command: yarn run start
+  #   working_dir: /app/frontend
+  #   environment:
+  #     - NODE_ENV=development
+  #   volumes:
+  #     - .:/app
+  #     - node_modules:/app/frontend/node_modules
+  #   ports:
+  #     - 3000:3000
+  #   stdin_open: true
 
 volumes:
   local_data:
