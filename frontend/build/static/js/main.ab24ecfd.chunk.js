@@ -146,7 +146,7 @@
         w = a(139),
         k = a(159),
         x = { key: 'root', blacklist: ['alert'], storage: a.n(k).a }
-      var S = a(20),
+      var S = a(18),
         O = a(22),
         C = a(292),
         j = a(7),
@@ -459,7 +459,7 @@
         },
       )
       var ne = ae,
-        re = a(18),
+        re = a(19),
         oe = function () {
           var e = K()
           if (e) {
@@ -6929,7 +6929,7 @@
             l.a.createElement(
               S.b,
               null,
-              l.a.createElement(La, { path: '/' }),
+              l.a.createElement(La, { path: '/', default: !0 }),
               l.a.createElement(nt, { path: 'account' }),
               l.a.createElement(rt, { path: 'activate/:uid/:token' }),
               l.a.createElement(Jn, { path: 'resources' }),
@@ -6991,4 +6991,4 @@
   },
   [[191, 1, 2]],
 ])
-//# sourceMappingURL=main.eca154c9.chunk.js.map
+//# sourceMappingURL=main.ab24ecfd.chunk.js.map
