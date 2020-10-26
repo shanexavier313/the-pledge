@@ -18,24 +18,12 @@ services:
     restart: always
     volumes:
       - .:/app:delegated
+    env_file:
+      - ./secrets.env
     ports:
       - 8000:8000
     depends_on:
       - db
-
-  # frontend:
-  #   build:
-  #     context: .
-  #   command: yarn run start
-  #   working_dir: /app/frontend
-  #   environment:
-  #     - NODE_ENV=development
-  #   volumes:
-  #     - .:/app
-  #     - node_modules:/app/frontend/node_modules
-  #   ports:
-  #     - 3000:3000
-  #   stdin_open: true
 
 volumes:
   local_data:
