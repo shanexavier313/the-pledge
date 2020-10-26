@@ -3,9 +3,17 @@ import os
 from .common import *  # noqa: F401,F403
 
 
+DEBUG = False
+
 ALLOWED_HOSTS = ["sharethepledge.com", "18.224.19.10"]
 
-DEBUG = False
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    "sharethepledge.com",
+    "18.224.19.10",
+    "https://sharethepledge.com",
+    "www.sharethepledge.com",
+)
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
