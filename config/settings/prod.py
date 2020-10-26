@@ -5,6 +5,8 @@ from .common import *  # noqa: F401,F403
 
 ALLOWED_HOSTS = ["sharethepledge.com", "18.224.19.10"]
 
+DEBUG = False
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
