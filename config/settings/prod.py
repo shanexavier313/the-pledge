@@ -9,10 +9,8 @@ ALLOWED_HOSTS = ["sharethepledge.com", "18.224.19.10"]
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    "sharethepledge.com",
-    "18.224.19.10",
     "https://sharethepledge.com",
-    "www.sharethepledge.com",
+    "https://www.sharethepledge.com",
 )
 
 CSRF_COOKIE_SECURE = True
