@@ -15,7 +15,7 @@ __pycache__
 
 
 # Secret environment settings
-.env
+*.env
 env
 
 # Node and Webpack files
