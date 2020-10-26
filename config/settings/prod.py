@@ -5,17 +5,17 @@ from .common import *  # noqa: F401,F403
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["sharethepledge.com", "18.224.19.10"]
+ALLOWED_HOSTS = ["www.sharethepledge.com", "sharethepledge.com", "18.224.19.10"]
 
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    "https://sharethepledge.com",
-    "https://www.sharethepledge.com",
-)
+CORS_ORIGIN_WHITELIST = [
+   "https://sharethepledge.com",
+   "https://www.sharethepledge.com",
+]
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 
 LOGGING = {
     "version": 1,
@@ -30,3 +30,10 @@ LOGGING = {
         },
     },
 }
+INSTALLED_APPS += [
+    "django_extensions",
+    "corsheaders",
+]
+
+MIDDLEWARE.insert(0, "corsheaders.middleware.CorsMiddleware")
+URL_SCHEME = "http"
