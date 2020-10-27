@@ -119,10 +119,11 @@ export const signUpAction = async (
     })
 
     const messagePayload = {
-      message: 'Signed up! Check your email to activate your account.',
+      message: 'Signed up! Check your email to activate your account. You won’t be able to login until you do so.',
       isError: false,
     }
-    enqueueSnackbar(messagePayload.message, { variant: 'success' })
+    sendAlertMessage(dispatch, messagePayload)
+    // enqueueSnackbar(messagePayload.message, { variant: 'success' })
     navigate(redirectUri)
   } catch (error) {
     dispatch({
