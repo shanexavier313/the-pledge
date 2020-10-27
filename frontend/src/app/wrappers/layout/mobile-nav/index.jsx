@@ -82,7 +82,7 @@ export const MobileNav = () => {
             )}
             {!isLoggedIn && (
               <ButtonLink to="/signup" color="primary" variant="outlined">
-                Sign Up
+                Take the Pledge
               </ButtonLink>
             )}
             {isLoggedIn && (

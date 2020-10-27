@@ -3,8 +3,12 @@ import styled from 'styled-components'
 import * as yup from 'yup'
 import { Formik } from 'formik'
 import Button from '@material-ui/core/Button'
-import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Checkbox from '@material-ui/core/Checkbox'
+
 import { FormField } from 'components/form-field'
 
 const FormContainer = styled.div`
@@ -38,6 +42,9 @@ export const Ui = ({ onSubmit, errorState }) => {
               .string()
               .required('Password Confirmation is required')
               .oneOf([yup.ref('password')], 'Passwords must match'),
+            takeThePledge: yup
+              .boolean()
+              .oneOf([true], 'This field must be checked'),
           })}
           onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
             const { error } = await onSubmit(values)
@@ -112,6 +119,24 @@ export const Ui = ({ onSubmit, errorState }) => {
                 size="large"
                 type="password"
               />
+              <Box alignItems="center" display="flex" mt={2} ml={-1}>
+                <Checkbox
+                  checked={values.takeThePledge}
+                  name="takeThePledge"
+                  onChange={handleChange}
+                />
+                <Typography variant="body2" color="textSecondary">
+                  I pledge to call 5 friends, family members, or acquaintances
+                  (with a focus on swing states and people less likely to vote
+                  for democrats) between now and November 3rd and to encourage
+                  them to vote blue down ballot to get Trump and other
+                  politicians who threaten our democracy and our future as a
+                  nation out of office.
+                </Typography>
+              </Box>
+              {Boolean(touched.takeThePledge && errors.takeThePledge) && (
+                <FormHelperText error>{errors.takeThePledge}</FormHelperText>
+              )}
               <Box mt={2}>
                 <Button
                   color="primary"
@@ -119,7 +144,7 @@ export const Ui = ({ onSubmit, errorState }) => {
                   fullWidth
                   type="submit"
                   variant="contained">
-                  Sign Up
+                  Take the Pledge
                 </Button>
               </Box>
             </form>

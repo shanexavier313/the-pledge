@@ -72,7 +72,7 @@ const WhoToCallBanner = () => {
                   </p>
                   <p>
                     <strong>So, we need to blow him out.</strong> Every vote
-                    counts
+                    counts.
                   </p>
                 </Typography>
               </Box>

@@ -31,7 +31,7 @@ export const SharingThePledge = () => (
               <i>
                 Hi X. The election is in X days, and I made a pledge to call 5
                 members of my friend group to encourage them to vote for Biden.
-                Here’s how you can sign up to join me:{' '}
+                Here’s how you can take the pledge to join me:{' '}
                 <Link
                   target="_blank"
                   rel="noreferrer noopener"
@@ -54,7 +54,7 @@ export const SharingThePledge = () => (
                 <br />I think you would be great at this - it’s a good way to
                 stay energized and motivated in the lead-up to the election and
                 can potentially have a real impact on turnout. Here’s how to
-                sign up:{' '}
+                take the pledge:{' '}
                 <Link
                   target="_blank"
                   rel="noreferrer noopener"

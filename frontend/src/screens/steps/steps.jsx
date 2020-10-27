@@ -43,13 +43,13 @@ const Step1 = () => (
         <Grid container>
           <Grid item xs={12} md={12}>
             <Typography variant="body1">
-              Sign up and track your outreach in your dashboard.
+              Take the pledge and track your outreach in your dashboard.
             </Typography>
           </Grid>
           <Grid item container xs={12} md={12} justify="center">
             <Box mt={1}>
               <ButtonLink variant="outlined" color="primary" to="/signup">
-                Sign Up
+                Take the Pledge
               </ButtonLink>
             </Box>
           </Grid>
@@ -331,7 +331,7 @@ const Step5 = () => (
               </li>
             </ul>
             <p>
-              <b>Take The Pledge Link:</b>
+              <b>Take the Pledge Link:</b>
             </p>
             <p>
               If your friend agreed to take the pledge, send them a link{' '}

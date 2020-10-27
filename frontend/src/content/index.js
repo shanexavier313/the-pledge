@@ -44,7 +44,7 @@ export const steps = [
     stepID: 'Step 1',
     primary: 'Take the Pledge',
     description:
-      'Sign up, take the Pledge and track your outreach in your dashboard!',
+      'Take the Pledge and track your outreach in your dashboard!',
   },
   {
     stepID: 'Step 2',
